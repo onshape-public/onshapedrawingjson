@@ -1,0 +1,102 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/inspectionsymbol",
+    "title": "Inspection symbol",
+    "description": "Defines an inspection symbol.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of some annotation",
+            "type": "string"
+        },
+        "position": {
+            "description":"Text position, associative",
+            "$ref": "types/point.schema.json"
+        },
+        "parentAnnotation": {
+            "description":"LogicalId of the parent annotation (e.g. tolerance, datum, note, dimension text etc).",
+            "type":"string"
+        },
+        "parentLineIndex": {
+            "description": "Index of parent annotation: line number in multiline text/frame number in tolerace/etc.",
+            "type": "integer"
+        },
+        "number": {
+            "description":"Number of symbol",
+            "type":"number"
+        },
+        "textHeight": {
+            "description":"Default height of the text. Overrides the text height from the style.",
+            "type": "number"
+        },
+        "borderShape": {
+            "description":"Inspection symbol border shape, one of the predefined values",
+            "type": "string",
+            "enum":["Circle", "Diamond", "Double Circle", "Flag", "Hexagon", "Octagon", "Rectangle", "Square Circle", "Triangle", "Underline"]
+        },
+        "borderSize": {
+            "description":"Border size in characters (0-5). 0 - tight fit",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+        }
+    },
+    "required": ["position", "parentAnnotation"],
+    "oneOf": 
+    [
+            {   "properties": {  "parentLineIndex": 
+                                    {
+                                    "description": "Index of parent annotation: line number in multiline text/frame number in tolerace/etc. If we receive this it means lineParsing used is byRow.",
+                                    "type": "integer"
+                                    }
+                                },
+                "required": [
+                "parentLineIndex"
+            ] 
+            },
+            {   "properties": { "holeCalloutParameter":
+                                    {
+                                    "description": "Inspection symbol parameter for hole callout. If we receive this it means lineParsing used is byParameter.",
+                                     "type": "string",
+                                     "enum":["eAbove","eHoleDiameter","eHoleDepth", "eCBoreDiameter", "eCBoreDepth", "eCSinkDiameter", "eCSinkAngle", "eTapSize", "eTappedDepth", "eBelow"]
+                                    } 
+                                },
+                "required": [
+                "holeCalloutParameter"
+                ] 
+            },
+            {   "properties": { "chamferCalloutNoteParameter":
+                                    {
+                                    "description": "Chamfer callout parameter for hole callout. If we receive this it means lineParsing used is byParameter.",
+                                    "type": "string",
+                                    "enum":["eAbove","eFirst","eSecond","eBelow"]
+                                    } 
+                                } ,
+                "required": [
+                "chamferCalloutNoteParameter"
+                ] 
+            },
+            {   "properties": { "bendLineNoteParameter":
+                                    {
+                                    "description": "Bend line note parameter for hole callout. If we receive this it means lineParsing used is byParameter.",
+                                    "type": "string",
+                                    "enum":["eDirection","eAngle","eRadius"]
+                                    }
+                                },
+                "required": [
+                "bendLineNoteParameter"
+                ] 
+            },
+            {   "properties": { "dimensionParameter":
+                                    {
+                                    "description": "Dimension parameter for hole callout. If we receive this it means lineParsing used is byParameter.",
+                                    "type": "string",
+                                    "enum":["eAbove","ePrimary","eBelow"]
+                                    }
+                                },
+                "required": [
+                "dimensionParameter"
+                ] 
+            }
+    ]
+}

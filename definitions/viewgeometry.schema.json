@@ -1,0 +1,334 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/viewgeometry",
+    "title": "Onshape View Geometry",
+    "type": "object",
+    "required": [ "viewId" ],
+    "properties": {
+        "viewId": {
+            "type": "string",
+            "description": "Id of the view"
+        },
+        "bodyData": {
+            "description": "Rendered drawing view geometry.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [ "type", "visible", "deterministicId", "uniqueId", "geometryClass", "data"],
+                "properties": {
+                    "deterministicId": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Geometry type of a segment or a point",
+                        "enum": [ "line", "circle", "circularArc", "ellipse", "ellipticalArc", "polyline", "spline", "point" ]
+                    },
+                    "segmentType": {
+                        "type": "string",
+                        "description": "Segment type to know additional information such as whether it is a silhouette, constuction or sketch segment.",
+                        "enum": [ "EDGE", "SILHOUETTE", "UNHANDLED", "INTERSECTION_EDGE", "CONSTRUCTION_SEGMENT", "SKETCH_SEGMENT" ]
+                    },
+                    "visible": {
+                        "description": "Is the segment visible?",
+                        "type": "boolean"
+                    },
+                    "uniqueId": {
+                        "type": "string"
+                    },
+                    "holeId": {
+                        "description": "Hole identifier for segments that are associated with holes.",
+                        "type": "string"
+                    },
+                    "altUniqueIds": {
+                        "type": "array",
+                        "description": "Previously used, comma separated unique segment ids before merging.",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "isBendLine": {
+                        "description": "For segments that are associated with sheet metal bends, is it a bendline?",
+                        "type": "boolean"
+                    },
+                    "bendLineType": {
+                        "type": "string",
+                        "enum": [ "TANGENT_LINE", "CENTER_LINE_UP", "CENTER_LINE_DOWN", "UNKNOWN" ]
+                    },
+                    "leftRepOccurrences": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "rightRepOccurrences": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "hiddenBy": {
+                        "type": "string",
+                        "enum": [ "face", "edge" ]
+                    },
+                    "geometryClass": {
+                        "type": "string",
+                        "description": "Additional geometry classification such as cosmetic thread on cylinder, segment from explode line, segment that represents a region face association or segment on boundary of section face",
+                        "enum": [ "NORMAL", "THREAD_ON_AXIS", "THREAD", "THREAD_SECTION", "THREAD_SECTION_END",
+                            "THREAD_SIDE", "THREAD_END", "THREAD_OTHER", "THREAD_PARALLEL_AXIS", "EXPLODE_LINE",
+                            "REGION_FACE_POINT", "REGION_FACE_POINT_FAILED", "SECTION_FACE_BOUNDARY" ]
+                    },
+                    "isHiddenBaseView": {
+                        "type": "boolean"
+                    },
+                    "isCylindrical": {
+                        "type": "boolean"
+                    },
+                    "cylinderOrigin": {
+                        "$ref": "#/$defs/point"
+                    },
+                    "cylinderRadius": {
+                        "type": "number"
+                    },
+                    "isArcOnSurface": {
+                        "description": "Does the segment represent a circle or circular arc on surface?",
+                        "type": "boolean"
+                    },
+                    "trueRadius": {
+                        "description": "If isArcOnSurface is true, trueRadius represents the radius of arc",
+                        "type": "number"
+                    },
+                    "isCenterline": {
+                        "description": "Does the segment represent a centerline?",
+                        "type": "boolean"
+                    },
+                    "data": {
+                        "type": "object",
+                        "oneOf": [
+                            { "$ref": "#/$defs/line" },
+                            { "$ref": "#/$defs/circle" },
+                            { "$ref": "#/$defs/circularArc" },
+                            { "$ref": "#/$defs/ellipse" },
+                            { "$ref": "#/$defs/ellipticalArc" },
+                            { "$ref": "#/$defs/polyline" },
+                            { "$ref": "#/$defs/spline" },
+                            { "$ref": "#/$defs/position3d" }
+                        ]
+                    }
+                },
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": { "isCylindrical": { "const": true } },
+                            "required": [ "isCylindrical" ]
+                        },
+                        "then": {
+                            "required": [ "cylinderOrigin", "cylinderRadius" ]
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": { "isBendLine": { "const": true } },
+                            "required": [ "isBendLine" ]
+                        },
+                        "then": {
+                            "required": [ "bendLineType" ]
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": { "isArcOnSurface": { "const": true } },
+                            "required": [ "isArcOnSurface" ]
+                        },
+                        "then": {
+                            "required": [ "trueRadius" ]
+                        }
+                    },
+                    {
+                        "if": {
+                            "not": { "properties": { "type": { "const": "point" } } }
+                        },
+                        "then": {
+                            "required": [ "segmentType" ]
+                        }
+                    }
+                ]
+            }
+        },
+        "sectionFaces": {
+            "description": "Rendered drawing section view face data",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [ "outerLoop" ],
+                "properties": {
+                    "innerLoops": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "outerLoop": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "hatchAngle": {
+                        "description": "Hatch angle for ANSI31 hatch pattern",
+                        "type": "number"
+                    },
+                    "hatchSpacing": {
+                        "description": "Hatch spacing for ANSI31 hatch pattern",
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "sectionMicroversionId": {
+            "type": "string"
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": { "sectionFaces": { "minItems": 1 } },
+                "required": [ "sectionFaces" ]
+            },
+            "then": {
+                "required": [ "sectionMicroversionId" ]
+            }
+        },
+        {
+            "if": {
+                "properties": { "sectionFaces": { "minItems": 1 } },
+                "required": [ "sectionFaces" ]
+            },
+            "then": {
+                "properties": { "bodyData": { "minItems": 1 } },
+                "required": [ "bodyData" ]
+            }
+        }
+    ],
+    "$defs": {
+        "point": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+        },
+        "line": {
+            "type": "object",
+            "required": [ "start", "end" ],
+            "properties": {
+                "start": { "$ref": "#/$defs/point" },
+                "end": { "$ref": "#/$defs/point" }
+            },
+            "additionalProperties": false
+        },
+        "polyline": {
+            "type": "object",
+            "required": [ "points" ],
+            "properties": {
+                "points": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/point"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "circle": {
+            "type": "object",
+            "required": [ "center", "axisDir", "radius" ],
+            "properties": {
+                "center": { "$ref": "#/$defs/point" },
+                "axisDir": { "$ref": "#/$defs/point" },
+                "radius": { "type": "number"}
+            },
+            "additionalProperties": false
+        },
+        "circularArc": {
+            "type": "object",
+            "required": [ "center", "axisDir", "radius", "start", "end" ],
+            "properties": {
+                "center": { "$ref": "#/$defs/point" },
+                "axisDir": { "$ref": "#/$defs/point" },
+                "radius": { "type" : "number"},
+                "start": { "$ref": "#/$defs/point" },
+                "end": { "$ref": "#/$defs/point" }
+            },
+            "additionalProperties": false
+        },
+        "ellipse": {
+            "type": "object",
+            "required": [ "center", "majorAxisDir", "minorAxisDir", "majorRadius", "minorRadius" ],
+            "properties": {
+                "center": { "$ref": "#/$defs/point" },
+                "majorAxisDir": { "$ref": "#/$defs/point" },
+                "minorAxisDir": { "$ref": "#/$defs/point" },
+                "majorRadius": { "type": "number" },
+                "minorRadius": { "type": "number" }
+            },
+            "additionalProperties": false
+        },
+        "ellipticalArc": {
+            "type": "object",
+            "required": [ "center", "majorAxisDir", "minorAxisDir", "majorRadius", "minorRadius", "start", "end" ],
+            "properties": {
+                "center": { "$ref": "#/$defs/point" },
+                "majorAxisDir": { "$ref": "#/$defs/point" },
+                "minorAxisDir": { "$ref": "#/$defs/point" },
+                "majorRadius": { "type": "number" },
+                "minorRadius": { "type": "number" },
+                "start": { "$ref": "#/$defs/point" },
+                "end": { "$ref": "#/$defs/point" }
+            },
+            "additionalProperties": false
+        },
+        "spline": {
+            "type": "object",
+            "required": [ "controlPoints", "weights", "knots", "rational", "degree" ],
+            "properties": {
+                "controlPoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/point"
+                    }
+                },
+                "weights": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "knots": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "rational": {
+                    "type": "boolean"
+                },
+                "degree": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false
+        },
+        "position3d": {
+            "type": "object",
+            "properties": {
+                "point": { "$ref": "#/$defs/point" }
+            },
+            "additionalProperties": false
+        }
+    }
+}

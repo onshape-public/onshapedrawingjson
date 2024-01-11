@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/geometrictolerance",
+  "title": "Geometric tolerance annotation",
+  "description": "Defines geometric tolerance",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "description": "Logical id of some annotation",
+      "type": "string"
+    },
+    "position": {
+      "description":"Tolerance position, non-associative",
+      "$ref": "types/point.schema.json"
+    },
+    "leaderPosition": {
+      "description":"Leader arrow position, associative.",
+      "$ref": "types/point.schema.json"
+    },
+    "parentAnnotation":{
+        "description":"LogicalId of the parent annotation (e.g. tolerance, datum, note, dimension text etc).",
+        "type":"string"
+    },
+    "frames": {
+      "description": "Geometric tolerance frames",
+      "type": "array",
+      "items": {
+        "title": "Tolerance frame",
+        "type": "string"
+      }
+    },
+    "subText": {
+      "description": "Subtext for tolerance",
+      "type": "string"
+    },
+    "leaderType": {
+      "description": "Type of leader",
+      "type": "string",
+      "enum": ["leader", "all around", "all over"]
+    },
+    "boundingBoxPoints": {
+      "description": "Points, describing bounding box of tolerance",
+      "type": "array",
+      "items": {
+        "title": "Point",
+        "$ref": "types/point.schema.json"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    }
+  },
+  "additionalProperties": false,
+  "required": ["position", "frames"]
+}

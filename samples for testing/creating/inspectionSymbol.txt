@@ -1,0 +1,29 @@
+Here you need to use name of another annotation as "ParentAnnotation"
+For example, here used "noteTestWithoutLeader".
+
+var osAutoDescr = 
+{
+  "FormatVersion":"2021-01-01",
+  "Annotations":
+  [
+    {
+      "inspectionsymbol": {
+        "borderShape": "Circle",
+        "borderSize": 2,
+        "logicalId": "h:1000058A",
+        "parentAnnotation": "h:10000577",
+        "parentLineIndex": 0.0,
+        "position": {
+          "coordinate": [
+            94.47633312923452,
+            103.54228236557235,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 2
+      },
+      "type": "Onshape::InspectionSymbol"
+    }
+  ]
+};

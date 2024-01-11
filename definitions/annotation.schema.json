@@ -1,0 +1,50 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotation",
+    "title": "Annotation",
+    "type": "object",
+    "properties": {
+      "type":{
+        "type":"string",
+        "enum":[
+          "Onshape::Dimension::PointToPoint",
+          "Onshape::Dimension::PointToLine",
+          "Onshape::Dimension::LineToLine",
+          "Onshape::Dimension::LineToLineAngular",
+          "Onshape::Dimension::ThreePointAngular",
+          "Onshape::Dimension::Radial",
+          "Onshape::Dimension::Diametric",
+          "Onshape::Dimension::ChamferNote",
+          "Onshape::Centerline::PointToPoint",
+          "Onshape::Centerline::LineToLine",
+          "Onshape::Centerline::TwoPointCircleCenterline",
+          "Onshape::Centerline::ThreePointCircleCenterline",
+          "Onshape::Note",
+          "Onshape::Callout",
+          "Onshape::InspectionSymbol",
+          "Onshape::GeometricTolerance",
+          "Onshape::Table::GeneralTable"
+        ]
+      }
+    },
+    "oneOf": [
+      { "properties": { "pointToPointDimension": { "$ref":"annotations/dimensions/pointtopointdimension.schema.json" } } },
+      { "properties": { "pointToLineDimension": { "$ref":"annotations/dimensions/pointtolinedimension.schema.json" } } },
+      { "properties": { "lineToLineDimension": { "$ref":"annotations/dimensions/linetolinedimension.schema.json" } } },
+      { "properties": { "lineToLineAngularDimension": { "$ref":"annotations/dimensions/linetolineangulardimension.schema.json" } } },
+      { "properties": { "threePointAngularDimension": { "$ref":"annotations/dimensions/threepointangulardimension.schema.json" } } },
+      { "properties": { "radialDimension": { "$ref":"annotations/dimensions/radialdimension.schema.json" } } },
+      { "properties": { "diametricDimension": { "$ref":"annotations/dimensions/diametricdimension.schema.json" } } },
+      { "properties": { "chamferNote": { "$ref":"annotations/dimensions/chamfernote.schema.json" } } },
+      { "properties": { "pointToPointCenterline": { "$ref":"annotations/centerlines/pointtopointcenterline.schema.json" } } },
+      { "properties": { "lineToLineCenterline": { "$ref":"annotations/centerlines/linetolinecenterline.schema.json" } } },
+      { "properties": { "twoPointCircleCenterline": { "$ref":"annotations/centerlines/twopointcirclecenterline.schema.json" } } },
+      { "properties": { "threePointCircleCenterline": { "$ref":"annotations/centerlines/threepointcirclecenterline.schema.json" } } },
+      { "properties": { "note": { "$ref":"annotations/note.schema.json" } } },
+      { "properties": { "callout": { "$ref":"annotations/callout.schema.json" } } },
+      { "properties": { "inspectionSymbol": { "$ref":"annotations/inspectionsymbol.schema.json" } } },
+      { "properties": { "geometricTolerance": { "$ref":"annotations/geometrictolerance.schema.json" } } },
+      { "properties": { "table": { "$ref":"annotations/tables/generaltable.schema.json" } } }
+    ],
+    "required": ["type"]
+  }

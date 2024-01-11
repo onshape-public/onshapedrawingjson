@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/drawing",
+  "title": "Onshape Drawing",
+  "type": "object",
+  "properties": {
+    "sheets": {
+      "description": "Sheets in the drawing",
+      "title": "Sheets",
+      "type": "array",
+      "items": {
+        "$ref": "sheet.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "sheets" ]
+}

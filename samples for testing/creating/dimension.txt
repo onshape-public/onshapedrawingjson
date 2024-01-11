@@ -1,0 +1,227 @@
+var osAutoDescr =
+{
+   "FormatVersion":"2021-01-01",
+   "Annotations":
+   [
+      {
+        "linetolineangulardimension": {
+          "arcPoint": {
+            "coordinate": [
+              3.1231382327754336,
+              6.014709699865808,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          },
+          "formatting": {
+            "dimdec": 6,
+            "dimlim": false,
+            "dimpost": "",
+            "dimtm": 0,
+            "dimtol": false,
+            "dimtp": 0,
+            "type": "Onshape::Formatting::Dimension"
+          },
+          "logicalId": "h:10000B17",
+          "point1": {
+            "coordinate": [
+              -0.021,
+              0.0635,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "point2": {
+            "coordinate": [
+              -0.0084,
+              0.0635,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "point3": {
+            "coordinate": [
+              -0.0084,
+              0.0635,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4243",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "point4": {
+            "coordinate": [
+              -0.0084,
+              0.0409,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4243",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "textOverride": "line to line angular\\P<>",
+          "textPosition": {
+            "coordinate": [
+              3.445895888318925,
+              6.33494930210484,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          }
+        },
+        "type": "Onshape::Dimension::LineToLineAngular"
+      },
+      {
+        "threepointangulardimension": {
+          "center": {
+            "coordinate": [
+              3.1231382327754336,
+              6.014709699865808,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          },
+          "arcPoint": {
+            "coordinate": [
+              3.1231382327754336,
+              6.014709699865808,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          },
+          "formatting": {
+            "dimdec": 6,
+            "dimlim": false,
+            "dimpost": "",
+            "dimtm": 0,
+            "dimtol": false,
+            "dimtp": 0,
+            "type": "Onshape::Formatting::Dimension"
+          },
+          "logicalId": "h:10000B17",
+          "point1": {
+            "coordinate": [
+              -0.021,
+              0.0635,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "point2": {
+            "coordinate": [
+              -0.0084,
+              0.0635,
+              0.0101
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "02f9bf8de1b86f21001289e5"
+          },
+          "textOverride": "three point angular dimension",
+          "textPosition": {
+            "coordinate": [
+              3.445895888318925,
+              6.33494930210484,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          }
+        },
+        "type": "Onshape::Dimension::ThreePointAngular"
+      },
+      {
+        "radialdimension": {
+          "centerPoint": {
+            "coordinate": [
+              0.2800021171569824,
+              0.014964947476983043,
+              0.079502
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "e11c38795c04ca55047f7ea7"
+          },
+          "chordPoint": {
+            "coordinate": [
+              0.2920149764955524,
+              0.010030535983985095,
+              0.079502
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4242",
+            "viewId": "e11c38795c04ca55047f7ea7"
+          },
+          "formatting": {
+            "dimdec": 2,
+            "dimlim": false,
+            "dimpost": "R<>",
+            "dimtm": 0,
+            "dimtol": false,
+            "dimtp": 0,
+            "type": "Onshape::Formatting::Dimension"
+          },
+          "logicalId": "h:100002DB",
+          "textOverride": "",
+          "textPosition": {
+            "coordinate": [
+              191.80537349378181,
+              89.76274130852224,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          }
+        },
+        "type": "Onshape::Dimension::Radial"
+      },
+      {
+        "diametricdimension": {
+          "chordPoint": {
+            "coordinate": [
+              0.1933405012077314,
+              0.03972484382073235,
+              0.079502
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4243",
+            "viewId": "e11c38795c04ca55047f7ea7"
+          },
+          "farChordPoint": {
+            "coordinate": [
+              0.21728307900963004,
+              0.07556087313016105,
+              0.079502
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4243",
+            "viewId": "e11c38795c04ca55047f7ea7"
+          },
+          "formatting": {
+            "dimdec": 2,
+            "dimlim": false,
+            "dimpost": "%%c<>",
+            "dimtm": 0,
+            "dimtol": false,
+            "dimtp": 0,
+            "type": "Onshape::Formatting::Dimension"
+          },
+          "logicalId": "h:100004E7",
+          "textOverride": "",
+          "textPosition": {
+            "coordinate": [
+              18.98715984685776,
+              100.15940129189198,
+              0
+            ],
+            "type": "Onshape::Reference::Point"
+          }
+        },
+        "type": "Onshape::Dimension::Diametric"
+      }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/sheet",
+    "title": "Sheet",
+    "type": "object",
+    "properties": {
+      "name":{
+        "description": "Name of the sheet",
+        "type": "string"
+      },
+      "index": {
+          "description": "Index of the sheet",
+          "type": "number"
+      },
+      "active": {
+          "description": "Is sheet active",
+          "type": "boolean"
+      },
+      "scale":{
+        "description": "Scale of the sheet",
+        "$ref": "annotations/types/scale.schema.json"
+      },
+      "size":{
+        "description": "Size of the sheet",
+        "type": "string"
+      },
+      "format":{
+        "description": "Format of the sheet",      
+        "type": "string"
+      },
+      "reference":{
+        "description": "Referenced part studio",      
+        "type": "string"
+      },
+      "annotations": {
+        "title": "Annotations",
+        "description": "List of annotations",
+        "type": "array",
+        "items": {
+          "$ref": "annotation.schema.json"
+        }
+      },
+      "views": {
+        "title": "Views",
+        "description": "List of views",
+        "type": "array",
+        "items": {
+          "$ref": "view.schema.json"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "name", "annotations", "views", "scale", "format", "size", "reference" ]
+  }

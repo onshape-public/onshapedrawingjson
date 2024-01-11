@@ -1,0 +1,87 @@
+var osAutoDescr = 
+{
+  "FormatVersion":"2021-01-01",
+  "Annotations":
+  [
+    {
+      "callout":
+      {
+        "borderShape": "Circle",
+        "borderSize": 0,
+        "contents": "No assoctiave callout",
+        "contentsBottom": "bottom",
+        "contentsLeft": "left",
+        "contentsRight": "right",
+        "contentsTop": "top",
+        "position": {
+          "coordinate": [
+            -1.6379340418443888,
+            5.381399812654115,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 0.12,
+        "logicalId": "callout1"
+      },
+      "type": "Onshape::Callout"
+    },
+    {
+      "callout":
+      {
+        "borderShape": "Circle",
+        "borderSize": 0,
+        "contents": "Callout with parent annotation",
+        "contentsBottom": "bottom",
+        "contentsLeft": "left",
+        "contentsRight": "right",
+        "contentsTop": "top",
+        "position": {
+          "coordinate": [
+            -1.6379340418443888,
+            5.381399812654115,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 0.12,
+        "logicalId": "callout1",
+        "parentAnnotation": "h:1000269F"
+      },
+      "type": "Onshape::Callout"
+    },
+    {
+      "callout":
+      {
+        "borderShape": "Double Circle",
+        "borderSize": 4,
+        "contents": "assoc to edge",
+        "contentsBottom": "",
+        "contentsLeft": "left",
+        "contentsRight": "right",
+        "contentsTop": "",
+        "leaderPosition": {
+          "coordinate": [
+            1.983986400520206,
+            1.5396605562981227,
+            1.0625
+          ],
+          "type": "Onshape::Reference::Point",
+          "uniqueId": "F4244",
+          "viewId": "cf15a49b0ce72ede85320825"
+        },
+        "logicalId": "h:10002A15",
+        "position": {
+          "coordinate": [
+            -1.1031792480633884,
+            0.4355798683058145,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 0.12
+      },
+      "type": "Onshape::Callout"
+    }
+  ]
+};

@@ -1,0 +1,109 @@
+var osAutoDescr =
+{
+   "FormatVersion":"2021-01-01",
+   "Annotations":
+   [
+      {
+         "linetolinecenterline": {
+            "edge1": {
+               "type": "Onshape::Reference::Edge",
+               "uniqueId": "F424B",
+               "viewId": "02f9bf8de1b86f21001289e5"
+            },
+            "edge2": {
+               "type": "Onshape::Reference::Edge",
+               "uniqueId": "F4246",
+               "viewId": "02f9bf8de1b86f21001289e5"
+           }
+         },
+         "type": "Onshape::Centerline::LineToLine"
+      },
+      {
+         "pointtopointcenterline": {
+            "point1": {
+               "coordinate": [
+                  12.284057964498157,
+                  4.326032174114661,
+                  1.5650000000000002
+               ],
+               "type": "Onshape::Reference::Point",
+               "uniqueId": "F4245",
+               "viewId": "237999e1eeea1554df5d5582"
+            },
+            "point2": {
+               "coordinate": [
+                  17.974151432052864,
+                  6.436740444365942,
+                  1.0649999999999997
+               ],
+               "type": "Onshape::Reference::Point",
+               "uniqueId": "F4247",
+               "viewId": "237999e1eeea1554df5d5582"
+            }
+         },
+         "type": "Onshape::Centerline::PointToPoint"
+      },
+      {
+         "threepointcirclecenterline": {
+            "logicalId": "h:10002632",
+            "point1": {
+               "coordinate": [
+                  0.1668,
+                  -0.0146,
+                  0.0398
+               ],
+               "type": "Onshape::Reference::Point",
+               "uniqueId": "F4244",
+               "viewId": "237999e1eeea1554df5d5582"
+            },
+            "point2": {
+               "coordinate": [
+                  0.2987,
+                  -0.0146,
+                  0.0398
+               ],
+               "type": "Onshape::Reference::Point",
+               "uniqueId": "F4241",
+               "viewId": "237999e1eeea1554df5d5582"
+            },
+            "point3": {
+               "coordinate": [
+                  0.2328,
+                  0.0925,
+                  0.0398
+               ],
+               "type": "Onshape::Reference::Point",
+               "uniqueId": "F4246",
+               "viewId": "237999e1eeea1554df5d5582"
+            }
+         },
+         "type": "Onshape::Centerline::ThreePointCircleCenterline"
+      },
+      {
+         "twopointcirclecenterline": {
+         "logicalId": "h:10002639",
+         "centerPoint": {
+            "coordinate": [
+               0.1668,
+               0.0926,
+               0.0398
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4243",
+            "viewId": "237999e1eeea1554df5d5582"
+         },
+         "defPoint": {
+            "coordinate": [
+               0.2186,
+               0.0407,
+               0.0398
+            ],
+            "type": "Onshape::Reference::Point",
+            "uniqueId": "F4246",
+            "viewId": "237999e1eeea1554df5d5582"
+         }
+         },
+         "type": "Onshape::Centerline::TwoPointCircleCenterline"
+      },
+   ]
+}

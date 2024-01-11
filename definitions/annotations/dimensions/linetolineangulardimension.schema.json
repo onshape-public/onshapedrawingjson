@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/linetolineangulardimension",
+    "title": " Line To Line Angular Dimension Annotation",
+    "description": "Defines angle between two lines",
+    "type": "object",
+    "properties": {
+      "logicalId": {
+        "description": "Logical id of some annotation",
+        "type": "string"
+      },
+      "point1": {
+        "description":"First definition point for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "point2": {
+        "description":"Second definition point for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "point3": {
+        "description":"Third definition point for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "point4": {
+        "description":"Fourth definition point for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "arcPoint": {
+        "description":"Arc definition point for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "textPosition": {
+        "description":"Midpoint for the dimension text, non-associative",
+        "$ref": "../types/point.schema.json"
+      },
+      "textOverride": {
+        "description":"Override to replace the standard dimension text",
+        "type": "string"
+      },
+      "formatting": {
+        "description":"Dimension formatting override for this dimension",
+        "$ref": "../formatting/dimension.schema.json"
+      },
+      "measurement": {
+        "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
+        "type": "number"
+      },
+      "isDangling": {
+        "description": "Is dimension dangling or not",
+        "type": "boolean"
+      },
+      "unit": {
+        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+        "$ref": "../types/unit.schema.json"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["point1", "point2", "point3", "point4", "arcPoint", "textPosition", "unit"]
+  }
+  

@@ -1,0 +1,13 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/alignment",
+    "title": "Onshape cell alignment",
+    "type": "object",
+    "properties": {
+        "alignment": {
+            "type": "string",
+            "enum": ["kTopLeft","kTopCenter","kTopRight","kMiddleLeft","kMiddleCenter","kMiddleRight","kBottomLeft","kBottomCenter","kBottomRight"]
+        }
+    },
+    "required": ["alignment"]
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/linetolinecenterline",
+    "title": "Line to Line Centerline Annotation",
+    "description": "Defines a centerline between two given edges. The edges may be linear-apparent or circular",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of some annotation",
+            "type": "string"
+        },
+        "edge1": {
+            "description":"First definition edge for the dimension (linear or linear-apparent)",
+            "$ref": "../types/edge.schema.json"
+        },
+        "edge2": {
+            "description":"Second definition edge for the dimension",
+            "$ref": "../types/edge.schema.json"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["edge1","edge2"]
+}

@@ -1,0 +1,49 @@
+var osAutoDescr =
+{
+  "FormatVersion":"2021-01-01",
+  "Annotations":
+  [
+    {
+      "note": {
+        "contents": "TEXT",
+        "logicalId": "h:1000269F",
+        "position": {
+          "coordinate": [
+            6.688583573772924,
+            7.383637425373766,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 0.12
+      },
+      "type": "Onshape::Note"
+    },
+    {
+      "note": {
+        "contents": "555",
+        "leaderPosition": {
+          "coordinate": [
+            3.6423399381641426,
+            4.286677718977156,
+            0.9999999999999999
+          ],
+          "type": "Onshape::Reference::Point",
+          "uniqueId": "F424A",
+          "viewId": "02f9bf8de1b86f21001289e5"
+        },
+        "logicalId": "h:10002243",
+        "position": {
+          "coordinate": [
+            5.847996385214994,
+            4.060062159027899,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        },
+        "textHeight": 0.12
+      },
+      "type": "Onshape::Note"
+    }
+  ]
+}

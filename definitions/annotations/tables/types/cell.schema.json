@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/table/types/cell",
+    "title": "Cell",
+    "type": "object",
+    "properties": {
+      "row" : {
+        "description" : "Cell row index",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+      },
+      "column" : {
+        "description" : "Cell column index",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+      },
+      "content":{
+        "description":"Cell content",
+        "type": "string"
+      },
+      "alignment" : {
+        "description" : "Cell alignment",
+        "$ref" : "../../types/alignment.schema.json"
+      },
+      "contentColor":{
+        "description": "Content color of cell",
+        "$ref":"../../types/color.schema.json"
+      }
+    },
+    "required": ["row","column"]
+  }

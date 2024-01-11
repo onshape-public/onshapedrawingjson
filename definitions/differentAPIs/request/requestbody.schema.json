@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/drawing/modify",
+    "title": "Onshape drawing modify request body",
+    "type": "object",
+    "properties": {
+      "editDescription": {
+        "description": "History entry for the requested change in drawing",
+        "title": "History content",
+        "type": "string"
+      },
+      "jsonRequests": {
+        "description": "Request body defining actions to be performed",
+        "title": "Json request data",
+        "type": "array",
+        "items": {
+          "type": ["createannotationrequest.schema.json","editannotationrequest.schema.json"]
+        }
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "editDescription","jsonRequests" ]
+  }

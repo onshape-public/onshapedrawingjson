@@ -1,0 +1,72 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/view",
+    "title": "Onshape View",
+    "type": "object",
+    "properties": {
+      "type":{
+        "type": "string"
+      },
+      "viewId": {
+        "type": "string"
+      },
+      "scale":{
+        "description":"Onshape view scale",
+        "$ref": "annotations/types/scale.schema.json"
+      },
+      "position": {
+        "title": "Center of view on sheet",
+        "type": "object",
+        "properties": {
+          "x":{
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "required": ["x", "y"]
+      },
+      "orientation":{
+        "type": "string",
+        "enum": ["top", "left", "right", "front", "back", "bottom", "isometric", "custom"]
+      },
+      "rotation":{
+        "type": "number"
+      },
+      "tangentEdges":{
+        "type": "string",
+        "enum": ["solid", "hidden", "phantom"]
+      },
+      "renderMode":{
+        "type": "string",
+        "enum": ["performance", "quality"]
+      },
+      "simplification":{
+        "type": "string",
+        "enum": ["none", "absolute", "ratio to studio", "ratio to part", "automatic"]
+      },
+      "sheet":{
+        "type": "string"
+      },
+      "name":{
+        "type": "string"
+      },
+      "label":{
+        "type": "string"
+      },
+      "showScaleLabel":{
+        "type": "boolean"
+      },
+      "bomReference":{
+        "type": "string",
+        "default": ""
+      },
+      "viewToPaperMatrix":{
+        "description":"Matrix for converting view coordinates to paper coordinates",
+        "$ref": "./annotations/types/matrix.schema.json"
+      }
+    },
+    "additionalProperties": false,
+    "required": [  ]
+  }

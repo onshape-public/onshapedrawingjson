@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/linetolinedimension",
+  "title": "Line to Line Dimension Annotation",
+  "description": "Defines a line-to-line aligned dimension. Measures distance between two parallel lines or linear-apparent entities.",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "description": "Logical id of some annotation",
+      "type": "string"
+    },
+    "edge1": {
+      "description":"First definition edge for the dimension (linear or linear-apparent)",
+      "$ref": "../types/edge.schema.json"
+    },
+    "edge2": {
+      "$ref": "../types/edge.schema.json"
+    },
+    "rotation": {
+      "description":"Dimension rotation in degrees. If given, the dimension measures the distance along the given direction (0 - horizontal, 90 - vertical). If not given, the dimension is always aligned to the definition points.",
+      "type": "number"
+    },
+    "textPosition": {
+      "description":"Midpoint for the dimension text, non-associative",
+      "$ref": "../types/point.schema.json"
+    },
+    "textOverride": {
+      "description":"Override to replace the standard dimension text",
+      "type": "string"
+    },
+    "formatting": {
+      "description":"Dimension formatting override for this dimension",
+      "$ref": "../formatting/dimension.schema.json"
+    },
+    "measurement": {
+      "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
+      "type": "number"
+    },
+    "isDangling": {
+      "description": "Is dimension dangling or not",
+      "type": "boolean"
+    },
+    "unit": {
+      "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+      "$ref": "../types/unit.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["edge1", "edge2", "textPosition", "unit"]
+}

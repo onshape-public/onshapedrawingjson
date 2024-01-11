@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/formatting/table",
+    "title": "Table Formatting",
+    "type": "object",
+    "properties": {
+        "flowDirection":{
+            "type": "string",
+            "enum": ["TtoB", "BtoT"]
+        },
+        "tableWidth": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "tableHeight": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "columnWidth": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "rowHeight": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "minColumnWidth": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "minRowHeight": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "minTableWidth": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "minTableHeight": {
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "fixedCorners":{
+            "type": "string",
+            "enum": ["FixedCornerNone","FixedCornerBottomLeft","FixedCornerBottomRight","FixedCornerTopLeft","FixedCornerTopRight"]
+        },
+        "styleByRowType":{
+            "type": "array",
+            "items":{
+                    "type": "object",
+                    "properties":{
+                        "rowType":{
+                            "$ref": "../types/alignmentType.schema.json"
+                        },
+                        "alignment":{
+                            "$ref": "../types/alignment.schema.json"
+                        },
+                        "contentColor":{
+                            "$ref":"../types/color.schema.json"
+                        }
+                    },
+                    "required": ["rowType"]
+                }
+            }
+    },
+    "required": []
+}

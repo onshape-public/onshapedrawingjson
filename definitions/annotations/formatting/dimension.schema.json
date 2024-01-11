@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/formatting/dimension",
+    "title": "Dimension Formatting",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "Onshape::Formatting::Dimension"
+        },
+        "dimdec": {
+            "type": "number"
+        },
+        "dimpost": {
+            "type": "string"
+        },
+        "dimtol": {
+            "type": "boolean"
+        },
+        "dimlim": {
+            "type": "boolean"
+        },
+        "dimtm": {
+            "type": "number"
+        },
+        "dimtp": {
+            "type": "number"
+        } 
+    },
+    "required": []
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/pointtopointcenterline",
+  "title": "Point To Point Centerline Annotation",
+  "description": "Defines a linear centerline between the two given points. May be aligned to the points or may have a fixed rotation given in degrees.",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "description": "Logical id of some annotation",
+      "type": "string"
+    },
+    "point1": {
+      "description":"First definition point",
+      "$ref": "../types/point.schema.json"
+    },
+    "point2": {
+      "description":"Second definition point",
+      "$ref": "../types/point.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["point1","point2"]
+}

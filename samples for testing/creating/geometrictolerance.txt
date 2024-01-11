@@ -1,0 +1,72 @@
+var osAutoDescr = 
+{
+  FormatVersion: '2021-01-01',
+  Annotations:
+  [
+    {
+      "geometrictolerance": {
+        "frames": [
+          "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
+          "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
+        ],
+        "logicalId": "h:10000326",
+        "position": {
+          "coordinate": [
+            7.0697139750994005,
+            6.1556632158280244,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        }
+      },
+      "type": "Onshape::GeometricTolerance"
+    },
+    {
+      "geometrictolerance": {
+        "frames": [
+          "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
+          "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
+        ],
+        "leaderPosition": {
+          "coordinate": [
+            3.346614751822524,
+            6.786677718977156,
+            0
+          ],
+          "type": "Onshape::Reference::Point",
+          "uniqueId": "F4242",
+          "viewId": "02f9bf8de1b86f21001289e5"
+        },
+        "logicalId": "h:10002AE1",
+        "position": {
+          "coordinate": [
+            6.629142059880146,
+            7.5839412908905075,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        }
+      },
+      "type": "Onshape::GeometricTolerance"
+    },
+    {
+      "geometrictolerance": {
+        "frames": [
+          "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
+          "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
+        ],
+        "logicalId": "h:10002BBA",
+        "parentAnnotation": "h:1000039B",
+        "position": {
+          "coordinate": [
+            2.1460527424426195,
+            1.9090033089275484,
+            0
+          ],
+          "type": "Onshape::Reference::Point"
+        }
+      },
+      "type": "Onshape::GeometricTolerance"
+    }
+  ]
+};

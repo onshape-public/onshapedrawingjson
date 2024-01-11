@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/centerlines/twopointcirclecenterline",
+  "title": "Two Point Circle Centerline Annotation",
+  "description": "Defines a 2 point circle centerline",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "description": "Logical id of some annotation",
+      "type": "string"
+    },
+    "centerPoint": {
+      "description":"Center definition point",
+      "$ref": "../types/point.schema.json"
+    },
+    "defPoint": {
+      "description":"Second definition point",
+      "$ref": "../types/point.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["centerPoint", "defPoint"]
+}

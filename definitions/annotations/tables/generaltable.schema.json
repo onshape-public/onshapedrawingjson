@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/generaltable",
+    "title": "General Table Annotation",
+    "description": "Defines a table with fixed Rows and Coloumns. Rows and Coloumn number can we defined at creation alsong with some general properties",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of table",
+            "type": "string"
+        },
+        "type":{
+            "type":"string",
+            "const":"Onshape::Table::GeneralTable"
+          },
+        "position": {
+            "description":"Table position, non-associative",
+            "$ref": "../types/point.schema.json"
+        },
+        "rows": {
+            "description": "Number of rows in the table (must be greater than zero)",
+            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "columns": {
+            "description": "Number of columns in the table (must be greater than zero)",
+            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "formatting": {
+            "description": "Table formatting override for this table",
+            "$ref": "../formatting/table.schema.json"
+        },
+        "suppressTitleRow": {
+            "description": "Flag to determine suppress state of title row",
+            "type": "boolean",
+            "default": false
+        },
+        "suppressHeaderRow": {
+            "description": "Flag to determine suppress state of header row",
+            "type": "boolean",
+            "default": false
+        },
+        "horizontalCellMargin": {
+            "description": "Horizontal margin around cell text",
+            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "verticalCellMargin": {
+            "description": "Vertical margin around cell text",
+            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        },
+        "cells": {
+            "description": "Cells in the table",
+            "type": "array",
+            "items": {
+              "title": "Cell",
+              "$ref": "./types/cell.schema.json"
+            }
+          }
+    },
+    "required": ["rows","columns"]
+}

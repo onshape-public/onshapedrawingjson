@@ -1,0 +1,14 @@
+var osAutoDescr = 
+{
+  FormatVersion: '2021-01-01',
+  Annotations:
+  [
+    {
+      type:"Onshape::InspectionSymbol",
+      inspectionsymbol : {
+        logicalId : "h:1000278D",
+        number : 5
+      }
+    }
+  ]
+};

@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/edge",
+    "title": "Referenced Edge",
+    "$comment": "Edges are associate elements originating in a view",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "Onshape::Reference::Edge"
+        },
+        "viewId": {
+            "type": "string"
+        }
+    },
+    "required": ["type","viewId"],
+    "oneOf": [
+        {
+            "title": "Associative edge based on unique id",
+            "properties": {
+                "uniqueId": {
+                    "description":"Hexadecimal handle of an edge inside a view, e.g. \"F4242\"",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "uniqueId"
+            ]
+        },
+        {
+            "title": "Associative edge based on deterministic id",
+            "properties": {
+                "deterministicId": {
+                    "description":"DeterministicId of an edge inside a view, e.g. \"KHSk-.s2\"",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "deterministicId"
+            ]
+        },
+        {
+            "title": "Associative edge based on logical id",
+            "properties": {
+                "logicalId": {
+                    "description":"LogicalId of some other annotation e.g. \"Centerline1\"",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "logicalId"
+            ]
+        }
+    ]
+}

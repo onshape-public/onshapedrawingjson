@@ -1,0 +1,48 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/radialdimension",
+    "title": " Radial Dimension Annotation",
+    "description": "Defines length of radius for the circle",
+    "type": "object",
+    "properties": {
+      "logicalId": {
+        "description": "Logical id of some annotation",
+        "type": "string"
+      },
+      "centerPoint": {
+        "description":"Center of circle for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "chordPoint": {
+        "description":"Chord point of circle for the dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "textPosition": {
+        "description":"Midpoint for the dimension text, non-associative",
+        "$ref": "../types/point.schema.json"
+      },
+      "textOverride": {
+        "description":"Override to replace the standard dimension text",
+        "type": "string"
+      },
+      "formatting": {
+        "description":"Dimension formatting override for this dimension",
+        "$ref": "../formatting/dimension.schema.json"
+      },
+      "measurement": {
+        "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
+        "type": "number"
+      },
+      "isDangling": {
+        "description": "Is dimension dangling or not",
+        "type": "boolean"
+      },
+      "unit": {
+        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+        "$ref": "../types/unit.schema.json"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["centerPoint", "chordPoint", "textPosition", "unit"]
+  }
+  

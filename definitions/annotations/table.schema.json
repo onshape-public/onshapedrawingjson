@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/table",
+    "title": "Table",
+    "type": "object",
+    "properties": {
+      "type":{
+        "type":"string",
+        "enum":[
+          "Onshape::Table::GeneralTable"
+        ]
+      },
+      "position": {
+        "description":"Table position, non-associative",
+        "$ref": "./types/point.schema.json"
+    }
+    },
+    "oneOf": [
+      { "properties": { "GeneralTable": { "$ref":"./tables/generaltable.schema.json" } } }
+    ],
+    "required": ["type"]
+  }

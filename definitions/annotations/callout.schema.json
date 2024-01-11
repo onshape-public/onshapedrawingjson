@@ -1,0 +1,63 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/callout",
+    "title": "Callout Annotation",
+    "description": "Defines a callout with an optional leader.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of some annotation",
+            "type": "string"
+        },
+        "position": {
+            "description":"Text position, non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "leaderPosition": {
+            "description":"Leader arrow position, associative.",
+            "$ref": "types/point.schema.json"
+        },
+        "parentAnnotation":{
+            "description":"LogicalId of the parent annotation (e.g. tolerance, datum, note, dimension text etc).",
+            "type":"string"
+        },
+        "contents": {
+            "description":"The text contents. May include MText formatting codes.",
+            "type": "string"
+        },
+        "contentsTop": {
+            "description":"The top text",
+            "type": "string"
+        },
+        "contentsBottom": {
+            "description":"The bottom text",
+            "type": "string"
+        },
+        "contentsLeft": {
+            "description":"The left text",
+            "type": "string"
+        },
+        "contentsRight": {
+            "description":"The right text",
+            "type": "string"
+        },
+        "textHeight": {
+            "description":"Default height of the text. Overrides the text height from the style.",
+            "type": "number"
+        },
+        "borderShape": {
+            "description":"Callout border shape, one of the predefined values.",
+            "type": "string",
+            "enum":["None", "Circle", "Diamond", "Double Circle", "Flag", "Hexagon", "Octagon", "Rectangle", "Split Circle", "Square Circle", "Triangle", "Underline"
+            ]
+        },
+        "borderSize": {
+            "description":"Border size in characters (0-5). 0 - tight fit",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+        }
+    },
+    "additionalProperties": false,
+    "required": ["position","contents"]
+}

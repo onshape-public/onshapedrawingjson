@@ -1,0 +1,20 @@
+{
+  "name": "onshapedrawingjson",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "jsonschema2md -d definitions -o documentation"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onshape-public/onshapedrawingjson.git"
+  },
+  "devDependencies": {
+    "@adobe/jsonschema2md": "^6.0.0"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/onshape-public/onshapedrawingjson/issues"
+  },
+  "homepage": "https://github.com/onshape-public/onshapedrawingjson#readme"
+}

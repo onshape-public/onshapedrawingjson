@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/unit",
+    "title": "Onshape Unit",
+    "type": "object",
+    "properties": {
+        "dimlunit": {
+            "type": "string",
+            "enum": ["eScientific", "eDecimal", "eEngineering", "eArchitectural", "eFractional"]
+        },
+        "insUnit": {
+            "type": "string",
+            "enum": ["kUnitsUndefined", "kUnitsInches", "kUnitsFeet", "kUnitsMiles", "kUnitsMillimeters", "kUnitsCentimeters", "kUnitsMeters", "kUnitsKilometers", "kUnitsMicroinches", "kUnitsMils", "kUnitsYards", "kUnitsAngstroms", "kUnitsNanometers", "kUnitsMicrons", "kUnitsDecimeters", "kUnitsDekameters", "kUnitsHectometers", "kUnitsGigameters", "kUnitsAstronomical", "kUnitsLightYears", "kUnitsParsecs", "kUnitsMax"]  
+        },
+        "dimaunit": {
+            "type": "string",
+            "enum": ["eDecimalDegrees", "eDegreesMinutesSeconds", "eGradians", "eRadians", "eSurveyorsUnits"]
+        },
+        "unit":{
+            "type": "string",
+            "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Drawing", "Degree"]
+        }
+    },
+    "required": ["unit"]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/centerlines/threepointcirclecenterline",
+  "title": "Three Point Circle Centerline Annotation",
+  "description": "Defines a 3 point circle centerline",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "description": "Logical id of some annotation",
+      "type": "string"
+    },
+    "point1": {
+      "description":"First definition point",
+      "$ref": "../types/point.schema.json"
+    },
+    "point2": {
+      "description":"Second definition point",
+      "$ref": "../types/point.schema.json"
+    },
+    "point3": {
+      "description":"Third definition point",
+      "$ref": "../types/point.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["point1", "point2", "point3"]
+}

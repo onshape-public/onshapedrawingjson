@@ -1,0 +1,133 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/point",
+    "title": "Referenced Point",
+    "type": "object",
+    "$comment": "Points reference a distinct point in different coordinate systems and can be both associative and nonassociative. When a reference view is specified for a coordinate, the view coordinate system is applied. View coordinates are assumed to be model coordinates in meters, as we see in the view DWG/JSON files. Z coordinates may be important for associativity. Z coordinates should be 0 for non-associative points.",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "Onshape::Reference::Point"
+        },
+        "snapPointType": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "type"
+    ],
+    "oneOf": [
+        {
+            "title": "Nonassociative point",
+            "$comment":"Coordinate of the indicated point in X,  Y, Z format",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "viewId": {
+                    "description":"If specified, the specified coordinates are inferred to be in the coordinate space of the view specified in viewId. If no viewId is specified, coordinates are in sheet space.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinate"
+            ]
+        },
+        {
+            "title": "Associative point based on unique id",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "uniqueId": {
+                    "description":"Hexadecimal handle of an edge inside a view, e.g. \"F4242\"",
+                    "type": "string"
+                },
+                "viewId": {
+                    "type": "string"
+                },
+                "anchorType": {
+                    "type": "string",
+                    "enum":[
+                        "min",
+                        "max"
+                    ]
+                }
+            },
+            "required": [
+                "uniqueId", "viewId", "coordinate"
+            ]
+        },
+        {
+            "title": "Associative point based on deterministic id",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "deterministicId": {
+                    "description":"DeterministicId of an edge inside a view, e.g. \"KHSk-.s2\"",
+                    "type": "string"
+                },
+                "viewId": {
+                    "type": "string"
+                },
+                "anchorType": {
+                    "type": "string",
+                    "enum":[
+                        "min",
+                        "max"
+                    ]
+                }
+            },
+            "required": [
+                "deterministicId", "viewId", "coordinate"
+            ]
+        },
+        {
+            "title": "Associative point based on logical id",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "logicalId": {
+                    "description":"LogicalId of some other annotation e.g. \"Centerline1\"",
+                    "type": "string"
+                },
+                "anchorType": {
+                    "type": "string",
+                    "enum":[
+                        "min",
+                        "max"
+                    ]
+                }
+            },
+            "required": [
+                "logicalId", "coordinate"
+            ]
+        }
+    ]
+}

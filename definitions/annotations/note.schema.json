@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/note",
+    "title": "Note",
+    "description": "Defines a Note with an optional leader.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of some annotation",
+            "type": "string"
+        },
+        "position": {
+            "description":"Text position, non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "leaderPosition": {
+            "description":"Leader arrow position, associative.",
+            "$ref": "types/point.schema.json"
+        },
+        "contents": {
+            "description":"The text contents. May include MText formatting codes.",
+            "type": "string"
+        },
+        "textHeight": {
+            "description":"Default height of the text. Overrides the text height from the style.",
+            "type": "number",
+            "exclusiveMinimum": 0
+        }
+    },
+    "additionalProperties": false,
+    "required": ["position","contents"]
+}

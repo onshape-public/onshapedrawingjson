@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/color",
+    "title": "Onshape Color",
+    "type": "object",
+    "properties": {
+        "colorType":{
+            "type":"string",
+            "enum":["byColor","byBlock","byLayer","byACI"]
+        },
+        "red": {
+            "type": "number"
+        },
+        "green": {
+            "type": "number"
+        },
+        "blue": {
+            "type": "number"
+        }
+    },
+    "required": ["colorType"]
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/formatting/table/types/propertiesUtilDefs",
+    "title": "Table Util Definitions",
+    "type": "object",
+    "definition": {
+        "nonNegativeInteger": {
+            "type": "integer",
+            "minimum": 0
+    },
+    "nonNegativeIntegerDefault0": {
+        "$ref": "#/definition/nonNegativeInteger",
+        "default": 0
+    },
+    "fixedCornersEnum":{
+        "type": "string",
+        "enum": ["FixedCornerNotSelected","FixedCornerNone","FixedCornerBottomLeft","FixedCornerBottomRight","FixedCornerTopLeft","FixedCornerTopRight"]
+    }
+    },
+    "required": []
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/response/exportannotationresponse",
+  "title": "Meta information for the drawing export response",
+  "type": "object",
+  "properties": {
+    "drawingJson": {
+      "description": "Drawing content",
+      "$ref": "../drawing.schema.json"
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "messageName": {
+      "type": "string",
+      "const": "queryDrawingJsonResponse"
+    },
+    "version": {
+      "description": "Onshape release version",
+      "type": "string"
+    },
+    "documentId": {
+      "description": "Onshape document id",
+      "type": "string"
+    },
+    "elementId": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    },
+    "microversionId": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "drawingJson", "messageName", "documentId", "elementId" ]
+}
