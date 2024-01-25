@@ -9,22 +9,28 @@
             "const": "Onshape::Formatting::Dimension"
         },
         "dimdec": {
-            "type": "number"
+            "type": "number",
+            "description": "Set the number of decimal places to display for the dimension."
         },
         "dimpost": {
-            "type": "string"
+            "type": "string",
+            "description": "The text suffix (i.e., mm, in, cm, etc.) to add to the dimension."
         },
         "dimtol": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Set to 1 to append tolerances to dimension text. Set to 0 to turn tolerances off."
         },
         "dimlim": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Set to 1 to generate dimension limits as default text. Set to 0 to turn off."
         },
         "dimtm": {
-            "type": "number"
+            "type": "number",
+            "description": "Set the lower tolerance limit for dimension text. Only available when DIMTOL or DIMLIM = 1."
         },
         "dimtp": {
-            "type": "number"
+            "type": "number",
+            "description": "Set the upper tolerance limit for dimension text. Only available when DIMTOL or DIMLIM = 1."
         } 
     },
     "required": []
