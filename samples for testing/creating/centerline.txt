@@ -1,10 +1,10 @@
 var osAutoDescr =
 {
-   "FormatVersion":"2021-01-01",
-   "Annotations":
+   "formatVersion":"2021-01-01",
+   "annotations":
    [
       {
-         "linetolinecenterline": {
+         "lineToLineCenterline": {
             "edge1": {
                "type": "Onshape::Reference::Edge",
                "uniqueId": "F424B",
@@ -19,7 +19,7 @@ var osAutoDescr =
          "type": "Onshape::Centerline::LineToLine"
       },
       {
-         "pointtopointcenterline": {
+         "pointToPointCenterline": {
             "point1": {
                "coordinate": [
                   12.284057964498157,
@@ -44,7 +44,7 @@ var osAutoDescr =
          "type": "Onshape::Centerline::PointToPoint"
       },
       {
-         "threepointcirclecenterline": {
+         "threePointCircleCenterline": {
             "logicalId": "h:10002632",
             "point1": {
                "coordinate": [
@@ -80,7 +80,7 @@ var osAutoDescr =
          "type": "Onshape::Centerline::ThreePointCircleCenterline"
       },
       {
-         "twopointcirclecenterline": {
+         "twoPointCircleCenterline": {
          "logicalId": "h:10002639",
          "centerPoint": {
             "coordinate": [

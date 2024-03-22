@@ -1,10 +1,10 @@
 var osAutoDescr =
 {
-   "FormatVersion":"2021-01-01",
-   "Annotations":
+   "formatVersion":"2021-01-01",
+   "annotations":
    [
       {
-        "linetolineangulardimension": {
+        "lineToLineAngularDimension": {
           "arcPoint": {
             "coordinate": [
               3.1231382327754336,
@@ -76,7 +76,7 @@ var osAutoDescr =
         "type": "Onshape::Dimension::LineToLineAngular"
       },
       {
-        "threepointangulardimension": {
+        "threePointAngularDimension": {
           "center": {
             "coordinate": [
               3.1231382327754336,
@@ -136,7 +136,7 @@ var osAutoDescr =
         "type": "Onshape::Dimension::ThreePointAngular"
       },
       {
-        "radialdimension": {
+        "radialDimension": {
           "centerPoint": {
             "coordinate": [
               0.2800021171569824,
@@ -180,7 +180,7 @@ var osAutoDescr =
         "type": "Onshape::Dimension::Radial"
       },
       {
-        "diametricdimension": {
+        "diametricDimension": {
           "chordPoint": {
             "coordinate": [
               0.1933405012077314,

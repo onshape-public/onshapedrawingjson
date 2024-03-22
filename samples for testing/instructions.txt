@@ -9,6 +9,6 @@ XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "OnshapeCreateAnnotat
 For editing use it: XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "OnshapeEditAnnotations")
 It will create/edit the annotations or report some error, if something goes wrong.
 
-Also there is separete drawing application extension that lives in separate frame and it also can create some annotations and export drawing json.
+Also there is separate drawing application extension that lives in separate frame and it also can create some annotations and export drawing json.
 
 

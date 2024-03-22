@@ -1,10 +1,10 @@
 var osAutoDescr = 
 {
-  FormatVersion: '2021-01-01',
-  Annotations:
+  formatVersion: '2021-01-01',
+  annotations:
   [
     {
-      "geometrictolerance": {
+      "geometricTolerance": {
         "frames": [
           "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
           "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
@@ -22,7 +22,7 @@ var osAutoDescr =
       "type": "Onshape::GeometricTolerance"
     },
     {
-      "geometrictolerance": {
+      "geometricTolerance": {
         "frames": [
           "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
           "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
@@ -50,7 +50,7 @@ var osAutoDescr =
       "type": "Onshape::GeometricTolerance"
     },
     {
-      "geometrictolerance": {
+      "geometricTolerance": {
         "frames": [
           "{\\fDrawing Symbols Sans;◎}%%v{\\fDrawing Symbols Sans;∅}tol1{\\fDrawing Symbols Sans;Ⓜ}%%v%%v%%v%%v%%v\n",
           "{\\fDrawing Symbols Sans;⌖}%%vto2{\\fDrawing Symbols Sans;Ⓛ}%%v%%v%%v%%v%%v\n"
