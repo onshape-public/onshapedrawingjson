@@ -9,13 +9,16 @@
             "enum":["byColor","byBlock","byLayer","byACI"]
         },
         "red": {
-            "type": "number"
+            "maximum": 255,
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         },
         "green": {
-            "type": "number"
+            "maximum": 255,
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         },
         "blue": {
-            "type": "number"
+            "maximum": 255,
+            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         }
     },
     "required": ["colorType"]

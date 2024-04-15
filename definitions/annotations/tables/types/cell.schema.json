@@ -23,7 +23,32 @@
       "contentColor":{
         "description": "Content color of cell",
         "$ref":"../../types/color.schema.json"
-      }
+      },
+      "isMerged": {
+        "description": "Flag to identify the merge cell",
+        "type": "boolean",
+        "default": false
+      },
+      "minRow": {
+        "description": "Minimum row index of the merged cell",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+      },
+      "maxRow": {
+        "description": "Maximum row index of the merged cell",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+      },
+      "minCol": {
+        "description": "Minimum column index of the merged cell",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+      },
+      "maxCol": {
+        "description": "Maximum column index of the merged cell",
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+      },
+      "textHeight": {
+        "description":"Default height of the text. Overrides the text height from the style.",
+		"$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+      },
     },
     "required": ["row","column"]
   }

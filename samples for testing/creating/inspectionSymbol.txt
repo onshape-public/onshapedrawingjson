@@ -3,11 +3,11 @@ For example, here used "noteTestWithoutLeader".
 
 var osAutoDescr = 
 {
-  "FormatVersion":"2021-01-01",
-  "Annotations":
+  "formatVersion":"2021-01-01",
+  "annotations":
   [
     {
-      "inspectionsymbol": {
+      "inspectionSymbol": {
         "borderShape": "Circle",
         "borderSize": 2,
         "logicalId": "h:1000058A",

@@ -1,7 +1,7 @@
 var osAutoDescr = 
 {
-  "FormatVersion":"2021-01-01",
-  "Annotations":
+  "formatVersion":"2021-01-01",
+  "annotations":
   [
     {
       "callout":

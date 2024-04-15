@@ -56,5 +56,5 @@
             }
           }
     },
-    "required": ["rows","columns"]
+    "required": ["rows","columns","position"]
 }

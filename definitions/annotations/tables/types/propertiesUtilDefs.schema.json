@@ -15,6 +15,11 @@
     "fixedCornersEnum":{
         "type": "string",
         "enum": ["FixedCornerNotSelected","FixedCornerNone","FixedCornerBottomLeft","FixedCornerBottomRight","FixedCornerTopLeft","FixedCornerTopRight"]
+    },
+    "nonNegativeDecimalDefault0": {
+        "type": "number",
+        "minimum": 0,
+		"default": 0
     }
     },
     "required": []
