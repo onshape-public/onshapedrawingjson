@@ -45,7 +45,6 @@ var osAutoDescr =
       },
       {
          "threePointCircleCenterline": {
-            "logicalId": "h:10002632",
             "point1": {
                "coordinate": [
                   0.1668,
@@ -81,7 +80,6 @@ var osAutoDescr =
       },
       {
          "twoPointCircleCenterline": {
-         "logicalId": "h:10002639",
          "centerPoint": {
             "coordinate": [
                0.1668,

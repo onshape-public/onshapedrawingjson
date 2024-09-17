@@ -3,13 +3,9 @@ The current implementation can be tested this way:
 2) activate the dev console, "inspect" the editor frame, so that it becomes active JS context in the console.
 3) save the JSON to some variable (e.g. var osAutoDescr ={...} )
 4) run the request:
-XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "OnshapeCreateAnnotations").then( param => { console.log("========", param); } );
+XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "onshapeCreateAnnotations").then( param => { console.log("========", param); } );
 or just
-XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "OnshapeCreateAnnotations")
+XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "onshapeCreateAnnotations")
 
-For editing use it: XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "OnshapeEditAnnotations")
+For editing use it: XeRequest.prototype.Promise( getXeDocument(), osAutoDescr, "onshapeEditAnnotations")
 It will create/edit the annotations or report some error, if something goes wrong.
-
-Also there is separate drawing application extension that lives in separate frame and it also can create some annotations and export drawing json.
-
-

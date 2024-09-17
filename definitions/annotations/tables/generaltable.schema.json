@@ -29,13 +29,13 @@
             "description": "Table formatting override for this table",
             "$ref": "../formatting/table.schema.json"
         },
-        "suppressTitleRow": {
-            "description": "Flag to determine suppress state of title row",
+        "showTitleRow": {
+            "description": "Flag to determine visible state of title row",
             "type": "boolean",
             "default": false
         },
-        "suppressHeaderRow": {
-            "description": "Flag to determine suppress state of header row",
+        "showHeaderRow": {
+            "description": "Flag to determine visible state of header row",
             "type": "boolean",
             "default": false
         },

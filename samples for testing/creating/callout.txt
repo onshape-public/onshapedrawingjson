@@ -22,7 +22,6 @@ var osAutoDescr =
           "type": "Onshape::Reference::Point"
         },
         "textHeight": 0.12,
-        "logicalId": "callout1"
       },
       "type": "Onshape::Callout"
     },
@@ -45,7 +44,6 @@ var osAutoDescr =
           "type": "Onshape::Reference::Point"
         },
         "textHeight": 0.12,
-        "logicalId": "callout1",
         "parentAnnotation": "h:1000269F"
       },
       "type": "Onshape::Callout"
@@ -70,7 +68,6 @@ var osAutoDescr =
           "uniqueId": "F4244",
           "viewId": "cf15a49b0ce72ede85320825"
         },
-        "logicalId": "h:10002A15",
         "position": {
           "coordinate": [
             -1.1031792480633884,

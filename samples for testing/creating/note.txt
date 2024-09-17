@@ -6,7 +6,6 @@ var osAutoDescr =
     {
       "note": {
         "contents": "TEXT",
-        "logicalId": "h:1000269F",
         "position": {
           "coordinate": [
             6.688583573772924,
@@ -32,7 +31,6 @@ var osAutoDescr =
           "uniqueId": "F424A",
           "viewId": "02f9bf8de1b86f21001289e5"
         },
-        "logicalId": "h:10002243",
         "position": {
           "coordinate": [
             5.847996385214994,

@@ -16,6 +16,10 @@
     "defPoint": {
       "description":"Second definition point",
       "$ref": "../types/point.schema.json"
+    },
+    "isDangling": {
+      "description": "Is centerline dangling or not",
+      "type": "boolean"
     }
   },
   "additionalProperties": false,

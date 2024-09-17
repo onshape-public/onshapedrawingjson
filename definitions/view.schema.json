@@ -65,6 +65,10 @@
       "viewToPaperMatrix":{
         "description":"Matrix for converting view coordinates to paper coordinates",
         "$ref": "./annotations/types/matrix.schema.json"
+      },
+      "errorState": {
+          "description":"Error state for the view",
+          "$ref": "annotations/types/errorstate.schema.json"
       }
     },
     "additionalProperties": false,

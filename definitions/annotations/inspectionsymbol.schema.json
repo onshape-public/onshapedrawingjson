@@ -21,6 +21,12 @@
             "description": "Index of parent annotation: line number in multiline text/frame number in tolerace/etc.",
             "type": "integer"
         },
+        "itemParsing": {                                    
+            "description": "Item parsing of parent annotation",
+            "type": "string",
+            "enum":["eByRow","eByParameter"],
+            "default": "eByRow"
+        },
         "number": {
             "description":"Number of symbol",
             "type":"number"

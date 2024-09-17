@@ -37,9 +37,17 @@
         "description":"Dimension formatting override for this dimension",
         "$ref": "../formatting/dimension.schema.json"
       },
-      "measurement": {
-        "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
+      "measurementLength": {
+        "description": "Returns the measurement length (DXF 42) stored in this dimension entity",
         "type": "number"
+      },
+      "measurementAngle": {
+        "description": "Returns the measurement angle (DXF 42) stored in this dimension entity",
+        "type": "number"
+      },
+      "displayedValue": {
+        "description": "Returns the displayed value of the dimension entity",
+        "type": "string"
       },
       "isDangling": {
         "description": "Is dimension dangling or not",

@@ -56,6 +56,10 @@
             "type": "number",
             "minimum": 0,
             "maximum": 5
+        },
+        "isDangling": {
+            "description": "Is callout dangling or not",
+            "type": "boolean"
         }
     },
     "additionalProperties": false,

@@ -10,7 +10,6 @@ var osAutoDescr =
       "inspectionSymbol": {
         "borderShape": "Circle",
         "borderSize": 2,
-        "logicalId": "h:1000058A",
         "parentAnnotation": "h:10000577",
         "parentLineIndex": 0.0,
         "position": {

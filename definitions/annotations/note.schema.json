@@ -25,6 +25,10 @@
             "description":"Default height of the text. Overrides the text height from the style.",
             "type": "number",
             "exclusiveMinimum": 0
+        },
+        "isDangling": {
+            "description": "Is note dangling or not",
+            "type": "boolean"
         }
     },
     "additionalProperties": false,

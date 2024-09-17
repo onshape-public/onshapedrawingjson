@@ -45,6 +45,10 @@
         "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
         "type": "number"
       },
+      "displayedValue": {
+        "description": "Returns the displayed value of the dimension entity",
+        "type": "string"
+      },
       "isDangling": {
         "description": "Is dimension dangling or not",
         "type": "boolean"

@@ -22,7 +22,6 @@ var osAutoDescr =
             "dimtp": 0,
             "type": "Onshape::Formatting::Dimension"
           },
-          "logicalId": "h:10000B17",
           "point1": {
             "coordinate": [
               -0.021,
@@ -102,7 +101,6 @@ var osAutoDescr =
             "dimtp": 0,
             "type": "Onshape::Formatting::Dimension"
           },
-          "logicalId": "h:10000B17",
           "point1": {
             "coordinate": [
               -0.021,
@@ -166,7 +164,6 @@ var osAutoDescr =
             "dimtp": 0,
             "type": "Onshape::Formatting::Dimension"
           },
-          "logicalId": "h:100002DB",
           "textOverride": "",
           "textPosition": {
             "coordinate": [
@@ -210,7 +207,6 @@ var osAutoDescr =
             "dimtp": 0,
             "type": "Onshape::Formatting::Dimension"
           },
-          "logicalId": "h:100004E7",
           "textOverride": "",
           "textPosition": {
             "coordinate": [

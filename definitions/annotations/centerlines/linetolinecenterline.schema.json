@@ -16,6 +16,10 @@
         "edge2": {
             "description":"Second definition edge for the dimension",
             "$ref": "../types/edge.schema.json"
+        },
+        "isDangling": {
+            "description": "Is centerline dangling or not",
+            "type": "boolean"
         }
     },
     "additionalProperties": false,

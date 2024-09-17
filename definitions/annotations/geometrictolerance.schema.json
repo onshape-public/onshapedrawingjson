@@ -47,6 +47,10 @@
       },
       "minItems": 4,
       "maxItems": 4
+    },
+    "isDangling": {
+      "description": "Is GDT dangling or not",
+      "type": "boolean"
     }
   },
   "additionalProperties": false,

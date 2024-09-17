@@ -10,7 +10,8 @@
             "const": "Onshape::Reference::Point"
         },
         "snapPointType": {
-            "type": "string"
+            "type": "string",
+			"enum":["ModeNear", "ModeStart", "ModeEnd", "ModeCenter", "ModeMid", "ModeQuad", "ModeIntersec", "ModeIns", "ModePerp", "ModeTan", "ModeApint", "ModePar", "ModeNode"]
         }
     },
     "required": [
