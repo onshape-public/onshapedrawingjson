@@ -19,14 +19,14 @@
       "description": "Type of request"
     },
     "annotations": {
-      "description": "Annotations",
+      "description": "annotations",
       "type": "array",
       "items": {
         "type": "../annotation.schema.json"
       }
     },
     "additionalProperties": false,
-    "required": [ "messageName","annotations" ],
+    "required": [ "messageName", "annotations" ],
     "oneOf": [ "formatVersion" ]
   }
 }

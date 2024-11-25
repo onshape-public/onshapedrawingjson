@@ -45,6 +45,10 @@
             "type": "number",
             "minimum": 0,
             "maximum": 5
+        },
+        "isDangling": {
+            "description": "Is inspection symbol dangling or not",
+            "type": "boolean"
         }
     },
     "required": ["position", "parentAnnotation"],

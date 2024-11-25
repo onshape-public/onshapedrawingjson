@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/exportdrawingrequest",
+  "title": "Meta information for the drawing export request",
+  "type": "object",
+  "properties": {
+    "level": {
+      "type": "string",
+      "enum": ["full", "basic"]
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "storeInDocument": {
+      "type": "boolean",
+      "description": "Should the export be stored as a new tab in the document?"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["storeInDocument"]
+}
