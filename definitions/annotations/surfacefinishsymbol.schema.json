@@ -1,0 +1,84 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/surfacefinish",
+	"title": "Surface Finish Symbol Annotation",
+	"description": "Defines a surface finish symbol with an optional leader.",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of the annotation",
+			"type": "string"
+		},
+		"position": {
+			"description": "Surface finish symbol position, non-associative",
+			"$ref": "types/point.schema.json"
+		},
+		"leaderPosition": {
+			"description": "Leader arrow position, associative.",
+			"$ref": "types/point.schema.json"
+		},
+		"maxRoughness": {
+			"description": "The max roughness text",
+			"type": "string"
+		},
+		"minRoughness": {
+			"description": "The min roughness text",
+			"type": "string"
+		},
+		"matRemovalAllowance": {
+			"description": "The mat removal allowance text",
+			"type": "string"
+		},
+		"methodWaviness": {
+			"description": "The method waviness text",
+			"type": "string"
+		},
+		"roughnessCutoff": {
+			"description": "The roughness cutoff text",
+			"type": "string"
+		},
+		"maxRoughnessWidth": {
+			"description": "The max roughness width text",
+			"type": "string"
+		},
+		"textHeight": {
+			"description": "Default height of the text. Overrides the text height from the style.",
+			"type": "number"
+		},
+		"surfaceTextType": {
+			"description": "Surface finish symbol text type, one of the predefined values.",
+			"type": "string",
+			"enum": [
+				"Basic",
+				"RemovalOfMaterialRequired",
+				"RemovalOfMaterialProhibited",
+				"RemovalAllowanceSpecified"
+			]
+		},
+		"surfaceDirectionLayType": {
+			"description": "Surface finish symbol Direction Lay type, one of the predefined values.",
+			"type": "string",
+			"enum": [
+				"NotSpecified",
+				"CrossedIn2SlantDirections",
+				"CircularRelativeToCenter",
+				"MultiDirection",
+				"ParallelToPlaneOfProjection",
+				"PerpendicularToPlaneOfProjection",
+				"ParticulateNonDirectional",
+				"RadialRelativeToCenter",
+				"UserDirectionLayType"
+			]
+		},
+		"isDangling": {
+			"description": "Is surface finish symbol dangling or not",
+			"type": "boolean"
+		},
+		"isAllAround": {
+			"description": "Is surface finish symbol is all around or not",
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false,
+	"required": ["position"]
+}

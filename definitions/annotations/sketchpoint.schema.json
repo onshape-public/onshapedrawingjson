@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/sketchpoint",
+	"title": "SketchPoint",
+	"description": "Defines a sketchPoint.",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of sketchPoint",
+			"type": "string"
+		},
+		"position": {
+			"description": "Position of sketch point,associative or non-associative",
+			"$ref": "types/point.schema.json"
+		},
+		"viewId": {
+			"description": "If sketchPoint grouped with view",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false,
+	"required": ["position"]
+}

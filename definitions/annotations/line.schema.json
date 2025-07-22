@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/line",
+    "title": "Line",
+    "description": "Defines a line.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of line",
+            "type": "string"
+        },
+        "startPoint": {
+            "description":"Start point of line, associative or non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "endPoint": {
+            "description":"End point of line, associative or non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "viewId":{
+            "description":"If line is grouped with view",
+            "type":"string"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["startPoint","endPoint"]
+}

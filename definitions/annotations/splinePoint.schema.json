@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/splinepoint",
+	"title": "SplinePoint",
+	"description": "Defines a splinePoint.",
+	"type": "object",
+	"properties": {
+		"splineLogicalId": {
+			"description": "Logical id of spline",
+			"type": "string"
+		},
+		"logicalId": {
+			"description": "Logical id of spline point",
+			"type": "string"
+		},
+		"position": {
+			"description": "Position of the splinePoint",
+			"$ref": "types/point.schema.json"
+		},
+	},
+	"additionalProperties": false,
+	"required": ["position"]
+}

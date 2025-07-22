@@ -1,0 +1,58 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/circle",
+	"title": "Circle",
+	"description": "Defines a circle.",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of circle",
+			"type": "string"
+		},
+		"viewId": {
+			"description": "If circle grouped with view",
+			"type": "string"
+		}
+	},
+	"oneOf": [
+		{
+			"title": "Circle using center point and radius",
+			"properties": {
+				"center": {
+					"description": "Center point of circle, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				},
+				"radius": {
+					"description": "Radius of circle",
+					"type": "number"
+				}
+			},
+			"required": [
+				"center",
+				"radius"
+			]
+		},
+		{
+			"title": "Three point circle",
+			"properties": {
+				"point1": {
+					"description": "First point of three point circle, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				},
+				"point2": {
+					"description": "Second point of three point circle, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				},
+				"point3": {
+					"description": "Third point of three point circle, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				}
+			},
+			"required": [
+				"point1",
+				"point2",
+				"point3"
+			]
+		}
+	]
+}

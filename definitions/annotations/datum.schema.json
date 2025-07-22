@@ -1,0 +1,55 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/datum",
+	"title": "Datum Annotation",
+	"description": "Defines a datum",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of Datum annotation",
+			"type": "string"
+		},
+		"position": {
+			"description": "Text position, non-associative",
+			"$ref": "types/point.schema.json"
+		},
+		"contents": {
+			"description": "Text of Datum",
+			"type": "string"
+		},
+		"targetPosition": {
+			"description": "Datum leader position, associative or non associative.",
+			"$ref": "types/point.schema.json"
+		},
+		"arrowType": {
+			"description": "Arrow type os datum(DatumBlank/DatumFilled)",
+			"type": "string",
+			"enum": [
+				"datumBlank",
+				"datumFilled"
+			],
+			"default": "datumFilled"
+		},
+		"textSize": {
+			"description": "Text size of the datum",
+			"type": "number"
+		},
+		"datumSize": {
+			"description": "Datum size",
+			"type": "number"
+		},
+		"isDangling": {
+			"description": "Is datum dangling or not",
+			"type": "boolean"
+		},
+		"isDatumTarget": {
+			"description": "Is the entity is datum target or not",
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"position",
+		"targetPosition"
+	]
+}

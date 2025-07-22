@@ -1,0 +1,88 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/chamferdimension",
+    "title": " Chamfer Dimension",
+    "description": "Defines angle for the chamfer dimension",
+    "type": "object",
+    "properties": {
+      "logicalId": {
+        "description": "Logical id of chamfer dimension",
+        "type": "string"
+      },
+      "edge1Start": {
+        "description":"Start of the first edge for the chamfer dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "edge1End": {
+        "description":"End of the first edge for the chamfer dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "edge2Start": {
+        "description":"Start of the second edge for the chamfer dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "edge2End": {
+        "description":"End of the second edge for the chamfer dimension",
+        "$ref": "../types/point.schema.json"
+      },
+      "textPosition": {
+        "description":"Midpoint for the dimension text, non-associative",
+        "$ref": "../types/point.schema.json"
+      },
+      "firstChamferOverride": {
+        "description":"Override to replace the first value of chamfer dimension ",
+        "type": "string"
+      },
+      "secondChamferOverride": {
+        "description":"Override to replace the second value of chamfer dimension",
+        "type": "string"
+      },
+      "textAbove": {
+        "description":"Above text for chamfer dimension",
+        "type": "string"
+      },
+      "textBelow": {
+        "description":"Below text of chamfer dimension",
+        "type": "string"
+      },
+      "prefix": {
+        "description":"Prefix of chamfer dimension",
+        "type": "string"
+      },
+      "suffix": {
+        "description":"Suffix of chamfer dimension",
+        "type": "string"
+      },
+      "formatting": {
+        "description":"Dimension formatting override for this dimension",
+        "$ref": "../formatting/dimension.schema.json"
+      },
+      "measurementLength": {
+        "description": "Returns the measurement length (DXF 42) stored in this dimension entity",
+        "type": "number"
+      },
+      "measurementAngle": {
+        "description": "Returns the measurement angle (DXF 42) stored in this dimension entity",
+        "type": "number"
+      },
+      "displayedValue": {
+        "description": "Returns the displayed value of the dimension entity",
+        "type": "string"
+      },
+      "isDangling": {
+        "description": "Is dimension dangling or not",
+        "type": "boolean"
+      },
+      "unit": {
+        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+        "$ref": "../types/unit.schema.json"
+      },
+      "secondUnit": {
+        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+        "$ref": "../types/unit.schema.json"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["edge1Start", "edge1End", "edge2Start", "edge2End", "textPosition","unit","secondUnit"]
+  }
+  

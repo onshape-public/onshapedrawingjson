@@ -18,6 +18,11 @@
       "const": "onshapeCreateAnnotations",
       "description": "Type of request"
     },
+    "description": {
+      "description": "History entry for the requested change in drawing",
+      "title": "History content",
+      "type": "string"
+    },
     "annotations": {
       "description": "annotations",
       "type": "array",

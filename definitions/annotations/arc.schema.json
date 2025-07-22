@@ -1,0 +1,69 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/arc",
+	"title": "Arc",
+	"description": "Defines an arc.",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of arc",
+			"type": "string"
+		},
+		"viewId": {
+			"description": "If arc is grouped with view",
+			"type": "string"
+		}
+	},
+	"oneOf": [
+		{
+			"title": "Center, radius, startAngle and endAngle arc",
+			"properties": {
+				"center": {
+					"description": "Center point of arc, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				},
+				"radius": {
+					"description": "Radius of arc",
+					"type": "number"
+				},
+				"startAngle": {
+					"description": "Start angle of arc",
+					"type": "number"
+				},
+				"endAngle": {
+					"description": "End angle of arc",
+					"type": "number"
+				}
+			},
+			"required": [
+				"center",
+				"radius",
+				"startAngle",
+				"endAngle"
+			]
+		},
+		{
+			"title": "Three point arc or tangent arc",
+			"properties": {
+				"startPoint": {
+					"description": "Start point for arc, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				},
+				"arcPoint": {
+					"description": "Arc point for arc",
+					"$ref": "types/point.schema.json"
+				}
+				,
+				"endPoint": {
+					"description": "End point for arc, associative or non-associative",
+					"$ref": "types/point.schema.json"
+				}
+			},
+			"required": [
+				"startPoint",
+				"arcPoint",
+				"endPoint"
+			]
+		}
+	]
+}

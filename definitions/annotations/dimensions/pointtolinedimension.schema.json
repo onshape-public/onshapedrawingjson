@@ -45,6 +45,10 @@
           "description": "Is dimension dangling or not",
           "type": "boolean"
         },
+        "isDrivingDimension": {
+            "description": "Is driving dimension",
+            "type": "boolean"
+      },
         "unit": {
           "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
           "$ref": "../types/unit.schema.json"

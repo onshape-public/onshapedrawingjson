@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/spline",
+	"title": "Spline",
+	"description": "Defines a spline.",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of spline",
+			"type": "string"
+		},
+		"points": {
+			"description": "Points of the spline",
+			"type": "array",
+			"items": {
+				"title": "Point",
+				"$ref": "types/point.schema.json"
+			}
+		},
+		"viewId": {
+			"description": "If spline is grouped with view",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false,
+	"required": ["points"]
+}

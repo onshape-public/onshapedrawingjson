@@ -14,7 +14,7 @@
           "Onshape::Dimension::ThreePointAngular",
           "Onshape::Dimension::Radial",
           "Onshape::Dimension::Diametric",
-          "Onshape::Dimension::ChamferNote",
+          "Onshape::Dimension::Chamfer",
           "Onshape::Centerline::PointToPoint",
           "Onshape::Centerline::LineToLine",
           "Onshape::Centerline::TwoPointCircleCenterline",
@@ -23,7 +23,15 @@
           "Onshape::Callout",
           "Onshape::InspectionSymbol",
           "Onshape::GeometricTolerance",
-          "Onshape::Table::GeneralTable"
+          "Onshape::Table::GeneralTable",
+          "Onshape::Datum",
+          "Onshape::SurfaceFinishSymbol",
+          "Onshape::Line",
+          "Onshape::Circle",
+          "Onshape::Arc",
+          "Onshape::SketchPoint",
+          "Onshape::Spline",
+          "Onshape::SplinePoint"
         ]
       }
     },
@@ -35,7 +43,7 @@
       { "properties": { "threePointAngularDimension": { "$ref":"annotations/dimensions/threepointangulardimension.schema.json" } } },
       { "properties": { "radialDimension": { "$ref":"annotations/dimensions/radialdimension.schema.json" } } },
       { "properties": { "diametricDimension": { "$ref":"annotations/dimensions/diametricdimension.schema.json" } } },
-      { "properties": { "chamferNote": { "$ref":"annotations/dimensions/chamfernote.schema.json" } } },
+      { "properties": { "chamferDimension": { "$ref":"annotations/dimensions/chamferdimension.schema.json" } } },
       { "properties": { "pointToPointCenterline": { "$ref":"annotations/centerlines/pointtopointcenterline.schema.json" } } },
       { "properties": { "lineToLineCenterline": { "$ref":"annotations/centerlines/linetolinecenterline.schema.json" } } },
       { "properties": { "twoPointCircleCenterline": { "$ref":"annotations/centerlines/twopointcirclecenterline.schema.json" } } },
@@ -44,7 +52,15 @@
       { "properties": { "callout": { "$ref":"annotations/callout.schema.json" } } },
       { "properties": { "inspectionSymbol": { "$ref":"annotations/inspectionsymbol.schema.json" } } },
       { "properties": { "geometricTolerance": { "$ref":"annotations/geometrictolerance.schema.json" } } },
-      { "properties": { "table": { "$ref":"annotations/tables/generaltable.schema.json" } } }
+      { "properties": { "table": { "$ref":"annotations/tables/generaltable.schema.json" } } },
+      { "properties": { "datum": { "$ref":"annotations/datum.schema.json" } } },
+      { "properties": { "surfaceFinishSymbol": { "$ref":"annotations/surfacefinishsymbol.schema.json" } } },
+      { "properties": { "line": { "$ref":"annotations/line.schema.json" } } },
+      { "properties": { "circle": { "$ref":"annotations/circle.schema.json" } } },
+      { "properties": { "arc": { "$ref":"annotations/arc.schema.json" } } },
+      { "properties": { "sketchPoint": { "$ref":"annotations/sketchpoint.schema.json" } } },
+      { "properties": { "spline": { "$ref":"annotations/spline.schema.json" } } },
+      { "properties": { "splinePoint": { "$ref":"annotations/splinepoint.schema.json" } } }
     ],
     "required": ["type"]
   }
