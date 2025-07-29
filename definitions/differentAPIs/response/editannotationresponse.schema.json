@@ -17,7 +17,7 @@
       "description": "Annotations",
       "type": "array",
       "items": {
-        "type": "../annotation.schema.json"
+        "$ref": "../../annotation.schema.json"
       }
     }
   }
