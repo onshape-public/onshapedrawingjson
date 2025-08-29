@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/types/boundingBoxPoints",
+  "title": "Bounding Box Points",
+  "description": "Min and max points defining the bounding box",
+  "type": "object",
+  "properties": {
+    "min": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": [ "x", "y" ]
+    },
+    "max": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": [ "x", "y" ]
+    }
+  },
+  "required": [ "min", "max" ]
+}

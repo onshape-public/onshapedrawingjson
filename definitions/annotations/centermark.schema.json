@@ -1,0 +1,77 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/centermark",
+	"title": "Centermark",
+	"description": "Defines a centermark",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of centermark",
+			"type": "string"
+		},
+		"centerPoint": {
+			"description": "Center point of the centermark, associative",
+			"$ref": "types/point.schema.json"
+		},
+		"isAutoCenterMark": {
+			"description": "Is auto centermark",
+			"type": "boolean"
+		}
+	},
+	"required": [
+		"centerPoint"
+	],
+	"oneOf": [
+		{
+			"title": "Extension line grip points",
+			"$comment": "Coordinates of the left, right, above, below grip points in X,  Y, Z format",
+			"properties": {
+				"leftGripPoint": {
+					"description": "Left grip point of centermark",
+					"$ref": "types/point.schema.json"
+				},
+				"rightGripPoint": {
+					"description": "Right grip point of centermark",
+					"$ref": "types/point.schema.json"
+				},
+				"topGripPoint": {
+					"description": "Top grip point of centermark",
+					"$ref": "types/point.schema.json"
+				},
+				"bottomGripPoint": {
+					"description": "Bottom grip point of centermark",
+					"$ref": "types/point.schema.json"
+				}
+			},
+			"required": [
+				"leftGripPoint",
+				"rightGripPoint",
+				"topGripPoint",
+				"bottomGripPoint"
+			]
+		},
+		{
+			"title": "Extension line length for all four extension lines",
+			"$comment": "Extension length of centermark",
+			"properties": {
+				"extensionLineLength": {
+					"description": "Length of the extension lines for the centermark ",
+					"type": "number"
+				}
+			},
+			"required": [
+				"extensionLineLength"
+			]
+		},
+		{
+			"title": "If centermark align with edge/line",
+			"$comment": "Edge align with centermark",
+			"properties": {
+				"alignEdge": {
+					"description": "Edge for the centermark alignment",
+					"$ref": "types/edge.schema.json"
+				}
+			}
+		}
+	]
+}

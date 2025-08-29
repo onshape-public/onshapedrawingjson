@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/createannotationrequest",
-  "title": "Create annotations",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/editviewrequest",
+  "title": "Edit views",
   "type": "object",
   "properties": {
     "formatVersion": {
@@ -15,7 +15,7 @@
     },
     "messageName": {
       "type":" string",
-      "const": "onshapeCreateAnnotations",
+      "const": "onshapeEditViews",
       "description": "Type of request"
     },
     "description": {
@@ -23,15 +23,15 @@
       "title": "History content",
       "type": "string"
     },
-    "annotations": {
-      "description": "Annotations",
+    "views": {
+      "description": "Views",
       "type": "array",
       "items": {
-        "type": "../annotation.schema.json"
+        "type": "../view.schema.json"
       }
     },
     "additionalProperties": false,
-    "required": [ "messageName", "annotations" ],
+    "required": [ "messageName", "views" ],
     "oneOf": [ "formatVersion" ]
   }
 }

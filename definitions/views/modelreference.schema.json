@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/views/modelreference",
+    "title": "Onshape Model Reference",
+    "type": "object",
+    "properties": {
+        "referenceId": {
+            "type": "string"
+        },
+        "elementId": {
+            "type": "string"
+        },
+        "documentId": {
+            "type": "string"
+        },
+        "versionId": {
+            "type": "string"
+        },
+        "latestMvAndSyncReferencesAcrossAllViews": {
+            "description" : "If true, workspace reference is created at latest microversion and all existing references to same element are updated. Otherwise, microversion of existing references is used or latest if there are none. Default is false.",
+            "type": "boolean"
+        },
+        "idTag": {
+            "type": "string"
+        },
+        "isSketchOnly": {
+            "type": "boolean"
+        },
+        "isSurface": {
+            "type": "boolean"
+        },
+        "isFlattenedBody": {
+            "type": "boolean"
+        },
+        "sketchIds": {
+            "type":"array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "configuration": {
+            "type": "string"
+        },
+        "partNumber": {
+            "type": "string"
+        },
+        "revision": {
+            "type": "string"
+        },
+        "isLocked": {
+            "type": "boolean"
+        }
+    },
+    "required": [ "elementId" ]
+}

@@ -14,7 +14,7 @@
         "title": "Json request data",
         "type": "array",
         "items": {
-          "type": ["createannotationrequest.schema.json","editannotationrequest.schema.json"]
+          "type": ["createannotationrequest.schema.json","editannotationrequest.schema.json","createviewrequest.schema.json","editviewrequest.schema.json"]
         }
       }
     },

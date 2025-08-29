@@ -29,6 +29,10 @@
         "isDangling": {
             "description": "Is note dangling or not",
             "type": "boolean"
+        },
+        "boundingBoxPoints": {
+            "description": "Bounding box points",
+            "$ref": "types/boundingBoxPoints.schema.json"
         }
     },
     "additionalProperties": false,

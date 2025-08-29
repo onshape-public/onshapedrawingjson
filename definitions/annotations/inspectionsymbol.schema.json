@@ -49,6 +49,10 @@
         "isDangling": {
             "description": "Is inspection symbol dangling or not",
             "type": "boolean"
+        },
+        "boundingBoxPoints": {
+            "description": "Bounding box points",
+            "$ref": "types/boundingBoxPoints.schema.json"
         }
     },
     "required": ["position", "parentAnnotation"],

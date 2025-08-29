@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/views/types/scale",
+    "title": "Onshape Scale",
+    "type": "object",
+    "properties": {
+        "numerator": {
+            "type": "number"
+        },
+        "denominator": {
+            "type": "number"
+        },
+        "scaleSource": {
+            "type": "string",
+            "enum": ["Parent", "Custom", "Sheet"]
+        }
+    },
+    "required": [ "scaleSource" ],
+    "allOf": [
+        {
+            "if": {
+                "properties": { "scaleSource": { "const": "Custom" } }   
+            },
+            "then": {
+                "required": [ "numerator", "denominator" ]
+            }
+        }
+    ]
+}

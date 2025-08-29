@@ -1,24 +1,78 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://drawing-schemas.onshape.com/edit-annotations",
-  "title": "Edit annotations",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/response/editannotationresponse",
+  "title": "Edited annotations response info",
   "type": "object",
   "properties": {
-    "formatVersion": {
-      "type": "string",
-      "description": "Schema version",
-      "const": "2021-01-01"
+    "annotationsResponse": {
+      "description": "Edited annotations and their status",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Overall editing status",
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "Html status code",
+          "type": "string"
+        },
+        "errorDescription": {
+          "description": "Editing error description",
+          "type": "string"
+        },
+        "changeId":{
+          "description": "Microversion of the change",
+          "type": "string"
+        },
+        "results": {
+          "descriptions": "Handles of edited annotations",
+          "type": "Array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Annotation editing status",
+                "type": "string"
+              },
+              "errorDescription": {
+                "description": "Annotation editing error description",
+                "type": "string"
+              },
+              "logicalId": {
+                "description": "Annotation handle",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
     },
     "requestId": {
       "type": "string",
       "description": "Unique id for proper request tracking"
     },
-    "annotations": {
-      "description": "Annotations",
-      "type": "array",
-      "items": {
-        "type": "../annotation.schema.json"
-      }
+    "messageName": {
+      "type": "string",
+      "const": "queryEditAnnotationsResponse"
+    },
+    "version": {
+      "description": "Onshape release version",
+      "type": "string"
+    },
+    "documentId": {
+      "description": "Onshape document id",
+      "type": "string"
+    },
+    "elementId": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    },
+    "microversionId": {
+      "type": "string"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [ "annotationsResponse", "messageName", "documentId", "elementId" ]
 }

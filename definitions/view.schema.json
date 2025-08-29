@@ -4,18 +4,32 @@
     "title": "Onshape View",
     "type": "object",
     "properties": {
-      "type":{
+      "logicalId": {
+        "description": "Logical id of the view in drawing",
         "type": "string"
+      },
+      "referenceType":{
+        "type": "string",
+        "enum": ["Part studio", "Assembly", "Part", "Sketch", "Surface", "Composite part", "Curve", "Mesh"]
+      },
+      "viewType":{
+        "type": "string",
+        "enum": ["TopLevel", "Projected", "Auxiliary", "Section", "Detail"]
+      },
+      "reference": {
+          "description":"Model reference of the view",
+          "$ref": "views/modelreference.schema.json"
       },
       "viewId": {
         "type": "string"
       },
-      "parentViewId": {
-        "type": "string"
+      "parentView": {
+        "description":"Parent view",
+        "$ref": "views/viewreference.schema.json"
       },
       "scale":{
         "description":"Onshape view scale",
-        "$ref": "annotations/types/scale.schema.json"
+        "$ref": "views/types/scale.schema.json"
       },
       "position": {
         "title": "Center of view on sheet",
@@ -38,68 +52,206 @@
         "type": "string"
       },
       "rotation":{
+        "description": "Rotation angle of the view in degrees, by default it is 0. View is rotated clockwise for positve value and counterclockwise for negative value.",
         "type": "number"
       },
+      "suppressAlignmentWithParent":{
+        "description": "Suppress alignment with parent, by default it is false.",
+        "type": "boolean"
+      },
+      "synchronizeBreaksFromParent":{
+        "description": "Synchronize breaks from parent, by default it is true.",
+        "type": "boolean"
+      },
       "tangentEdges":{
+        "description": "Visual treatment of tangent edges in the view, by default it is solid.",
         "type": "string",
         "enum": ["solid", "hidden", "phantom"]
       },
       "renderMode":{
+        "description": "Type of render mode, by default it is performance.",
         "type": "string",
         "enum": ["performance", "quality"]
       },
       "simplification":{
-        "type": "string",
-        "enum": ["none", "absolute", "ratio to studio", "ratio to part", "automatic"]
+        "description": "Simplify the geometry shown in the drawing by setting a threshold below which features will be hidden, by default it is automatic.",
+        "type": "object",
+        "properties" : {
+          "option" : {
+            "type": "string",
+            "enum": ["none", "absolute", "ratio to studio", "ratio to part", "automatic"]
+          },
+          "threshold" : {
+            "description" : "Features below this value will be simplified. Theshold is in meters for 'absolute' option and in radio between 0 and 1 for 'ratio to studio' and 'ratio to part'.",
+            "type": "number"
+          }
+        },
+        "required": [ "option" ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {"option": { "oneOf": ["absolute", "ratio to studio", "ratio to part"] } }
+            },
+            "then": {
+              "required": [ "threshold" ]
+            }
+          }
+        ]
+      },
+      "includeSurfaces" : {
+        "description": "Include surfaces in Part Studio view.",
+        "type": "boolean"
+      },
+      "includeWires" : {
+        "description": "Include curves in Part Studio view.",
+        "type": "boolean"
       },
       "sheet":{
-        "type": "string"
+        "description":"Sheet the view is on",
+        "$ref": "views/sheetreference.schema.json"
       },
-      "name":{
+      "viewName":{
+        "description": "View name as displayed in sheet panel.",
         "type": "string"
       },
       "label":{
+        "description": "Label that is shown below the view. It contains view label and/or scale.",
         "type": "string"
       },
+      "showViewLabel":{
+        "description": "Show view label below the view, by default it is false.",
+        "type": "boolean"
+      },
       "showScaleLabel":{
+        "description": "Show scale label below the view, by default it is false.",
+        "type": "boolean"
+      },
+      "showSketchAppearances":{
+        "description": "Show sketch appearances from the Part Studio or Assembly in the Drawing, by default it is false.",
+        "type": "boolean"
+      },
+      "showHiddenLines":{
+        "description": "Show the lines of a view that are not visible in current view position (hidden lines), by default it is false.",
+        "type": "boolean"
+      },
+      "showCenterlines":{
+        "description": "Show automatic centerlines that are added to circular geometry (holes, cylinders, and spheres) from view, by default it is true.",
+        "type": "boolean"
+      },
+      "showCentermarks":{
+        "description": "Show automatic centermarks of holes, by default it is true.",
+        "type": "boolean"
+      },
+      "showShadedView":{
+        "description": "Show a shaded view of the parts, by default it is false.",
+        "type": "boolean"
+      },
+      "showThreads":{
+        "description": "Show threads (lines indicating threaded holes), by default it is true.",
+        "type": "boolean"
+      },
+      "showSketchPoints":{
+        "description": "If the sketch includes specific sketch points, you can show those points in the drawing, by default it is false.",
+        "type": "boolean"
+      },
+      "showFaultyParts":{
+        "description": "Show faulty parts that have been inserted into an assembly drawing view. Faulty parts are shown by default in Part drawings, but they are hidden by default in assembly drawings; rendering them may impact performance.",
+        "type": "boolean"
+      },
+      "showPartIntersections":{
+        "description": "Show part intersections, by default it is false.",
+        "type": "boolean"
+      },
+      "showAssemblySketches":{
+        "description": "Show sketches in assembly view, by default it is false.",
+        "type": "boolean"
+      },
+      "displayStateId":{
+        "description": "Display state id or ‘followParentId'. For all parent views, the default is ‘showAllNodeId'. All child views default to 'followParentId' display state.",
+        "type": "string"
+      },
+      "explodedViewIdOrNamedPositionId":{
+        "description": "Exploded view id or name position id or 'followParentId'. For all parent views, the default is ''. All child views default to 'followParentId'.",
+        "type": "string"
+      },
+      "showBendLines":{
+        "description": "Show the bend lines of a sheet metal flat pattern view, by default it is true.",
+        "type": "boolean"
+      },
+      "showBendNotes":{
+        "description": "Show bend notes for flattened views of sheet metal, by default it is true.",
         "type": "boolean"
       },
       "bomReference":{
+        "description": "Id of reference to nested BOM element in assembly",
         "type": "string",
         "default": ""
       },
       "viewToPaperMatrix":{
         "description":"Matrix for converting view coordinates to paper coordinates",
-        "$ref": "./annotations/types/matrix.schema.json"
+        "$ref": "views/types/matrix.schema.json"
       },
       "boundingBoxPoints": {
-        "description": "Min and max points defining the bounding box of the view",
-        "type": "object",
-        "properties": {
-          "min": {
-            "type": "object",
-            "properties": {
-              "x": { "type": "number" },
-              "y": { "type": "number" }
-            },
-            "required": [ "x", "y" ]
-          },
-          "max": {
-            "type": "object",
-            "properties": {
-              "x": { "type": "number" },
-              "y": { "type": "number" }
-            },
-            "required": [ "x", "y" ]
-          }
-        },
-        "required": [ "min", "max" ]
+        "description": "Bounding box points",
+        "$ref": "annotations/types/boundingBoxPoints.schema.json"
       },
       "errorState": {
           "description":"Error state for the view",
-          "$ref": "annotations/types/errorstate.schema.json"
+          "$ref": "views/errorstate.schema.json"
       }
     },
     "additionalProperties": false,
-    "required": [  ]
+    "required": [ "viewType", "position" ],
+    "allOf": [
+        {
+            "if": {
+                "properties": { "viewType": { "const": "TopLevel" } }
+            },
+            "then": {
+                "required": [ "reference", "orientation", "scale" ]
+            }
+        },
+        {
+            "if": {
+                "properties": { "viewType": { "const": "Projected" } }
+            },
+            "then": {
+                "required": [ "parentView" ]
+            }
+        },
+        {
+          "name":{
+            "description": "View name as specified in view properties.",
+            "type": "string"
+          }
+        }
+    ],
+    "oneOf": [
+      {
+        "label":{
+          "description": "View label as specified in view properties.",
+          "type": "string"
+        }
+      },
+      {
+        "label":{
+          "description": "View label as specified in view properties.",
+          "type": "object",
+          "properties" : {
+            "prefix":{
+              "description": "Prefix of auxiliary, section or detail view that is used in view label.",
+              "type": "string"
+            },
+            "letter":{
+              "description": "Letter of auxiliary, section or detail view that is used in view label.",
+              "type": "string"
+            },
+            "suffix":{
+              "description": "Suffix of auxiliary, section or detail view that is used in view label.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    ]
   }

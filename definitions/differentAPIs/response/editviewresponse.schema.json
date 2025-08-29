@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/response/editviewresponse",
+  "title": "Edited views response info",
+  "type": "object",
+  "properties": {
+    "viewsResponse": {
+      "description": "Edited views and their status",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Overall editing status",
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "Html status code",
+          "type": "string"
+        },
+        "errorDescription": {
+          "description": "Editing error description",
+          "type": "string"
+        },
+        "changeId":{
+          "description": "Microversion of the change",
+          "type": "string"
+        },
+        "results": {
+          "descriptions": "Handles of edited views",
+          "type": "Array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "View editing status",
+                "type": "string"
+              },
+              "errorDescription": {
+                "description": "View editing error description",
+                "type": "string"
+              },
+              "logicalId": {
+                "description": "View handle",
+                "type": "string"
+              },
+              "viewId": {
+                "description": "View id",
+                "type": "string"                
+              }
+            }
+          }
+        }
+      }
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "messageName": {
+      "type": "string",
+      "const": "queryEditViewsResponse"
+    },
+    "version": {
+      "description": "Onshape release version",
+      "type": "string"
+    },
+    "documentId": {
+      "description": "Onshape document id",
+      "type": "string"
+    },
+    "elementId": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    },
+    "microversionId": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "viewsResponse", "messageName", "documentId", "elementId" ]
+}

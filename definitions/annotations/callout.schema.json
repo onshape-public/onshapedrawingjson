@@ -60,6 +60,10 @@
         "isDangling": {
             "description": "Is callout dangling or not",
             "type": "boolean"
+        },
+        "boundingBoxPoints": {
+           "description": "Bounding box points",
+           "$ref": "types/boundingBoxPoints.schema.json"
         }
     },
     "additionalProperties": false,

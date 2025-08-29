@@ -18,7 +18,7 @@
       },
       "scale":{
         "description": "Scale of the sheet",
-        "$ref": "annotations/types/scale.schema.json"
+        "$ref": "views/types/scale.schema.json"
       },
       "size":{
         "description": "Size of the sheet",
@@ -28,9 +28,9 @@
         "description": "Format of the sheet",      
         "type": "string"
       },
-      "reference":{
-        "description": "Referenced part studio",      
-        "type": "string"
+      "reference": {
+        "description":"Model reference of the sheet",
+        "$ref": "views/modelreference.schema.json"
       },
       "annotations": {
         "title": "Annotations",
@@ -50,5 +50,5 @@
       }
     },
     "additionalProperties": false,
-    "required": [ "name", "annotations", "views", "scale", "format", "size", "reference" ]
+    "required": [ "name", "annotations", "views", "scale", "format", "size" ]
   }

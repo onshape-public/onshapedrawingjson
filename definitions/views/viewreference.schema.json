@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/views/viewreference",
+    "title": "View Reference",
+    "type": "object",
+    "properties" : {
+        "logicalId": {
+            "description": "Logical id of the view in drawing",
+            "type": "string"
+        },
+        "viewId" : {
+            "description": "View id in Onshape storage",
+            "type": "string"
+        }
+    },
+    "oneOf": [
+        {
+            "required": [ "logicalId" ]
+        },
+        {
+            "required": [ "viewId" ]
+        }
+    ]
+}

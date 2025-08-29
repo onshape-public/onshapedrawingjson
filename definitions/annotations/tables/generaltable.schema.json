@@ -54,6 +54,10 @@
               "title": "Cell",
               "$ref": "./types/cell.schema.json"
             }
+          },
+        "boundingBoxPoints": {
+           "description": "Bounding box points",
+           "$ref": "../types/boundingBoxPoints.schema.json"
           }
     },
     "required": ["rows","columns","position"]

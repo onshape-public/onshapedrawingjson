@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/views/types/matrix",
+  "title": "Onshape Matrix",
+  "type": "object",
+  "properties": {
+    "items":{
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minItems": 12,
+        "maxItems": 12
+      }
+    }
+  }
+}

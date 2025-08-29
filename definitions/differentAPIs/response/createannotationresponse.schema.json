@@ -5,11 +5,46 @@
   "type": "object",
   "properties": {
     "annotationsResponse": {
-      "title": "Created annotations response",
-      "descriptions": "Handles of created annotations (not finish variant)",
-      "type": "Array",
-      "items": {
-        "type": "string"
+      "description": "Created annotations and their status",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Overall creation status",
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "Html status code",
+          "type": "string"
+        },
+        "errorDescription": {
+          "description": "Creation error description",
+          "type": "string"
+        },
+        "changeId":{
+          "description": "Microversion of the change",
+          "type": "string"
+        },
+        "results": {
+          "descriptions": "Handles of created annotations",
+          "type": "Array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Annotation creation status",
+                "type": "string"
+              },
+              "errorDescription": {
+                "description": "Annotation creation error description",
+                "type": "string"
+              },
+              "logicalId": {
+                "description": "Annotation handle",
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     },
     "requestId": {

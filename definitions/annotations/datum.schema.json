@@ -45,6 +45,10 @@
 		"isDatumTarget": {
 			"description": "Is the entity is datum target or not",
 			"type": "boolean"
+		},
+		"boundingBoxPoints": {
+			"description": "Bounding box points",
+			"$ref": "types/boundingBoxPoints.schema.json"
 		}
 	},
 	"additionalProperties": false,

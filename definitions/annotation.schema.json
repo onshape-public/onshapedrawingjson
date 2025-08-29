@@ -31,7 +31,8 @@
           "Onshape::Arc",
           "Onshape::SketchPoint",
           "Onshape::Spline",
-          "Onshape::SplinePoint"
+          "Onshape::SplinePoint",
+          "Onshape::Centermark"
         ]
       }
     },
@@ -60,7 +61,8 @@
       { "properties": { "arc": { "$ref":"annotations/arc.schema.json" } } },
       { "properties": { "sketchPoint": { "$ref":"annotations/sketchpoint.schema.json" } } },
       { "properties": { "spline": { "$ref":"annotations/spline.schema.json" } } },
-      { "properties": { "splinePoint": { "$ref":"annotations/splinepoint.schema.json" } } }
+      { "properties": { "splinePoint": { "$ref":"annotations/splinepoint.schema.json" } } },
+      { "properties": { "centermark": { "$ref":"annotations/centermark.schema.json" } } }
     ],
     "required": ["type"]
   }

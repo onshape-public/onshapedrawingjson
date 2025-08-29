@@ -2,3 +2,4 @@
 documentation
 out
 .DS_Store
+*.h

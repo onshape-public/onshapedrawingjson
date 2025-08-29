@@ -48,6 +48,10 @@
       "unit": {
         "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
         "$ref": "../types/unit.schema.json"
+      },
+      "boundingBoxPoints": {
+        "description": "Bounding box points",
+        "$ref": "../types/boundingBoxPoints.schema.json"
       }
     },
     "additionalProperties": false,

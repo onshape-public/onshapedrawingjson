@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://drawing-schemas.onshape.com/edit-annotations",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/editannotationrequest",
   "title": "Edit annotations",
   "type": "object",
   "properties": {
@@ -24,7 +24,7 @@
       "type": "string"
     },
     "annotations": {
-      "description": "annotations",
+      "description": "Annotations",
       "type": "array",
       "items": {
         "type": "../annotation.schema.json"

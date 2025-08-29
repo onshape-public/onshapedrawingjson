@@ -129,6 +129,64 @@
             "required": [
                 "logicalId", "coordinate"
             ]
+        },
+        {
+            "title": "Intersection point based on deterministic when snapPointType is ModeIntersec",
+            "$comment":"Coordinate of the indicated point in X,  Y, Z format",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "deterministicIdIntersectedEdge1": {
+                    "description":"DeterministicId of intersected edge inside a view.",
+                    "type": "string"
+                },
+                "deterministicIdIntersectedEdge2": {
+                    "description":"DeterministicId of intersected edge inside a view.",
+                    "type": "string"
+                },
+                "viewId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinate", "deterministicIdIntersectedEdge1", "deterministicIdIntersectedEdge2", "viewId"
+            ]
+        },
+        {
+            "title": "Intersection point based on deterministic when snapPointType is ModeIntersec",
+            "$comment":"Intersection pointin X, Y, Z format",
+            "properties": {
+                "coordinate": {
+                    "title": "Coordinate",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                },
+                "uniqueIdIntersectedEdge1": {
+                    "description":"Hexadecimal handle of intersected edge inside a view.",
+                    "type": "string"
+                },
+                "uniqueIdIntersectedEdge2": {
+                    "description":"Hexadecimal handle of intersected edge inside a view.",
+                    "type": "string"
+                },
+                "viewId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinate", "uniqueIdIntersectedEdge1", "uniqueIdIntersectedEdge2", "viewId"
+            ]
         }
     ]
 }

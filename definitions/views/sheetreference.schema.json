@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/views/sheetreference",
+    "title": "Sheet Reference",
+    "type": "object",
+    "properties" : {
+        "logicalId": {
+            "description": "Logical id of the sheet in drawing",
+            "type": "string"
+        },
+        "name" : {
+            "description": "Name of the sheet",
+            "type": "string"
+        },
+        "index": {
+            "description": "Index of the sheet",
+            "type": "number"
+        }
+    },
+    "oneOf": [
+        {
+            "required": [ "logicalId" ]
+        },
+        {
+            "required": [ "name" ]
+        },
+        {
+            "required": [ "index" ]
+        }
+    ]
+}
