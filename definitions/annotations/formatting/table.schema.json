@@ -30,7 +30,7 @@
                     "type": "object",
                     "properties":{
                         "rowType":{
-                            "$ref": "../types/alignmentType.schema.json"
+                            "$ref": "../types/alignmenttype.schema.json"
                         },
                         "alignment":{
                             "$ref": "../types/alignment.schema.json"

@@ -47,8 +47,8 @@
       },
       "textHeight": {
         "description":"Default height of the text. Overrides the text height from the style.",
-		"$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
-      },
+        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+      }
     },
     "required": ["row","column"]
   }
