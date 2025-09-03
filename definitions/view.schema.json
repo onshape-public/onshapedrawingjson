@@ -3,14 +3,27 @@
     "$id": "https://drawing-schemas.onshape.com/view",
     "title": "Onshape View",
     "type": "object",
+    "definitions": {
+      "Simplification": {
+        "type": "string",
+        "enum": ["none", "absolute", "ratio to studio", "ratio to part", "automatic"]
+      },
+      "ReferenceType": {
+        "type": "string",
+        "enum": ["Part studio", "Assembly", "Part", "Sketch", "Surface", "Composite part", "Curve", "Mesh"]
+      }
+    },
     "properties": {
       "logicalId": {
         "description": "Logical id of the view in drawing",
         "type": "string"
       },
       "referenceType":{
-        "type": "string",
-        "enum": ["Part studio", "Assembly", "Part", "Sketch", "Surface", "Composite part", "Curve", "Mesh"]
+        "$ref": "#/definitions/ReferenceType"
+      },
+      "type":{
+        "description":"deprecated, will be replaced by referenceType",
+        "$ref": "#/definitions/ReferenceType"
       },
       "viewType":{
         "type": "string",
@@ -21,6 +34,9 @@
           "$ref": "views/modelreference.schema.json"
       },
       "viewId": {
+        "type": "string"
+      },
+      "parentViewId": {
         "type": "string"
       },
       "parentView": {
@@ -74,12 +90,14 @@
         "enum": ["performance", "quality"]
       },
       "simplification":{
+        "$ref": "#/definitions/Simplification"
+      },
+      "simplificationDetails":{
         "description": "Simplify the geometry shown in the drawing by setting a threshold below which features will be hidden, by default it is automatic.",
         "type": "object",
         "properties" : {
           "option" : {
-            "type": "string",
-            "enum": ["none", "absolute", "ratio to studio", "ratio to part", "automatic"]
+            "$ref": "#/definitions/Simplification"
           },
           "threshold" : {
             "description" : "Features below this value will be simplified. Theshold is in meters for 'absolute' option and in radio between 0 and 1 for 'ratio to studio' and 'ratio to part'.",
@@ -107,16 +125,45 @@
         "type": "boolean"
       },
       "sheet":{
+        "type": "string"
+      },
+      "sheetDetails":{
         "description":"Sheet the view is on",
         "$ref": "views/sheetreference.schema.json"
       },
-      "viewName":{
+      "name":{
+        "description": "View name as in view properties.",
+        "type": "string"
+      },
+      "fullName":{
         "description": "View name as displayed in sheet panel.",
         "type": "string"
       },
       "label":{
         "description": "Label that is shown below the view. It contains view label and/or scale.",
         "type": "string"
+      },
+      "labelDefinition":{
+        "description": "View label as specified in view properties.",
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of top level or projected view.",
+            "type": "string"
+          },
+          "prefix": {
+            "description": "Prefix of auxiliary, section or detail view that is used in view label.",
+            "type": "string"
+          },
+          "letter": {
+            "description": "Letter of auxiliary, section or detail view that is used in view label.",
+            "type": "string"
+          },
+          "suffix": {
+            "description": "Suffix of auxiliary, section or detail view that is used in view label.",
+            "type": "string"
+          }
+        }
       },
       "showViewLabel":{
         "description": "Show view label below the view, by default it is false.",
@@ -218,40 +265,6 @@
             "then": {
                 "required": [ "parentView" ]
             }
-        },
-        {
-          "name":{
-            "description": "View name as specified in view properties.",
-            "type": "string"
-          }
         }
-    ],
-    "oneOf": [
-      {
-        "label":{
-          "description": "View label as specified in view properties.",
-          "type": "string"
-        }
-      },
-      {
-        "label":{
-          "description": "View label as specified in view properties.",
-          "type": "object",
-          "properties" : {
-            "prefix":{
-              "description": "Prefix of auxiliary, section or detail view that is used in view label.",
-              "type": "string"
-            },
-            "letter":{
-              "description": "Letter of auxiliary, section or detail view that is used in view label.",
-              "type": "string"
-            },
-            "suffix":{
-              "description": "Suffix of auxiliary, section or detail view that is used in view label.",
-              "type": "string"
-            }
-          }
-        }
-      }
     ]
   }

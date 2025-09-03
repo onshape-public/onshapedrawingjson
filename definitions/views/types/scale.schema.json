@@ -7,7 +7,7 @@
         "numerator": {
             "type": "number"
         },
-        "denominator": {
+        "denumerator": {
             "type": "number"
         },
         "scaleSource": {
@@ -22,7 +22,7 @@
                 "properties": { "scaleSource": { "const": "Custom" } }   
             },
             "then": {
-                "required": [ "numerator", "denominator" ]
+                "required": [ "numerator", "denumerator" ]
             }
         }
     ]

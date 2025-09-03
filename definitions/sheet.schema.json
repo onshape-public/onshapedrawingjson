@@ -29,6 +29,10 @@
         "type": "string"
       },
       "reference": {
+        "description": "Reference id",     
+        "type": "string"
+      },
+      "referenceDetails": {
         "description":"Model reference of the sheet",
         "$ref": "views/modelreference.schema.json"
       },
