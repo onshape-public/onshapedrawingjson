@@ -64,6 +64,14 @@
       "boundingBoxPoints": {
         "description": "Bounding box points",
         "$ref": "../types/boundingBoxPoints.schema.json"
+      },
+	  "tolerance": {
+        "description":"Dimension tolerance display",
+        "$ref": "../types/tolerance.schema.json"
+	  },
+	  "aliasLogicalId": {
+        "description": "Alias for logical id",
+        "type": "string"
       }
     },
     "additionalProperties": false,

@@ -16,7 +16,11 @@
 		"viewId": {
 			"description": "If sketchPoint grouped with view",
 			"type": "string"
-		}
+		},
+        "aliasLogicalId": {
+          "description": "Alias for logical id",
+          "type": "string"
+        }
 	},
 	"additionalProperties": false,
 	"required": ["position"]

@@ -65,6 +65,11 @@
                         "min",
                         "max"
                     ]
+                },
+                "quadPointType": {
+                    "description":"Type of quad point of Circle",
+                    "type": "string",
+                    "enum": ["left", "right", "top", "bottom"]
                 }
             },
             "required": [
@@ -96,6 +101,11 @@
                         "min",
                         "max"
                     ]
+                },
+                "quadPointType": {
+                    "description":"Type of quad point of Circle",
+                    "type": "string",
+                    "enum": ["left", "right", "top", "bottom"]
                 }
             },
             "required": [
@@ -124,6 +134,16 @@
                         "min",
                         "max"
                     ]
+                },
+                "centerMarkGripPointType": {
+                    "description":"Type of grip point of Centermark",
+                    "type": "string",
+                    "enum": ["none","left", "right", "top", "bottom"]
+                },
+                "quadPointType": {
+                    "description":"Type of quad point of Circle",
+                    "type": "string",
+                    "enum": ["left", "right", "top", "bottom"]
                 }
             },
             "required": [

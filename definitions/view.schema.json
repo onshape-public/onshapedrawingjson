@@ -18,6 +18,10 @@
         "description": "Logical id of the view in drawing",
         "type": "string"
       },
+      "aliasLogicalId": {
+        "description": "Alias for logical id",
+        "type": "string"
+      },
       "referenceType":{
         "$ref": "#/definitions/ReferenceType"
       },

@@ -16,7 +16,11 @@
 		"isAutoCenterMark": {
 			"description": "Is auto centermark",
 			"type": "boolean"
-		}
+		},
+        "aliasLogicalId": {
+          "description": "Alias for logical id",
+          "type": "string"
+        }
 	},
 	"required": [
 		"centerPoint"
@@ -72,6 +76,34 @@
 					"$ref": "types/edge.schema.json"
 				}
 			}
+		},
+		{
+			"title": "Extension line scaling factor",
+			"$comment": "Scaling factor of the left, right, top, bottom arms",
+			"properties": {
+				"leftArmScalingFactor": {
+					"description": "Left arm scaling factor",
+					"type": "number"
+				},
+				"rightArmScalingFactor": {
+					"description": "Right arm scaling factor",
+					"type": "number"
+				},
+				"topArmScalingFactor": {
+					"description": "Top arm scaling factor",
+					"type": "number"
+				},
+				"bottomArmScalingFactor": {
+					"description": "Bottom arm scaling factor",
+					"type": "number"
+				}
+			},
+			"required": [
+				"leftArmScalingFactor",
+				"rightArmScalingFactor",
+				"topArmScalingFactor",
+				"bottomArmScalingFactor"
+			]
 		}
 	]
 }

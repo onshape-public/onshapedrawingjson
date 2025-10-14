@@ -45,6 +45,11 @@
                 "logicalId": {
                     "description":"LogicalId of some other annotation e.g. \"Centerline1\"",
                     "type": "string"
+                },
+                "centerMarkGripPointType": {
+                    "description":"Type of grip point of Centermark",
+                    "type": "string",
+                    "enum": ["none","left", "right", "top", "bottom"]
                 }
             },
             "required": [

@@ -51,6 +51,10 @@
     "isDangling": {
       "description": "Is GDT dangling or not",
       "type": "boolean"
+    },
+    "aliasLogicalId": {
+      "description": "Alias for logical id",
+      "type": "string"
     }
   },
   "additionalProperties": false,

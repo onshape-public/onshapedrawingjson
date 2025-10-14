@@ -1,0 +1,42 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/types/tolerance",
+	"title": "DimensionTolerance",
+	"type": "object",
+	"$comment": "Dimension tolerance display",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"None",
+				"Symmetrical",
+				"Deviation",
+				"Limits",
+				"Basic",
+				"MIN",
+				"MAX"
+			]
+		}
+	},
+	"required": [
+		"type"
+	],
+	"oneOf": [
+		{
+			"title": "Deviation / Symmetrical / Limits",
+			"properties": {
+				"upperValue": {
+					"description": "Upper value of tolerance, if tolerance type is Deviation / Symmetrical / Limits.",
+					"type": "number"
+				},
+				"lowerValue": {
+					"description": "Lower value of tolerance, if tolerance type is Deviation / Limits.",
+					"type": "number"
+				}
+			},
+			"required": [
+				"upperValue"
+			]
+		}
+	]
+}

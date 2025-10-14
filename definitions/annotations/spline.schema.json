@@ -20,7 +20,11 @@
 		"viewId": {
 			"description": "If spline is grouped with view",
 			"type": "string"
-		}
+		},
+        "aliasLogicalId": {
+          "description": "Alias for logical id",
+          "type": "string"
+        }
 	},
 	"additionalProperties": false,
 	"required": ["points"]

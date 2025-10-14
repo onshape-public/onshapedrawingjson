@@ -49,6 +49,10 @@
         "description": "Is driving dimension",
         "type": "boolean"
     },
+    "isThreadedDimension": {
+        "description": "Is threaded dimension",
+        "type": "boolean"
+    },
     "unit": {
       "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
       "$ref": "../types/unit.schema.json"
@@ -56,6 +60,14 @@
     "boundingBoxPoints": {
       "description": "Bounding box points",
       "$ref": "../types/boundingBoxPoints.schema.json"
+    },
+    "tolerance": {
+      "description":"Dimension tolerance display",
+      "$ref": "../types/tolerance.schema.json"
+	},
+	"aliasLogicalId": {
+      "description": "Alias for logical id",
+      "type": "string"
     }
   },
   "additionalProperties": false,

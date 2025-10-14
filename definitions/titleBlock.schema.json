@@ -1,0 +1,13 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/titleBlock",
+    "title": "Title block",
+    "type": "object",
+    "properties": {
+      "boundingBoxPoints": {
+        "description": "Bounding box points of title block",
+        "$ref": "annotations/types/boundingBoxPoints.schema.json"
+      }
+    },
+    "additionalProperties": false
+}

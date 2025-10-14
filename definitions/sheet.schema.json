@@ -51,6 +51,11 @@
         "items": {
           "$ref": "view.schema.json"
         }
+      },
+      "titleBlock":{
+        "title": "Title block of the sheet",
+        "description": "Title block of the sheet",
+        "$ref": "titleBlock.schema.json"
       }
     },
     "additionalProperties": false,
