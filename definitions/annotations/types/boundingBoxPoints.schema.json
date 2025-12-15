@@ -5,6 +5,10 @@
   "description": "Min and max points defining the bounding box",
   "type": "object",
   "properties": {
+	"type": {
+          "type": "string",
+          "const": "Onshape::BoundingBox::Points"
+    },
     "min": {
       "type": "object",
       "properties": {
@@ -22,5 +26,5 @@
       "required": [ "x", "y" ]
     }
   },
-  "required": [ "min", "max" ]
+  "required": [ "min", "max", "type" ]
 }

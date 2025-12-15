@@ -14,7 +14,10 @@
 				"Limits",
 				"Basic",
 				"MIN",
-				"MAX"
+				"MAX",
+				"Fit",
+				"FitWithTolerance",
+				"FitToleranceOnly"
 			]
 		}
 	},
@@ -36,6 +39,50 @@
 			},
 			"required": [
 				"upperValue"
+			]
+		},
+		{
+			"title": "Fit class tolerance",
+			"properties": {
+				"fitType": {
+					"description": "Fit type/Fit with tolerance/Fit Tolerance only",
+					"type": "string",
+					"enum": [
+					"Clearance",
+					"Transition",
+					"Interference",
+					"Userdefined"
+					]
+				},
+				"holeClass": {
+					"description": "Hole class.",
+					"type": "string"
+				},
+				"shaftClass": {
+					"description": "Shaft class.",
+					"type": "string"
+				},
+				"activeParameter": {
+					"description": "Hole/Shaft class.",
+					"type": "string",
+					"enum": [
+					"Hole",
+					"Shaft"
+					]
+				},
+				"precision": {
+					"description": "Tolerance precision(Fit with tolerance/fit tolerance only) ",
+					"type": "number"
+				},
+				"isPrecisionOverridden": {
+					"description": "True if the tolerance precision is overridden.",
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"fitType",
+				"holeClass",
+				"shaftClass"
 			]
 		}
 	]

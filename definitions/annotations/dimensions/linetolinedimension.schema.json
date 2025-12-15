@@ -52,6 +52,14 @@
       "description": "Is threaded dimension",
       "type": "boolean"
     },
+    "precision": {
+      "description":"Dimension value precision",
+      "type": "number"
+    },
+    "isPrecisionOverridden": {
+      "description": "True if the dimension precision is overridden.",
+      "type": "boolean"
+    },
     "unit": {
       "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
       "$ref": "../types/unit.schema.json"
@@ -66,6 +74,22 @@
 	},
 	"aliasLogicalId": {
       "description": "Alias for logical id",
+      "type": "string"
+    },
+    "textAbove": {
+      "description":"Above text of the dimension",
+      "type": "string"
+    },
+    "textBelow": {
+      "description":"Below text of the dimension",
+      "type": "string"
+    },
+    "prefix": {
+      "description":"Prefix of the dimension",
+      "type": "string"
+    },
+    "suffix": {
+      "description":"Suffix of the dimension",
       "type": "string"
     }
   },

@@ -73,6 +73,30 @@
         "description": "Is dimension dangling or not",
         "type": "boolean"
       },
+	  "firstLengthValuePrecision": {
+        "description":"First length value precision for Chamfer",
+        "type": "number"
+      },
+	  "secondLengthValuePrecision": {
+        "description":"Second length value precision for Chamfer",
+        "type": "number"
+      },
+      "isFirstLengthPrecisionOverridden": {
+        "description": "True if the first length value precision is overridden.",
+        "type": "boolean"
+      },
+      "isSecondLengthPrecisionOverridden": {
+        "description": "True if the second length value precision is overridden.",
+        "type": "boolean"
+      },
+	  "angularPrecision": {
+        "description":"Angular precision for Chamfer",
+        "type": "number"
+      },
+      "isAnglePrecisionOverridden": {
+        "description": "True if the angle precision is overridden.",
+        "type": "boolean"
+      },
       "unit": {
         "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
         "$ref": "../types/unit.schema.json"
