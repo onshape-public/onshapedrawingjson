@@ -78,6 +78,10 @@
 			"description": "Is surface finish symbol is all around or not",
 			"type": "boolean"
 		},
+		"isFlipped": {
+			"description": "Is surface finish symbol flipped",
+			"type": "boolean"
+		},
 		"boundingBoxPoints": {
 			"description": "Bounding box points",
 			"$ref": "types/boundingBoxPoints.schema.json"

@@ -77,7 +77,20 @@
 				"isPrecisionOverridden": {
 					"description": "True if the tolerance precision is overridden.",
 					"type": "boolean"
-				}
+				},
+				"isStackedEnabled": {
+					"description": "True if stacked visibility is enabled for fit tolerance",
+					"type": "boolean"
+				},
+                "fitToleranceStackedType": {
+                   "description":"Stacked visibility type for fit tolerance",
+                   "type": "string",
+                   "enum":[
+				   "WithoutLine",
+				   "WithLine",
+				   "Diagonally"
+				   ]
+               }
 			},
 			"required": [
 				"fitType",

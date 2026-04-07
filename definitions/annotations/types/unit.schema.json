@@ -18,7 +18,7 @@
         },
         "unit":{
             "type": "string",
-            "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Drawing", "Degree"]
+            "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Meters", "Centimeters", "Feet", "Yard", "Drawing", "Degree"]
         }
     },
     "required": ["unit"]

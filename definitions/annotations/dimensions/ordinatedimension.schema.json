@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/ordinatedimension",
+  "title": "Ordinate Dimension Annotation",
+  "description": "Defines an ordinate dimension with a shared origin and dimension line(s).",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Direction of the ordinate dimension, horizontal (X axis) or vertical (Y axis)",
+      "type": "string",
+      "enum": ["horizontal", "vertical"]
+    },
+    "dimensionGroup": {
+      "description": "Collection of dimension lines belonging to this ordinate dimension group",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Single dimension line of the ordinate dimension",
+        "properties": {
+          "logicalId": {
+            "description": "Unique handle identifying this dimension line",
+            "type": "string"
+          },
+          "aliasLogicalId": {
+            "description": "Alias for logical id",
+            "type": "string"
+          },
+          "isOrigin": {
+            "description": "Is this dimension line the origin line of the ordinate dimension",
+            "type": "boolean"
+          },
+          "attachmentPoint": {
+            "description": "Point of attachment on the referenced edge",
+            "$ref": "../types/point.schema.json"
+          },
+          "textPosition": {
+            "description": "Position of the text for this dimension line",
+            "$ref": "../types/point.schema.json"
+          },
+          "displayedValue": {
+            "description": "Formatted value displayed for this dimension line",
+            "type": "string"
+          },
+          "isDangling": {
+            "description": "Is dimension line dangling or not",
+            "type": "boolean"
+          },
+          "tolerance": {
+            "description": "Dimension line tolerance display",
+            "$ref": "../types/tolerance.schema.json"
+          },
+          "textAbove": {
+            "description":"Above text of the dimension line",
+            "type": "string"
+          },
+          "textBelow": {
+            "description":"Below text of the dimension line",
+            "type": "string"
+          },
+          "prefix": {
+            "description":"Prefix of the dimension line",
+            "type": "string"
+          },
+          "suffix": {
+            "description":"Suffix of the dimension line",
+            "type": "string"
+          },
+          "textOverride": {
+            "description":"Override to replace the standard dimension line text",
+            "type": "string"
+          },
+          "formatting": {
+            "description":"Dimension formatting override for this dimension line",
+            "$ref": "../formatting/dimension.schema.json"
+          },
+          "precision": {
+            "description":"Dimension line value precision",
+            "type": "number"
+          },
+          "isPrecisionOverridden": {
+            "description": "True if the dimension line precision is overridden.",
+            "type": "boolean"
+          },
+          "unit": {
+            "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+            "$ref": "../types/unit.schema.json"
+          },
+          "measurement": {
+            "description": "Returns the measurement (DXF 42) stored in this Dimension line",
+            "type": "number"
+          },
+          "boundingBoxPoints": {
+            "description": "Bounding box points of each ordinate dimension line",
+            "$ref": "../types/boundingBoxPoints.schema.json"
+          }
+        },
+        "required": ["attachmentPoint", "isOrigin", "textPosition"],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["type", "dimensionGroup"],
+  "additionalProperties": false
+}
