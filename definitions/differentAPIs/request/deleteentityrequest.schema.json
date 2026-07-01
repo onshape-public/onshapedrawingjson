@@ -1,0 +1,42 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/differentAPIs/request/deleteentityrequest",
+	"title": "Delete entities",
+	"type": "object",
+	"properties": {
+		"formatVersion": {
+			"type": "string",
+			"description": "Schema version",
+			"const": "2021-01-01"
+		},
+		"requestId": {
+			"type": "string",
+			"description": "Unique id for proper request tracking"
+		},
+		"messageName": {
+			"type": " string",
+			"const": "onshapeDeleteEntities",
+			"description": "Type of request"
+		},
+		"description": {
+			"description": "History entry for the requested change in drawing",
+			"title": "History content",
+			"type": "string"
+		},
+		"entities": {
+			"description": "Logical ids of entities",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"messageName",
+			"entities"
+		],
+		"oneOf": [
+			"formatVersion"
+		]
+	}
+}

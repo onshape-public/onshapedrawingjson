@@ -17,6 +17,14 @@
       "description":"Second definition point",
       "$ref": "../types/point.schema.json"
     },
+	"firstExtensionLength": {
+      "description": "Extension length of point1 of centerline",
+      "type": "number"
+	},
+	"secondExtensionLength": {
+      "description":"Extension length of point2 of centerline",
+      "type": "number"
+	},
     "isDangling": {
       "description": "Is centerline dangling or not",
       "type": "boolean"

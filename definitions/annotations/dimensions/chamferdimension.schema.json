@@ -120,6 +120,24 @@
 	  "aliasLogicalId": {
         "description": "Alias for logical id",
         "type": "string"
+      },
+	  "inspection": {
+        "description": "True if inspection enabled for dimension",
+        "type": "boolean"
+	  },
+	  "format": {
+        "description": "Defines the degree content for the chamfer dimension",
+        "type": "string",
+        "enum": [
+		    "AngleDistance",
+		    "DistanceAngle",
+		    "DistanceDistance",
+		    "SymbolDistance"
+			]
+      },
+	  "isFormatOverridden": {
+        "description": "True if degree content is overridden for the chamfer dimension",
+        "type": "boolean"
       }
     },
     "additionalProperties": false,

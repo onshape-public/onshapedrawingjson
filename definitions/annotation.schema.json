@@ -64,7 +64,8 @@
       { "properties": { "sketchPoint": { "$ref":"annotations/sketchpoint.schema.json" } } },
       { "properties": { "spline": { "$ref":"annotations/spline.schema.json" } } },
       { "properties": { "splinePoint": { "$ref":"annotations/splinepoint.schema.json" } } },
-      { "properties": { "centermark": { "$ref":"annotations/centermark.schema.json" } } }
+      { "properties": { "centermark": { "$ref":"annotations/centermark.schema.json" } } },
+      { "properties": { "holeCallout": { "$ref":"annotations/holecallout.schema.json" } } }
     ],
     "required": ["type"]
   }

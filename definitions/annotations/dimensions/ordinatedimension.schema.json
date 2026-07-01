@@ -92,6 +92,14 @@
           "boundingBoxPoints": {
             "description": "Bounding box points of each ordinate dimension line",
             "$ref": "../types/boundingBoxPoints.schema.json"
+          },
+          "displayParentheses": {
+            "description": "True if parentheses enabled for dimension",
+            "type": "boolean"
+          },
+          "inspection": {
+            "description": "True if inspection enabled for dimension",
+            "type": "boolean"
           }
         },
         "required": ["attachmentPoint", "isOrigin", "textPosition"],

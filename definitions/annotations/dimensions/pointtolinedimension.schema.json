@@ -70,12 +70,12 @@
           "$ref": "../types/unit.schema.json"
         },
         "boundingBoxPoints": {
-         "description": "Bounding box points",
-         "$ref": "../types/boundingBoxPoints.schema.json"
+          "description": "Bounding box points",
+          "$ref": "../types/boundingBoxPoints.schema.json"
         },
 		"tolerance": {
-           "description": "Dimension tolerance display",
-           "$ref": "../types/tolerance.schema.json"
+          "description": "Dimension tolerance display",
+          "$ref": "../types/tolerance.schema.json"
 		},
 	    "aliasLogicalId": {
           "description": "Alias for logical id",
@@ -96,6 +96,14 @@
         "suffix": {
           "description":"Suffix of the dimension",
           "type": "string"
+        },
+        "displayParentheses": {
+          "description": "True if parentheses enabled for dimension",
+          "type": "boolean"
+        },
+        "inspection": {
+          "description": "True if inspection enabled for dimension",
+          "type": "boolean"
         }
     },
     "additionalProperties": false,

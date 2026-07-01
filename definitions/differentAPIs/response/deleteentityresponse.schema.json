@@ -1,0 +1,86 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/differentAPIs/response/deleteentitysresponse",
+	"title": "Deleted entities response information",
+	"type": "object",
+	"properties": {
+		"entitiesResponse": {
+			"description": "Deleted entities and their status",
+			"type": "object",
+			"properties": {
+				"status": {
+					"description": "Overall delete status",
+					"type": "string"
+				},
+				"statusCode": {
+					"description": "Html status code",
+					"type": "string"
+				},
+				"errorDescription": {
+					"description": "Description of the deletion error, if any.",
+					"type": "string"
+				},
+				"changeId": {
+					"description": "Microversion of the change",
+					"type": "string"
+				},
+				"results": {
+					"descriptions": "List of deleted entities handles.",
+					"type": "Array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"status": {
+								"description": "Deletion status of the entity.",
+								"type": "string"
+							},
+							"errorDescription": {
+								"description": "Description of the entity deletion error, if any.",
+								"type": "string"
+							},
+							"logicalId": {
+								"description": "Handle of the entity.",
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		},
+		"requestId": {
+			"type": "string",
+			"description": "Unique id for proper request tracking"
+		},
+		"messageName": {
+			"type": "string",
+			"const": "queryDeleteEntitiesResponse"
+		},
+		"version": {
+			"description": "Onshape release version",
+			"type": "string"
+		},
+		"documentId": {
+			"description": "Onshape document id",
+			"type": "string"
+		},
+		"elementId": {
+			"description": "Onshape element ID.",
+			"type": "string"
+		},
+		"workspaceId": {
+			"description": "Onshape workspace ID.",
+			"type": "string"
+		},
+		"microversionId": {
+			"description": "Onshape microversion ID.",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"entitiesResponse",
+		"messageName",
+		"documentId",
+		"elementId"
+	]
+}

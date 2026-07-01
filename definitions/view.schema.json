@@ -133,7 +133,7 @@
       },
       "sheetDetails":{
         "description":"Sheet the view is on",
-        "$ref": "views/sheetreference.schema.json"
+        "$ref": "sheetreference.schema.json"
       },
       "name":{
         "description": "View name as in view properties.",

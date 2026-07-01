@@ -19,6 +19,18 @@
         "unit":{
             "type": "string",
             "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Meters", "Centimeters", "Feet", "Yard", "Drawing", "Degree"]
+        },
+        "isUnitOverridden": {
+            "description": "True if the dimension unit is overridden.",
+            "type": "boolean"
+        },
+        "dualUnit":{
+            "type": "string",
+            "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Meters", "Centimeters", "Feet", "Yard", "Drawing", "Degree"]
+        },
+        "isDualUnitOverridden": {
+            "description": "True if the dimension dual(secondary) unit is overridden.",
+            "type": "boolean"
         }
     },
     "required": ["unit"]

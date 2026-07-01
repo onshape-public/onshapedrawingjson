@@ -16,6 +16,10 @@
           "description": "Is sheet active",
           "type": "boolean"
       },
+	  "sheetDetails":{
+        "description":"Sheet details",
+        "$ref": "sheetreference.schema.json"
+      },
       "scale":{
         "description": "Scale of the sheet",
         "$ref": "views/types/scale.schema.json"

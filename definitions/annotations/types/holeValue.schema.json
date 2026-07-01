@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "types/holeValue.schema.json",
+  "title": "Hole value",
+  "description": "Represents a hole-related value such as diameter, depth, or angle, including tolerance and precision",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "Hole value",
+	  "type": "number"
+    },
+    "tolerance": {
+      "description": "Hole value tolerance",
+      "$ref": "tolerance.schema.json"
+    },
+    "precision": {
+      "description": "Hole value precision",
+      "type": "number"
+    },
+    "isPrecisionOverridden": {
+      "description": "True if the hole value precision is overridden",
+      "type": "boolean"
+    }
+  },
+  "required": ["value"],
+  "additionalProperties": false
+}

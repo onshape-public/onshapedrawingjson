@@ -17,6 +17,14 @@
             "description":"Second definition edge for the dimension",
             "$ref": "../types/edge.schema.json"
         },
+		"rightExtensionLength": {
+            "description":"Right extension length of centerline with respect to edge1",
+            "type": "number"
+        },
+		"leftExtensionLength": {
+            "description":"Left extension length of centerline with respect to edge1",
+            "type": "number"
+        },
         "isDangling": {
             "description": "Is centerline dangling or not",
             "type": "boolean"

@@ -92,6 +92,14 @@
     "suffix": {
       "description":"Suffix of the dimension",
       "type": "string"
+    },
+    "displayParentheses": {
+      "description": "True if parentheses enabled for dimension",
+      "type": "boolean"
+    },
+    "inspection": {
+      "description": "True if inspection enabled for dimension",
+      "type": "boolean"
     }
   },
   "additionalProperties": false,

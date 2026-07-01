@@ -90,7 +90,16 @@
 				   "WithLine",
 				   "Diagonally"
 				   ]
-               }
+               },
+			   "fitStandard": {
+					"description": "Fit Standard for fit tolerance",
+					"type": "string",
+					"enum": [
+					"Auto",
+					"ISO",
+					"ANSI"
+					]
+				}
 			},
 			"required": [
 				"fitType",
