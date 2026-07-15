@@ -27,11 +27,11 @@
       "description": "Annotations",
       "type": "array",
       "items": {
-        "type": "../annotation.schema.json"
+        "$ref": "../../annotation.schema.json"
       }
-    },
-    "additionalProperties": false,
-    "required": [ "messageName", "annotations" ],
-    "oneOf": [ "formatVersion" ]
-  }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "messageName", "annotations" ],
+  "oneOf": [ "formatVersion" ]
 }
