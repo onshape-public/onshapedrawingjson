@@ -24,12 +24,20 @@
             "description": "True if the dimension unit is overridden.",
             "type": "boolean"
         },
+        "isVisible": {
+            "description": "True if the dimension unit is visible in the dimension text.",
+            "type": "boolean"
+        },
         "dualUnit":{
             "type": "string",
             "enum": ["Inches", "Inchesfraction", "Millimeter", "Feetinches", "Meters", "Centimeters", "Feet", "Yard", "Drawing", "Degree"]
         },
         "isDualUnitOverridden": {
             "description": "True if the dimension dual(secondary) unit is overridden.",
+            "type": "boolean"
+        },
+        "isDualUnitVisible": {
+            "description": "True if the dimension dual(secondary) unit is visible in the dimension text.",
             "type": "boolean"
         }
     },

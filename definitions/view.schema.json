@@ -251,24 +251,47 @@
           "$ref": "views/errorstate.schema.json"
       }
     },
-    "additionalProperties": false,
+    "unevaluatedProperties": false,
     "required": [ "viewType", "position" ],
-    "allOf": [
-        {
-            "if": {
-                "properties": { "viewType": { "const": "TopLevel" } }
-            },
-            "then": {
-                "required": [ "reference", "orientation", "scale" ]
-            }
+    "oneOf": [
+      {
+        "properties": {
+          "viewType": { "const": "TopLevel" }
         },
-        {
-            "if": {
-                "properties": { "viewType": { "const": "Projected" } }
-            },
-            "then": {
-                "required": [ "parentView" ]
+        "required": ["reference", "orientation", "scale"]
+      },
+      {
+        "properties": {
+          "viewType": { "const": "Projected" }
+        },
+        "required": ["parentView"]
+      },
+      {
+        "properties": {
+          "viewType": { "const": "Detail" }
+        },
+        "required": ["parentView"]
+      },
+      {
+        "properties": {
+          "viewType": { "const": "Auxiliary" }
+        },
+        "required": ["parentView"]
+      },
+      {
+        "allOf": [
+          {
+            "properties": {
+              "viewType": { "const": "Section" }
             }
-        }
-    ]
-  }
+          },
+          {
+            "$ref": "sectionView.schema.json"
+          },
+          {
+            "required": ["parentView"]
+          }
+        ]
+      }
+  ]
+}

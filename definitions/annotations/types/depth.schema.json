@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/types/depth",
+    "title": "Section depth",
+    "type": "object",
+    "description": "Depth-based section settings for the view.",
+    "properties": {
+        "endType": {
+          "type": "string",
+          "enum": ["UptoEntity", "Blind"],
+          "description": "Holds the type of the section end (upto entity, blind) when section depth is selected"
+        },
+        "offset": {
+          "type": "number",
+          "description": "Offset distance applied to the cutting plane from the defined section line when endType is 'UptoEntity'"
+        },
+        "depth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Numerical depth value for the section cut, applicable when endType is 'Blind'"
+        },
+        "sectionDepthPoint": {
+          "$ref": "point.schema.json",
+          "description": "Reference point used to determine depth of section cut when endType is 'UptoEntity'"
+        }
+    },
+    "allOf": [
+        {
+          "if": {
+            "required": ["endType"],
+            "properties": {
+              "endType": { "const": "Blind" }
+            }
+          },
+          "then": {
+            "required": ["depth"]
+          }
+        },
+        {
+          "if": {
+            "required": ["endType"],
+            "properties": {
+              "endType": { "const": "UptoEntity" }
+            }
+          },
+          "then": {
+            "required": ["sectionDepthPoint"]
+          }
+        },
+        {
+          "oneOf": [
+            {
+              "required": ["depth"],
+              "not": {
+                "required": ["sectionDepthPoint"]
+              }
+            },
+            {
+              "required": ["sectionDepthPoint"],
+              "not": {
+                "required": ["depth"]
+              }
+            }
+          ]
+        }
+      ],
+    "unevaluatedProperties": false
+}

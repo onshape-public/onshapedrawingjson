@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/sectionView",
+  "title": "Section View",
+  "type": "object",
+  "properties": {
+    "attachmentPoints": {
+      "type": "array",
+      "items": {
+        "title": "Point of attachment of the section line with view",
+        "$ref": "annotations/types/point.schema.json"
+      },
+      "description": "Array of attachment points ( total upto 4 points ) on the view",
+      "minItems": 1,
+      "maxItems": 4
+    },
+    "joggedSectionLinePoints": {
+      "type": "array",
+      "items": {
+        "title": "Jog point of the section line",
+        "$ref": "annotations/types/point.schema.json"
+      },
+      "description": "Optional array of jog points ( total upto 8 points ) defining the jogged section line, with the first and last points representing the start and end of the section line, respectively",
+      "minItems": 2,
+      "maxItems": 8
+    },
+    "sectionLineLogicalId": {
+      "description": "Logical id of the section line in drawing",
+      "type": "string"
+    },
+    "sectionLineAliasLogicalId": {
+      "description": "Alias for logical id for the section line",
+      "type": "string"
+    },
+    "sectionType": {
+      "type": "string",
+      "description": "Orientation/type of the section cut",
+      "enum": ["Vertical", "Horizontal", "Angular"]
+    },
+    "sectionLabelStartPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the section start label"
+    },
+    "sectionLabelEndPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the section end label"
+    },
+    "viewDirection": {
+      "type": "string",
+      "description": "Direction of the section arrows, controlling which side of the cut is viewed, forward or reverse by default",
+      "enum": ["Forward", "Reverse"]
+    },
+    "showOffsetCutlines": {
+      "type": "boolean",
+      "description": "Indicates whether to show offset cutlines for the section view"
+    },
+    "showCutGeometry": {
+      "type": "boolean",
+      "description": "Displays only the cut geometry (no depth). Cannot be true simultaneously with sectionDepth"
+    },
+    "sectionDepth": {
+      "$ref": "annotations/types/depth.schema.json"
+    },
+    "cutAngle": {
+      "type": "number",
+      "description": "Angle defining an angular section cut in degrees. Positive values rotate clockwise and negative values rotate counterclockwise"
+    },
+    "isCutAngleEnabled": {
+      "type": "boolean",
+      "description": "Indicates whether the cut angle is enabled"
+    },
+    "cutFromSection": {
+      "type": "boolean",
+      "description": "Indicates whether the section is created from an existing section view instead of a base view"
+    }
+  },
+  "allOf": [
+    {
+      "description": "Ensures showCutGeometry and sectionDepth are not both present.",
+      "not": {
+        "required": ["showCutGeometry", "sectionDepth"],
+        "properties": {
+          "showCutGeometry": { "const": true }
+        }
+      }
+    }
+  ],
+  "required": [
+    "attachmentPoints",
+    "sectionType"
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,128 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://drawing-schemas.onshape.com/annotations/holecallout",
+	"title": "HoleCallout Annotation",
+	"description": "Defines a hole callout for hole(Circular edge)",
+	"type": "object",
+	"properties": {
+		"logicalId": {
+			"description": "Logical id of hole callout",
+			"type": "string"
+		},
+		"textPosition": {
+			"description": "Text position, non-associative",
+			"$ref": "types/point.schema.json"
+		},
+		"leaderPosition": {
+			"description": "Leader arrow position, associative.",
+			"$ref": "types/point.schema.json"
+		},
+		"leaderLogicalId": {
+			"description": "Logical ID of the leader",
+			"type": "string"
+		},
+		"displayedValue": {
+			"description": "The text contents displayed for hole callout",
+			"type": "string"
+		},
+		"textAbove": {
+			"description": "Above text of the hole callout",
+			"type": "string"
+		},
+		"textBelow": {
+			"description": "Below text of the hole callout",
+			"type": "string"
+		},
+		"prefix": {
+			"description": "Prefix of the hole callout",
+			"type": "string"
+		},
+		"suffix": {
+			"description": "Suffix of the hole callout",
+			"type": "string"
+		},
+		"isDangling": {
+			"description": "Is hole callout dangling or not",
+			"type": "boolean"
+		},
+		"boundingBoxPoints": {
+			"description": "Bounding box points",
+			"$ref": "types/boundingBoxPoints.schema.json"
+		},
+		"aliasLogicalId": {
+			"description": "Alias for logical id",
+			"type": "string"
+		},
+		"holeCount": {
+			"description": "The hole count",
+			"type": "number"
+		},
+		"holeCountOverride": {
+			"description": "The overridden hole count",
+			"type": "string"
+		},
+		"holeCountType": {
+			"type": "string",
+			"enum": [
+				"None",
+				"View",
+				"Pattern",
+				"Part",
+				"Face",
+				"Face_Excluding_Pattern"
+			]
+		},
+		"isPrecisionToleranceOverridden": {
+			"description": "True if the precision and tolerance is overridden",
+			"type": "boolean"
+		},
+		"isInspection": {
+			"description": "If Hole callout is display with inspection type then it will be true else false",
+			"type": "boolean"
+		},
+		"holeDiameter": {
+			"description": "Hole diameter",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"holeDepth": {
+			"description": "Hole depth",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"cBoreDiameter": {
+			"description": "Counter bore diameter",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"cBoreDepth": {
+			"description": "Couter bore depth",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"cSinkAngle": {
+			"description": "Couter sink angle",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"cSinkDiameter": {
+			"description": "Couter sink diameter",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"tappedDepth": {
+			"description": "Tapped depth",
+			"$ref": "types/holeValue.schema.json"
+		},
+		"unit": {
+			"description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+			"$ref": "types/unit.schema.json"
+		},
+		"isUnitOverridden": {
+			"description": "True if the hole callout unit is overridden.",
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"textPosition",
+		"leaderPosition",
+		"holeDiameter",
+		"holeDepth",
+		"unit"
+	]
+}

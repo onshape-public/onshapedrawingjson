@@ -33,7 +33,8 @@
           "Onshape::SketchPoint",
           "Onshape::Spline",
           "Onshape::SplinePoint",
-          "Onshape::Centermark"
+          "Onshape::Centermark",
+		  "Onshape::HoleCallout"
         ]
       }
     },

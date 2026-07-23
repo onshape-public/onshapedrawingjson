@@ -2,7 +2,7 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/diametricdimension",
     "title": " Diametric Dimension Annotation",
-    "description": "Defines length of diametric for the circle",
+    "description": "Defines schema for diametric dimension",
     "type": "object",
     "properties": {
       "logicalId": {
@@ -92,6 +92,10 @@
       "inspection": {
         "description": "True if inspection enabled for dimension",
         "type": "boolean"
+      },
+      "landingLength": {
+        "description":"Leader landing line length or jog segment length for the diametric dimension",
+        "type": "number"
       }
     },
     "additionalProperties": false,
