@@ -6,7 +6,7 @@
   "properties": {
     "drawingJson": {
       "description": "Drawing content",
-      "$ref": "../drawing.schema.json"
+      "$ref": "../../drawing.schema.json"
     },
     "requestId": {
       "type": "string",
