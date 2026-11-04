@@ -10,15 +10,15 @@
         },
         "red": {
             "maximum": 255,
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         },
         "green": {
             "maximum": 255,
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         },
         "blue": {
             "maximum": 255,
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
         }
     },
     "required": ["colorType"]

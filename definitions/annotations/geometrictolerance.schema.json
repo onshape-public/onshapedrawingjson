@@ -6,16 +6,14 @@
   "type": "object",
   "properties": {
     "logicalId": {
-      "description": "Logical id of some annotation",
-      "type": "string"
+        "$ref": "commonproperties.schema.json#/properties/logicalId"
     },
     "position": {
       "description":"Tolerance position, non-associative",
       "$ref": "types/point.schema.json"
     },
     "leaderPosition": {
-      "description":"Leader arrow position, associative.",
-      "$ref": "types/point.schema.json"
+        "$ref": "commonproperties.schema.json#/properties/leaderPosition"
     },
     "parentAnnotation":{
         "description":"LogicalId of the parent annotation (e.g. tolerance, datum, note, dimension text etc).",
@@ -49,12 +47,10 @@
       "maxItems": 4
     },
     "isDangling": {
-      "description": "Is GDT dangling or not",
-      "type": "boolean"
+        "$ref": "commonproperties.schema.json#/properties/isDangling"
     },
     "aliasLogicalId": {
-      "description": "Alias for logical id",
-      "type": "string"
+        "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
     }
   },
   "additionalProperties": false,

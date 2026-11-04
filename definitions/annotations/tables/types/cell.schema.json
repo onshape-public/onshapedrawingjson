@@ -5,22 +5,55 @@
     "type": "object",
     "properties": {
       "row" : {
-        "description" : "Cell row index",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+        "description": "Cell row index",
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
       },
       "column" : {
-        "description" : "Cell column index",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+        "description": "Cell column index",
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
       },
-      "content":{
-        "description":"Cell content",
+      "propertyId": {
+        "description": "Property identifier used by table to map cell content",
         "type": "string"
       },
-      "alignment" : {
-        "description" : "Cell alignment",
-        "$ref" : "../../types/alignment.schema.json"
+      "content": {
+        "description": "Cell content",
+        "type": "string"
       },
-      "contentColor":{
+      "isContentOverridden": {
+        "description": "Whether the cell content is overridden",
+        "type": "boolean",
+        "default": false
+      },
+      "alignment": {
+        "description": "Cell alignment",
+        "$ref": "../../types/alignment.schema.json"
+      },
+      "font": {
+        "description": "Cell font",
+        "$ref": "../../types/font.schema.json"
+      },
+      "isStrikeThrough": {
+        "description": "Flag to identify if cell content is strikedthrough.",
+        "type": "boolean",
+        "default": false
+      },
+      "isUnderlined": {
+        "description": "Flag to identify if cell content is underlined.",
+        "type": "boolean",
+        "default": false
+      },
+      "isBold": {
+        "description": "Flag to identify if cell content is bold",
+        "type": "boolean",
+        "default": false
+      },
+      "isItalic": {
+        "description": "Flag to identify if cell content is italic",
+        "type": "boolean",
+        "default": false
+      },
+      "contentColor": {
         "description": "Content color of cell",
         "$ref":"../../types/color.schema.json"
       },
@@ -31,24 +64,24 @@
       },
       "minRow": {
         "description": "Minimum row index of the merged cell",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
       },
       "maxRow": {
         "description": "Maximum row index of the merged cell",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
       },
       "minCol": {
         "description": "Minimum column index of the merged cell",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
       },
       "maxCol": {
         "description": "Maximum column index of the merged cell",
-        "$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
       },
       "textHeight": {
         "description":"Default height of the text. Overrides the text height from the style.",
-		"$ref": "./propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
-      },
+        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+      }
     },
-    "required": ["row","column"]
-  }
+    "required": ["row", "column"]
+}

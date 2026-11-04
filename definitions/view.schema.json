@@ -249,6 +249,14 @@
       "errorState": {
           "description":"Error state for the view",
           "$ref": "views/errorstate.schema.json"
+      },
+      "showMBDAnnotations": {
+        "description": "Show MBD annotations from model, by default it is false.",
+        "type": "boolean"
+      },
+      "isCropView": {
+        "description": "True if this view is cropped, by default it is false.",
+        "type": "boolean"
       }
     },
     "unevaluatedProperties": false,
@@ -267,14 +275,23 @@
         "required": ["parentView"]
       },
       {
-        "properties": {
-          "viewType": { "const": "Detail" }
-        },
-        "required": ["parentView"]
+        "allOf": [
+          {
+            "properties": {
+              "viewType": { "const": "Auxiliary" }
+            }
+          },
+          {
+            "$ref": "auxiliaryView.schema.json"
+          },
+          {
+            "required": ["parentView"]
+          }
+        ]
       },
       {
         "properties": {
-          "viewType": { "const": "Auxiliary" }
+          "viewType": { "const": "Detail" }
         },
         "required": ["parentView"]
       },

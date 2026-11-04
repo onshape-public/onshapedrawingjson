@@ -50,6 +50,11 @@
       "description": "Direction of the section arrows, controlling which side of the cut is viewed, forward or reverse by default",
       "enum": ["Forward", "Reverse"]
     },
+    "flipDirection": {
+      "type": "boolean",
+      "description": "Reverses the viewing direction by 180 degrees.",
+      "default": false
+    },
     "showOffsetCutlines": {
       "type": "boolean",
       "description": "Indicates whether to show offset cutlines for the section view"
@@ -89,5 +94,5 @@
     "attachmentPoints",
     "sectionType"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": true
 }

@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/bomtable",
+    "title": "BomTable",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./generaltable.schema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./types/column.schema.json"
+                    }
+                },
+                "reference": {
+                    "description": "Reference to the Onshape document/element the BOM table describes.",
+                    "$ref": "../../views/modelreference.schema.json"
+                },
+                "bomType": {
+                    "description": "BOM type shown in the properties dialog.",
+                    "type": "string",
+                    "enum": [
+                        "Flattened",
+                        "StructuredTopLevel",
+                        "StructuredMultiLevel"
+                    ]
+                },
+                "bomTableTemplate": {
+                    "description": "BOM table template shown in the properties dialog. Free-form name (e.g. \"Onshape Default BOM\" or a custom template name); available templates vary per environment.",
+                    "type": "string"
+                },
+                "templateId": {
+                    "description": "Id of the Onshape BOM table template used to source live BOM data.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "reference"
+            ]
+        }
+    ],
+    "unevaluatedProperties": false
+}

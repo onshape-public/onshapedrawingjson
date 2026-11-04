@@ -6,16 +6,14 @@
     "type": "object",
     "properties": {
         "logicalId": {
-            "description": "Logical id of some annotation",
-            "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
         },
         "position": {
             "description":"Text position, non-associative",
             "$ref": "types/point.schema.json"
         },
         "leaderPosition": {
-            "description":"Leader arrow position, associative.",
-            "$ref": "types/point.schema.json"
+            "$ref": "commonproperties.schema.json#/properties/leaderPosition"
         },
         "parentAnnotation":{
             "description":"LogicalId of the parent annotation (e.g. tolerance, datum, note, dimension text etc).",
@@ -42,8 +40,7 @@
             "type": "string"
         },
         "textHeight": {
-            "description":"Default height of the text. Overrides the text height from the style.",
-            "type": "number"
+            "$ref": "commonproperties.schema.json#/properties/textHeight"
         },
         "borderShape": {
             "description":"Callout border shape, one of the predefined values.",
@@ -58,16 +55,13 @@
             "maximum": 5
         },
         "isDangling": {
-            "description": "Is callout dangling or not",
-            "type": "boolean"
+            "$ref": "commonproperties.schema.json#/properties/isDangling"
         },
         "boundingBoxPoints": {
-           "description": "Bounding box points",
-           "$ref": "types/boundingBoxPoints.schema.json"
+            "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
         },
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
     },
     "additionalProperties": false,

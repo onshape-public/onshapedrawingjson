@@ -6,8 +6,7 @@
     "type": "object",
     "properties": {
         "logicalId": {
-            "description": "Logical id of some annotation",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
         },
         "point": {
             "description":"Definition point for the dimension",
@@ -22,32 +21,25 @@
             "type": "number"
         },
         "textPosition": {
-            "description":"Midpoint for the dimension text, non-associative",
-            "$ref": "../types/point.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/textPosition"
         },
         "textOverride": {
-            "description":"Override to replace the standard dimension text",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/textOverride"
         },
         "formatting": {
-            "description":"Dimension formatting override for this dimension",
-            "$ref": "../formatting/dimension.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/formatting"
         },
         "measurement": {
-          "description": "Returns the measurement (DXF 42) stored in this Dimension entity",
-          "type": "number"
+          "$ref": "../commonproperties.schema.json#/properties/measurement"
         },
         "displayedValue": {
-          "description": "Returns the displayed value of the dimension entity",
-          "type": "string"
+          "$ref": "../commonproperties.schema.json#/properties/displayedValue"
         },
         "isDangling": {
-          "description": "Is dimension dangling or not",
-          "type": "boolean"
+          "$ref": "../commonproperties.schema.json#/properties/isDangling"
         },
         "isDrivingDimension": {
-            "description": "Is driving dimension",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/isDrivingDimension"
         },
         "isThreadedDimension": {
           "description": "Is threaded dimension",
@@ -58,52 +50,52 @@
           "type": "boolean"
 		},
         "precision": {
-          "description":"Dimension value precision",
-          "type": "number"
+          "$ref": "../commonproperties.schema.json#/properties/precision"
         },
         "isPrecisionOverridden": {
-          "description": "True if the dimension precision is overridden.",
-          "type": "boolean"
+          "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
         },
         "unit": {
-          "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
-          "$ref": "../types/unit.schema.json"
+          "$ref": "../commonproperties.schema.json#/properties/unit"
         },
         "boundingBoxPoints": {
-          "description": "Bounding box points",
-          "$ref": "../types/boundingBoxPoints.schema.json"
+          "$ref": "../commonproperties.schema.json#/properties/boundingBoxPoints"
         },
 		"tolerance": {
-          "description": "Dimension tolerance display",
-          "$ref": "../types/tolerance.schema.json"
+          "$ref": "../commonproperties.schema.json#/properties/tolerance"
 		},
 	    "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
-        },
+          "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
+	    },
         "textAbove": {
-          "description":"Above text of the dimension",
-          "type": "string"
+          "$ref": "../commonproperties.schema.json#/properties/textAbove"
         },
         "textBelow": {
-          "description":"Below text of the dimension",
-          "type": "string"
+          "$ref": "../commonproperties.schema.json#/properties/textBelow"
         },
         "prefix": {
-          "description":"Prefix of the dimension",
-          "type": "string"
+          "$ref": "../commonproperties.schema.json#/properties/prefix"
         },
         "suffix": {
-          "description":"Suffix of the dimension",
-          "type": "string"
+          "$ref": "../commonproperties.schema.json#/properties/suffix"
         },
         "displayParentheses": {
-          "description": "True if parentheses enabled for dimension",
-          "type": "boolean"
+          "$ref": "../commonproperties.schema.json#/properties/displayParentheses"
         },
         "inspection": {
-          "description": "True if inspection enabled for dimension",
-          "type": "boolean"
+          "$ref": "../commonproperties.schema.json#/properties/inspection"
+        },
+        "showFirstExtensionLine": {
+          "$ref": "../commonproperties.schema.json#/properties/showFirstExtensionLine"
+        },
+        "showSecondExtensionLine": {
+          "$ref": "../commonproperties.schema.json#/properties/showSecondExtensionLine"
+        },
+        "breakDimensionLine": {
+          "$ref": "../commonproperties.schema.json#/properties/breakDimensionLine"
+        },
+        "extensionLineJogs": {
+          "$ref": "../commonproperties.schema.json#/properties/extensionLineJogs"
         }
     },
     "additionalProperties": false,

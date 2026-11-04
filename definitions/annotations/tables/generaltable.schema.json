@@ -6,28 +6,23 @@
     "type": "object",
     "properties": {
         "logicalId": {
-            "description": "Logical id of table",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
         },
-        "type":{
-            "type":"string",
-            "const":"Onshape::Table::GeneralTable"
-          },
         "position": {
             "description":"Table position, non-associative",
             "$ref": "../types/point.schema.json"
         },
         "rows": {
             "description": "Number of rows in the table (must be greater than zero)",
-            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
         },
         "columns": {
             "description": "Number of columns in the table (must be greater than zero)",
-            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
         },
         "formatting": {
             "description": "Table formatting override for this table",
-            "$ref": "../formatting/table.schema.json"
+            "$ref": "../formatting/tableformatting.schema.json"
         },
         "showTitleRow": {
             "description": "Flag to determine visible state of title row",
@@ -41,11 +36,11 @@
         },
         "horizontalCellMargin": {
             "description": "Horizontal margin around cell text",
-            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
         },
         "verticalCellMargin": {
             "description": "Vertical margin around cell text",
-            "$ref": "./types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
         },
         "cells": {
             "description": "Cells in the table",
@@ -56,12 +51,26 @@
             }
         },
         "boundingBoxPoints": {
-           "description": "Bounding box points",
-           "$ref": "../types/boundingBoxPoints.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/boundingBoxPoints"
         },
         "aliasLogicalId": {
-            "description": "Alias for logical id",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
+        },
+        "cellOverrides": {
+            "description": "Optional list of individual cell overrides.",
+            "type": "array",
+            "items": {
+                "description": "Cell override with explicit location, for use in cellOverrides where position is not otherwise implied.",
+                "$ref": "./types/cell.schema.json"
+            }
+        },
+        "splitRows": {
+            "description": "Array of row numbers after which the table will be split.",
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "minimum": 1
+            }
         }
     },
     "required": ["rows","columns","position"]

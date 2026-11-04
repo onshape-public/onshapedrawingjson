@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/types/column",
+    "title": "Column",
+    "description": "A table column with a display name and the property it depicts.",
+    "type": "object",
+    "properties": {
+        "displayName": {
+            "type": "string"
+        },
+        "propertyId": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "displayName",
+        "propertyId"
+    ]
+}

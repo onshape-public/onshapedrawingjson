@@ -6,16 +6,14 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of arc",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"viewId": {
 			"description": "If arc is grouped with view",
 			"type": "string"
 		},
-	    "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"oneOf": [

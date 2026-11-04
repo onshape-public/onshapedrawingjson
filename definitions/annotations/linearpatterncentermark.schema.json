@@ -1,0 +1,50 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/linearpatterncentermark",
+    "title": "Linear Pattern Centermark",
+    "description": "Defines a linear pattern of centermarks over a row of circular edges, with connecting lines between consecutive marks.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
+        },
+        "circularEdges": {
+            "description": "Circular edges the pattern connects (at least two). Required on create; optional on edit (the current circular edges are kept when omitted). On an automatic pattern they cannot be changed.",
+            "type": "array",
+            "minItems": 2,
+            "items": { "$ref": "types/edge.schema.json" }
+        },
+        "showConnectingLines": {
+            "description": "Whether the connecting lines between marks are shown.",
+            "type": "boolean"
+        },
+        "connectingLines": {
+            "description": "Logical ids of the connecting-line segments between consecutive centermarks, including those hidden by break lines. Export only: computed from the circular edges and their centermarks, ignored on create/edit.",
+            "type": "array",
+            "items": {
+                "description": "Logical id of a connecting line, used to reference it from other annotations.",
+                "type": "string"
+            }
+        },
+        "centermarks": {
+            "description": "Centermarks that belong to this linear pattern. Export only.",
+            "type": "array",
+            "items": {
+                "description": "Logical id of a centermark in the pattern",
+                "type": "string"
+            }
+        },
+        "isAutomatic": {
+            "description": "True if the pattern was generated automatically. Export only.",
+            "type": "boolean"
+        },
+        "isHidden": {
+            "description": "True if the pattern is hidden in its view: an automatic pattern when the view hides its automatic centermarks, or any pattern whose part is hidden in the view. A hidden pattern cannot be edited. Export only.",
+            "type": "boolean"
+        },
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "additionalProperties": false
+}

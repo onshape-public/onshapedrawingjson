@@ -6,8 +6,7 @@
     "type": "object",
     "properties": {
         "logicalId": {
-            "description": "Logical id of some annotation",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
         },
         "edge1": {
             "description":"First definition edge for the dimension (linear or linear-apparent)",
@@ -26,12 +25,10 @@
             "type": "number"
         },
         "isDangling": {
-            "description": "Is centerline dangling or not",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/isDangling"
         },
         "aliasLogicalId": {
-            "description": "Alias for logical id",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
         }
     },
     "additionalProperties": false,

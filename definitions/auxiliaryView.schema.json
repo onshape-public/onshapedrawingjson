@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/auxiliaryView",
+  "title": "Auxiliary View",
+  "type": "object",
+  "properties": {
+    "auxiliaryType": {
+      "type": "string",
+      "description": "Auxiliary-view creation mode. Normal creates a normal auxiliary view from an edge that is linear in projection, InLine creates an in-line auxiliary view from either a projected-linear edge or a linear axis reference, and Axis creates an auxiliary view along the tilted axis of a hole entity.",
+      "enum": ["Normal", "InLine", "Axis"]
+    },
+    "referenceEntity": {
+      "$ref": "annotations/types/edge.schema.json",
+      "description": "Associative reference used to create the auxiliary view. Normal requires an edge that is linear in the parent-view projection. InLine accepts either a projected-linear edge or a linear centerline/axis reference. Axis accepts a supported hole entity such as a circle, arc, ellipse, circular centerline, center mark, or circular spline."
+    },
+    "viewingLinePosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the auxiliary viewing line midpoint, corresponding to its center grip."
+    },
+    "viewingLineLength": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Length of the auxiliary viewing line. Applies only to the Line style format."
+    },
+    "flipDirection": {
+      "type": "boolean",
+      "description": "Reverses the viewing direction by 180 degrees.",
+      "default": false
+    },
+    "showViewReferenceIndicator": {
+      "type": "boolean",
+      "description": "Shows or hides the auxiliary view-reference indicator created in the parent view. When omitted, the value is inherited from the visibility setting of the Standard auxiliary-line style."
+    },
+    "viewingLineLabelStartPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the viewing line start label in ANSI template"
+    },
+    "viewingLineLabelEndPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the viewing line end label in ANSI template"
+    },
+    "viewIndicatorLabelPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the view indicator label in ISO template"
+    }
+  },
+  "required": [
+    "auxiliaryType",
+    "referenceEntity"
+  ],
+  "unevaluatedProperties": true
+}

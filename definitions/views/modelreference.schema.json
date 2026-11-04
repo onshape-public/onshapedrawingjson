@@ -41,6 +41,14 @@
         "configuration": {
             "type": "string"
         },
+        "resolvedConfiguration": {
+            "description": "Configuration resolved by Onshape for this reference",
+            "type": "string"
+        },
+        "resolvedElementMicroversionId": {
+            "description": "Resolved element microversion ID",
+            "type": "string"
+        },
         "partNumber": {
             "type": "string"
         },

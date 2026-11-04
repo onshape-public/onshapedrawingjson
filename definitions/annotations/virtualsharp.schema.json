@@ -1,0 +1,35 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/virtualsharp",
+    "title": "Virtual Sharp",
+    "description": "Defines a virtual sharp: the theoretical corner point where two edges (or their apparent extensions) intersect, drawn as a small cross mark.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
+        },
+        "edge1": {
+            "description": "First defining edge (linear or linear-apparent). Required on create; optional on edit (the current edge is kept when omitted). Omitted on export when the referenced edge can no longer be determined.",
+            "$ref": "types/edge.schema.json"
+        },
+        "edge2": {
+            "description": "Second defining edge (linear or linear-apparent); its intersection with edge1 gives the virtual sharp point. Required on create; optional on edit (the current edge is kept when omitted). Omitted on export when the referenced edge can no longer be determined.",
+            "$ref": "types/edge.schema.json"
+        },
+        "position": {
+            "description": "The virtual intersection point (read-only, computed from edge1 and edge2).",
+            "$ref": "types/point.schema.json"
+        },
+        "isDangling": {
+            "$ref": "commonproperties.schema.json#/properties/isDangling"
+        },
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "anyOf": [
+        { "required": ["logicalId"] },
+        { "required": ["edge1", "edge2"] }
+    ],
+    "additionalProperties": false
+}

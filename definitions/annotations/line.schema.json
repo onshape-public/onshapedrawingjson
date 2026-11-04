@@ -6,8 +6,7 @@
     "type": "object",
     "properties": {
         "logicalId": {
-            "description": "Logical id of line",
-            "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
         },
         "startPoint": {
             "description":"Start point of line, associative or non-associative",
@@ -22,8 +21,7 @@
             "type":"string"
         },
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
     },
     "additionalProperties": false,

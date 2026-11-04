@@ -1,0 +1,146 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/commonproperties",
+    "title": "Common Properties",
+    "description": "Properties shared by more than one drawing object. Each schema references the ones it accepts, so a wording change lands in one place.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "description": "Logical id of the object",
+            "type": "string"
+        },
+        "aliasLogicalId": {
+            "description": "Alias for logical id",
+            "type": "string"
+        },
+        "boundingBoxPoints": {
+            "description": "Bounding box points",
+            "$ref": "types/boundingBoxPoints.schema.json"
+        },
+        "leaderPosition": {
+            "description": "Leader arrow position, associative.",
+            "$ref": "types/point.schema.json"
+        },
+        "color": {
+            "description": "Object color. Overrides the color from the style.",
+            "$ref": "types/color.schema.json"
+        },
+        "textHeight": {
+            "description": "Height of the text. Overrides the text height from the style.",
+            "type": "number",
+            "exclusiveMinimum": 0
+        },
+        "arrowSize": {
+            "description": "Leader arrow size. Overrides the arrow size from the style.",
+            "type": "number"
+        },
+        "arrowType": {
+            "description": "Leader arrow type. Overrides the arrow type from the style.",
+            "type": "string"
+        },
+        "resetOverrides": {
+            "description": "Style-override properties to reset back to the style default (edit only).",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "color",
+                    "font",
+                    "textHeight",
+                    "arrowSize",
+                    "arrowType"
+                ]
+            }
+        },
+        "formatting": {
+            "description": "Dimension formatting override for the object",
+            "$ref": "formatting/dimensionformatting.schema.json"
+        },
+        "breakDimensionLine": {
+            "description": "True if the dimension's lines may be broken where other dimensions or view geometry crosses them; otherwise, false. Omitted, it takes the drawing's default on create and stays unchanged on edit.",
+            "type": "boolean"
+        },
+        "inspection": {
+            "description": "True if inspection is enabled for the object",
+            "type": "boolean"
+        },
+        "prefix": {
+            "description": "Prefix of the displayed value",
+            "type": "string"
+        },
+        "suffix": {
+            "description": "Suffix of the displayed value",
+            "type": "string"
+        },
+        "textAbove": {
+            "description": "Text shown above the displayed value",
+            "type": "string"
+        },
+        "textBelow": {
+            "description": "Text shown below the displayed value",
+            "type": "string"
+        },
+        "textPosition": {
+            "description": "Midpoint for the text, non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "unit": {
+            "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+            "$ref": "types/unit.schema.json"
+        },
+        "displayedValue": {
+            "description": "The displayed value of the object",
+            "type": "string"
+        },
+        "isDangling": {
+            "description": "Is the object dangling or not",
+            "type": "boolean"
+        },
+        "textOverride": {
+            "description": "Override to replace the standard text of the object",
+            "type": "string"
+        },
+        "precision": {
+            "description": "Precision of the displayed value",
+            "type": "number"
+        },
+        "isPrecisionOverridden": {
+            "description": "True if the precision is overridden.",
+            "type": "boolean"
+        },
+        "tolerance": {
+            "description": "Tolerance display for the object",
+            "$ref": "types/tolerance.schema.json"
+        },
+        "displayParentheses": {
+            "description": "True if parentheses are enabled for the object",
+            "type": "boolean"
+        },
+        "measurement": {
+            "description": "The measured value of the object",
+            "type": "number"
+        },
+        "isDrivingDimension": {
+            "description": "True if the object is a driving dimension",
+            "type": "boolean"
+        },
+        "showFirstExtensionLine": {
+            "description": "True if the dimension's first extension line is visible; otherwise, false. On a radial or diametric dimension it is the extension arc, drawn past the end of the measured arc when the dimension points beyond it. Omit for the drawing's dimension style default on create, the current value on edit. Ignored, and exported as false, where the dimension never draws it: on a wall thickness dimension, and on a radial or diametric dimension without an extension arc.",
+            "type": "boolean"
+        },
+        "showSecondExtensionLine": {
+            "description": "True if the dimension's second extension line is visible; otherwise, false. Omit for the drawing's dimension style default on create, the current value on edit. Ignored, and exported as false, on a foreshortened or wall thickness dimension, which never draws it.",
+            "type": "boolean"
+        },
+        "showDimensionLine": {
+            "description": "True if the radial or diametric dimension line is shown across the circle; otherwise, false, and a leader from the arrowhead reaches the text. Omit for the drawing's 'Show dimension lines by default' on create, the current value on edit. Rejected for a silhouette-edge association and for a foreshortened radial dimension.",
+            "type": "boolean"
+        },
+        "extensionLineJogs": {
+            "description": "Jogs applied to this dimension's extension lines, at most one per line. An extension line with no entry here is not jogged. On edit, omitting this property leaves the existing jogs alone and sending an empty array removes them all. Adding a jog to an extension line too short to hold one shifts the dimension line and the text to make room, so textPosition can come back different from the one sent.",
+            "type": "array",
+            "items": { "$ref": "dimensions/extensionlinejog.schema.json" },
+            "maxItems": 2
+        }
+    }
+}

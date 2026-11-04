@@ -6,8 +6,7 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of centermark",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"centerPoint": {
 			"description": "Center point of the centermark, associative",
@@ -18,8 +17,7 @@
 			"type": "boolean"
 		},
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"required": [

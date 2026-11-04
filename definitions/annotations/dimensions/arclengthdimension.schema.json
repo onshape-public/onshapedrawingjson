@@ -1,0 +1,88 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/arclengthdimension",
+    "title": "Arc Length Dimension",
+    "description": "Defines the arc length of a curved edge",
+    "type": "object",
+    "properties": {
+      "logicalId": {
+        "$ref": "../commonproperties.schema.json#/properties/logicalId"
+      },
+      "edge": {
+        "description":"The curved edge being measured",
+        "$ref": "../types/edge.schema.json"
+      },
+      "conjugateArc": {
+        "description": "True if the dimension measures the conjugate arc, the part of the edge's circle that the edge does not cover; otherwise, false. Omitted on create, the dimension measures the edge itself.",
+        "type": "boolean"
+      },
+      "textPosition": {
+        "$ref": "../commonproperties.schema.json#/properties/textPosition"
+      },
+      "textOverride": {
+        "$ref": "../commonproperties.schema.json#/properties/textOverride"
+      },
+      "formatting": {
+        "$ref": "../commonproperties.schema.json#/properties/formatting"
+      },
+      "measurement": {
+        "$ref": "../commonproperties.schema.json#/properties/measurement"
+      },
+      "displayedValue": {
+        "$ref": "../commonproperties.schema.json#/properties/displayedValue"
+      },
+      "isDangling": {
+        "$ref": "../commonproperties.schema.json#/properties/isDangling"
+      },
+      "isDrivingDimension": {
+        "$ref": "../commonproperties.schema.json#/properties/isDrivingDimension"
+      },
+      "precision": {
+        "$ref": "../commonproperties.schema.json#/properties/precision"
+      },
+      "isPrecisionOverridden": {
+        "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
+      },
+      "unit": {
+        "$ref": "../commonproperties.schema.json#/properties/unit"
+      },
+      "boundingBoxPoints": {
+        "$ref": "../commonproperties.schema.json#/properties/boundingBoxPoints"
+      },
+      "tolerance": {
+        "$ref": "../commonproperties.schema.json#/properties/tolerance"
+      },
+      "aliasLogicalId": {
+        "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
+      },
+      "textAbove": {
+        "$ref": "../commonproperties.schema.json#/properties/textAbove"
+      },
+      "textBelow": {
+        "$ref": "../commonproperties.schema.json#/properties/textBelow"
+      },
+      "prefix": {
+        "$ref": "../commonproperties.schema.json#/properties/prefix"
+      },
+      "suffix": {
+        "$ref": "../commonproperties.schema.json#/properties/suffix"
+      },
+      "displayParentheses": {
+        "$ref": "../commonproperties.schema.json#/properties/displayParentheses"
+      },
+      "inspection": {
+        "$ref": "../commonproperties.schema.json#/properties/inspection"
+      },
+      "showFirstExtensionLine": {
+        "$ref": "../commonproperties.schema.json#/properties/showFirstExtensionLine"
+      },
+      "showSecondExtensionLine": {
+        "$ref": "../commonproperties.schema.json#/properties/showSecondExtensionLine"
+      },
+      "breakDimensionLine": {
+        "$ref": "../commonproperties.schema.json#/properties/breakDimensionLine"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["edge", "textPosition", "unit"]
+  }

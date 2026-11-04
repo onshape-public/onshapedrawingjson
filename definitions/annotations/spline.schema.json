@@ -6,8 +6,7 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of spline",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"points": {
 			"description": "Points of the spline",
@@ -22,8 +21,7 @@
 			"type": "string"
 		},
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"additionalProperties": false,

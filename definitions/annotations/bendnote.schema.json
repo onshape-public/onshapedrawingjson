@@ -1,0 +1,45 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/bendnote",
+    "title": "Bend Note",
+    "description": "Defines a bend note that is automatically created for a bend line in a sheet-metal/flat-pattern view. Supported for export and edit (bend notes are auto-created, not created through the API).",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
+        },
+        "position": {
+            "description": "Text center position of the bend note, non-associative. Editable.",
+            "$ref": "types/point.schema.json"
+        },
+        "attachmentPoint": {
+            "description": "Associative attachment point of the bend note on the bend line (carries the view it belongs to). Editable; must lie on the bend line.",
+            "$ref": "types/point.schema.json"
+        },
+        "bendLineText": {
+            "description": "The full displayed bend note text, e.g. 'UP 90.0 deg R2.29' (read-only, derived from the model).",
+            "type": "string"
+        },
+        "direction": {
+            "description": "Bend direction (read-only).",
+            "type": "string",
+            "enum": ["Up", "Down"]
+        },
+        "angle": {
+            "description": "Bend angle value in degrees (read-only), consistent with how angular dimensions export their measurement.",
+            "$ref": "../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimal"
+        },
+        "radius": {
+            "description": "Bend radius value in the drawing's display units (read-only).",
+            "$ref": "../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimalDefault0"
+        },
+        "isDangling": {
+            "$ref": "commonproperties.schema.json#/properties/isDangling"
+        },
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["logicalId"]
+}

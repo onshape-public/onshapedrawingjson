@@ -6,8 +6,7 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of Datum annotation",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"position": {
 			"description": "Text position, non-associative",
@@ -39,20 +38,17 @@
 			"type": "number"
 		},
 		"isDangling": {
-			"description": "Is datum dangling or not",
-			"type": "boolean"
+		    "$ref": "commonproperties.schema.json#/properties/isDangling"
 		},
 		"isDatumTarget": {
 			"description": "Is the entity is datum target or not",
 			"type": "boolean"
 		},
 		"boundingBoxPoints": {
-			"description": "Bounding box points",
-			"$ref": "types/boundingBoxPoints.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
 		},
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"additionalProperties": false,

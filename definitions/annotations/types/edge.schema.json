@@ -13,7 +13,7 @@
             "type": "string"
         }
     },
-    "required": ["type","viewId"],
+    "required": ["type"],
     "oneOf": [
         {
             "title": "Associative edge based on unique id",
@@ -24,7 +24,8 @@
                 }
             },
             "required": [
-                "uniqueId"
+                "uniqueId",
+                "viewId"
             ]
         },
         {
@@ -36,7 +37,8 @@
                 }
             },
             "required": [
-                "deterministicId"
+                "deterministicId",
+                "viewId"
             ]
         },
         {

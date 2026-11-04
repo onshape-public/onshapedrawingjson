@@ -11,6 +11,10 @@
       "items": {
         "$ref": "sheet.schema.json"
       }
+    },
+    "properties": {
+      "description": "Drawing-level properties (standard, units) that apply to the whole drawing.",
+      "$ref": "drawingproperties.schema.json"
     }
   },
   "additionalProperties": false,

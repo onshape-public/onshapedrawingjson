@@ -6,16 +6,14 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of the annotation",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"position": {
 			"description": "Surface finish symbol position, non-associative",
 			"$ref": "types/point.schema.json"
 		},
 		"leaderPosition": {
-			"description": "Leader arrow position, associative.",
-			"$ref": "types/point.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/leaderPosition"
 		},
 		"maxRoughness": {
 			"description": "The max roughness text",
@@ -42,8 +40,7 @@
 			"type": "string"
 		},
 		"textHeight": {
-			"description": "Default height of the text. Overrides the text height from the style.",
-			"type": "number"
+		    "$ref": "commonproperties.schema.json#/properties/textHeight"
 		},
 		"surfaceTextType": {
 			"description": "Surface finish symbol text type, one of the predefined values.",
@@ -71,8 +68,7 @@
 			]
 		},
 		"isDangling": {
-			"description": "Is surface finish symbol dangling or not",
-			"type": "boolean"
+		    "$ref": "commonproperties.schema.json#/properties/isDangling"
 		},
 		"isAllAround": {
 			"description": "Is surface finish symbol is all around or not",
@@ -83,12 +79,10 @@
 			"type": "boolean"
 		},
 		"boundingBoxPoints": {
-			"description": "Bounding box points",
-			"$ref": "types/boundingBoxPoints.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
 		},
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"additionalProperties": false,

@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/drawingproperties",
+    "title": "Drawing Properties",
+    "description": "Drawing-level properties that apply to the whole drawing (all sheets).",
+    "type": "object",
+    "properties": {
+        "standard": {
+            "description": "CAD drafting standard the drawing is based on.",
+            "type": "string",
+            "enum": ["ANSI", "ISO", "JIS"]
+        },
+        "units": {
+            "description": "Default drawing units.",
+            "type": "string",
+            "enum": ["Inches", "Inches-Fraction", "Millimeter", "Feet-Inches", "Meters", "Centimeters", "Feet", "Yard", "Degree"]
+        }
+    },
+    "additionalProperties": false
+}

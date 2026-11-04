@@ -9,16 +9,16 @@
             "enum": ["TtoB", "BtoT"]
         },
         "tableWidth": {
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
         },
         "tableHeight": {
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
         },
         "minTableWidth": {
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
         },
         "minTableHeight": {
-            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
         },
         "fixedCorners":{
             "type": "string",
@@ -48,10 +48,10 @@
                 "type": "object",
                 "properties":{
                         "columnIndex":{
-                            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+                            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
                         },
                         "columnWidth":{
-                            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+                            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
                         }
                 }
             }
@@ -62,10 +62,10 @@
                 "type": "object",
                 "properties":{
                         "rowIndex":{
-                            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+                            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
                         },
                         "rowHeight":{
-                            "$ref": "../tables/types/propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+                            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
                         }
                 }
             }

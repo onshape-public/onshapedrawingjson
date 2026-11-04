@@ -6,8 +6,7 @@
     "type": "object",
     "properties": {
       "logicalId": {
-        "description": "Logical id of chamfer dimension",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/logicalId"
       },
       "edge1Start": {
         "description":"Start of the first edge for the chamfer dimension",
@@ -26,8 +25,7 @@
         "$ref": "../types/point.schema.json"
       },
       "textPosition": {
-        "description":"Midpoint for the dimension text, non-associative",
-        "$ref": "../types/point.schema.json"
+        "$ref": "../commonproperties.schema.json#/properties/textPosition"
       },
       "firstChamferOverride": {
         "description":"Override to replace the first value of chamfer dimension ",
@@ -38,40 +36,33 @@
         "type": "string"
       },
       "textAbove": {
-        "description":"Above text for chamfer dimension",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/textAbove"
       },
       "textBelow": {
-        "description":"Below text of chamfer dimension",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/textBelow"
       },
       "prefix": {
-        "description":"Prefix of chamfer dimension",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/prefix"
       },
       "suffix": {
-        "description":"Suffix of chamfer dimension",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/suffix"
       },
       "formatting": {
-        "description":"Dimension formatting override for this dimension",
-        "$ref": "../formatting/dimension.schema.json"
+        "$ref": "../commonproperties.schema.json#/properties/formatting"
       },
       "measurementLength": {
-        "description": "Returns the measurement length (DXF 42) stored in this dimension entity",
+        "description": "The measured length of the chamfer",
         "type": "number"
       },
       "measurementAngle": {
-        "description": "Returns the measurement angle (DXF 42) stored in this dimension entity",
+        "description": "The measured angle of the chamfer",
         "type": "number"
       },
       "displayedValue": {
-        "description": "Returns the displayed value of the dimension entity",
-        "type": "string"
+        "$ref": "../commonproperties.schema.json#/properties/displayedValue"
       },
       "isDangling": {
-        "description": "Is dimension dangling or not",
-        "type": "boolean"
+        "$ref": "../commonproperties.schema.json#/properties/isDangling"
       },
 	  "firstLengthValuePrecision": {
         "description":"First length value precision for Chamfer",
@@ -98,16 +89,14 @@
         "type": "boolean"
       },
       "unit": {
-        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
-        "$ref": "../types/unit.schema.json"
+        "$ref": "../commonproperties.schema.json#/properties/unit"
       },
       "secondUnit": {
-        "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
+        "description": "Unit for the second of the two values a chamfer dimension displays - format decides whether that is a distance or an angle. The first value uses unit. By default it is the drawing's unit enum value DRAWING.",
         "$ref": "../types/unit.schema.json"
       },
       "boundingBoxPoints": {
-        "description": "Bounding box points",
-        "$ref": "../types/boundingBoxPoints.schema.json"
+        "$ref": "../commonproperties.schema.json#/properties/boundingBoxPoints"
       },
 	  "toleranceFirstValue": {
         "description":"Dimension first tolerance display",
@@ -118,12 +107,10 @@
         "$ref": "../types/tolerance.schema.json"
 	  },
 	  "aliasLogicalId": {
-        "description": "Alias for logical id",
-        "type": "string"
-      },
+        "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
+	  },
 	  "inspection": {
-        "description": "True if inspection enabled for dimension",
-        "type": "boolean"
+        "$ref": "../commonproperties.schema.json#/properties/inspection"
 	  },
 	  "format": {
         "description": "Defines the degree content for the chamfer dimension",

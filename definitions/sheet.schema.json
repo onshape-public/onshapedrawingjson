@@ -60,6 +60,10 @@
         "title": "Title block of the sheet",
         "description": "Title block of the sheet",
         "$ref": "titleBlock.schema.json"
+      },
+      "boundingBoxPoints": {
+        "description": "Bounding box of the sheet's physical paper/border region, independent of the position of any views, annotations or other entities on the sheet.",
+        "$ref": "annotations/types/boundingBoxPoints.schema.json"
       }
     },
     "additionalProperties": false,

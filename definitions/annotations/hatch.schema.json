@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/hatch",
+  "title": "Hatch",
+  "description": "Defines a hatch region in a drawing. A datum target's area hatch belongs to the datum and is not one of these.",
+  "type": "object",
+  "properties": {
+    "logicalId": {
+      "$ref": "commonproperties.schema.json#/properties/logicalId"
+    },
+    "aliasLogicalId": {
+      "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+    },
+    "viewId": {
+      "description": "Id of the view the hatch is anchored to, present only for a hatch that fills a region of a view. Read-only, derived from the hatch's boundary association: which view a hatch belongs to follows from where its seed point lands, so this cannot be set. Unlike the viewId of a sketch entity it is not group membership - a hatch is never added to a view group.",
+      "type": "string"
+    },
+    "pattern": {
+      "description": "Hatch pattern name. 'Solid' produces a solid fill. Ignored when isPatternOverridden is false.",
+      "type": "string",
+      "enum": [
+        "Solid",
+        "ANSI31",
+        "ANSI32-steel",
+        "ANSI33-bronze-brass-copper",
+        "ANSI34-rubber-plastic",
+        "ANSI35",
+        "ANSI36",
+        "ANSI37-lead-alloys",
+        "ANSI38-aluminium",
+        "ISO02W100",
+        "ISO03W100",
+        "ISO04W100",
+        "ISO05W100",
+        "ISO06W100",
+        "ISO07W100",
+        "ISO08W100",
+        "ISO09W100",
+        "ISO10W100",
+        "ISO11W100",
+        "ISO12W100",
+        "ISO13W100",
+        "ISO14W100",
+        "ISO15W100",
+        "Aluminium",
+        "Copper",
+        "Electric",
+        "Glass",
+        "Iron",
+        "Plastic",
+        "Steel",
+        "Titanium",
+        "Zinc",
+        "Grated-area",
+        "Dash-lines",
+        "Dots",
+        "Honeycomb",
+        "Houndstooth",
+        "Insulation",
+        "Parallel-lines",
+        "Mud-Sand",
+        "Netting",
+        "Concrete",
+        "Squares",
+        "Stars",
+        "Triangles",
+        "Zigzag",
+        "Wood",
+        "AEC-8-x-16-Block-elev",
+        "AEC-8-x-8-Block-elev",
+        "AEC-Herringbone",
+        "AEC-Parquet",
+        "AEC-Roof-shingle",
+        "AEC-Roof-wood-shake"
+      ]
+    },
+    "isPatternOverridden": {
+      "description": "True if the hatch pattern is overridden. When false the hatch follows the drawing-wide pattern, 'pattern' is ignored, and it keeps following that setting if it later changes. Omit it and the pattern sent decides: it is an override only if it differs from the drawing-wide pattern. True without a pattern keeps the hatch's current pattern on edit, and is rejected on create.",
+      "type": "boolean"
+    },
+    "patternCategory": {
+      "description": "Pattern category the pattern belongs to, matching the ANSI / ISO / General tabs in the Hatch dialog. Read-only, derived from the pattern name.",
+      "type": "string",
+      "enum": [
+        "ANSI",
+        "ISO",
+        "General"
+      ]
+    },
+    "scale": {
+      "description": "Pattern scale. The Hatch dialog offers 0.1 to 10, but other places in the drawing can set any positive scale, so any is accepted. A scale too small for the pattern is rejected as too dense. Defaults to 1.",
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "default": 1
+    },
+    "angle": {
+      "description": "Pattern angle in degrees, taken modulo 360. The Hatch dialog offers 0 to 180, but other places in the drawing can set any angle. Defaults to 0.",
+      "type": "number",
+      "default": 0
+    },
+    "color": {
+      "description": "Hatch color. Ignored when isColorOverridden is false. byACI takes the palette index of red, green and blue.",
+      "$ref": "types/color.schema.json"
+    },
+    "isColorOverridden": {
+      "description": "True if the hatch color is overridden. When false the hatch follows the drawing-wide color and 'color' is ignored. Omit it and the color sent decides. True without a color, or with a byLayer color, is rejected.",
+      "type": "boolean"
+    },
+    "isDangling": {
+      "$ref": "commonproperties.schema.json#/properties/isDangling"
+    },
+    "boundingBoxPoints": {
+      "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
+    },
+    "seedPoint": {
+      "description": "Interior point of the region the hatch fills. A hatch inside a view gives viewId and the point in that view's model coordinates, so the same payload with another viewId fills the same region in an identical view; a hatch on the sheet gives sheet coordinates and no viewId. Sent alone, the region is found from the point, as the Hatch command does. Sent with boundaryEntities, it picks the region among those entities only, and the request fails when it lies in none of them. There is no fallback between the forms. Export reports a point inside the hatch as it is now.",
+      "$ref": "types/point.schema.json"
+    },
+    "boundaryEntities": {
+      "description": "Logical ids of the sketch entities on the sheet that bound the hatch; a hatch inside a view uses seedPoint only. A profile assembled from several entities needs every one of them: four lines forming a rectangle are four ids, not one. Sent without seedPoint, they must form one closed profile: entities enclosing more than one separate region are rejected, so send one hatch per region, or add seedPoint to pick one. Export lists the entities around the region actually filled.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "anyOf": [
+    { "required": [ "seedPoint" ] },
+    { "required": [ "boundaryEntities" ] }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/extensionlinejog",
+  "title": "Extension Line Jog",
+  "description": "A jog in one extension line of a linear dimension: the extension line runs straight, steps sideways along a short slanted segment, then continues parallel to the dimension line. Used so an extension line can avoid crossing geometry, dimension text or another extension line.",
+  "type": "object",
+  "properties": {
+    "extensionLineIndex": {
+      "description": "Which extension line of the dimension carries this jog: 0 for the first, 1 for the second.",
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "startDistance": {
+      "description": "Distance in drawing units, measured along the extension line from the point being dimensioned, at which the jog starts. Defaults to half the extension line's length. The jog must still fit between that point and the dimension line, so a value too close to either end is clamped.",
+      "$ref": "../../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimal"
+    },
+    "jogLength": {
+      "description": "Length in drawing units of the slanted jog segment. Defaults to the drawing's jog gap, which varies with the template.",
+      "$ref": "../../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimal"
+    },
+    "jogAngle": {
+      "description": "Angle in degrees of the slanted jog segment away from the extension line direction, defaulting to 45. The sign selects which side the jog steps to: a negative angle steps towards the inside of the dimension line. A drawing that locks its jog angle to 45 overwrites this on every jogged dimension.",
+      "type": "number"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["extensionLineIndex"]
+}

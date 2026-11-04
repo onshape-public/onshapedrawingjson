@@ -6,52 +6,41 @@
 	"type": "object",
 	"properties": {
 		"logicalId": {
-			"description": "Logical id of hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"textPosition": {
-			"description": "Text position, non-associative",
-			"$ref": "types/point.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/textPosition"
 		},
 		"leaderPosition": {
-			"description": "Leader arrow position, associative.",
-			"$ref": "types/point.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/leaderPosition"
 		},
 		"leaderLogicalId": {
 			"description": "Logical ID of the leader",
 			"type": "string"
 		},
 		"displayedValue": {
-			"description": "The text contents displayed for hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/displayedValue"
 		},
 		"textAbove": {
-			"description": "Above text of the hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/textAbove"
 		},
 		"textBelow": {
-			"description": "Below text of the hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/textBelow"
 		},
 		"prefix": {
-			"description": "Prefix of the hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/prefix"
 		},
 		"suffix": {
-			"description": "Suffix of the hole callout",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/suffix"
 		},
 		"isDangling": {
-			"description": "Is hole callout dangling or not",
-			"type": "boolean"
+		    "$ref": "commonproperties.schema.json#/properties/isDangling"
 		},
 		"boundingBoxPoints": {
-			"description": "Bounding box points",
-			"$ref": "types/boundingBoxPoints.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
 		},
 		"aliasLogicalId": {
-			"description": "Alias for logical id",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
 		},
 		"holeCount": {
 			"description": "The hole count",
@@ -108,21 +97,27 @@
 			"description": "Tapped depth",
 			"$ref": "types/holeValue.schema.json"
 		},
+		"threadSpecification": {
+			"description": "Thread specification of a tapped hole as shown in the hole callout, Read-only",
+			"type": "string"
+		},
 		"unit": {
-			"description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
-			"$ref": "types/unit.schema.json"
+		    "$ref": "commonproperties.schema.json#/properties/unit"
 		},
 		"isUnitOverridden": {
 			"description": "True if the hole callout unit is overridden.",
 			"type": "boolean"
+		},
+		"landingLength": {
+			"description": "Leader landing line length or jog segment length for the hole callout leader",
+			"type": "number",
+			"minimum": 0
 		}
 	},
 	"additionalProperties": false,
 	"required": [
 		"textPosition",
 		"leaderPosition",
-		"holeDiameter",
-		"holeDepth",
 		"unit"
 	]
 }

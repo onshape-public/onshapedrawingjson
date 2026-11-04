@@ -10,16 +10,14 @@
 			"type": "string"
 		},
 		"logicalId": {
-			"description": "Logical id of spline point",
-			"type": "string"
+		    "$ref": "commonproperties.schema.json#/properties/logicalId"
 		},
 		"position": {
 			"description": "Position of the splinePoint",
 			"$ref": "types/point.schema.json"
 		},
         "aliasLogicalId": {
-          "description": "Alias for logical id",
-          "type": "string"
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
         }
 	},
 	"additionalProperties": false,

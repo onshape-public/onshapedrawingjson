@@ -18,12 +18,10 @@
         "description": "Single dimension line of the ordinate dimension",
         "properties": {
           "logicalId": {
-            "description": "Unique handle identifying this dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
           },
           "aliasLogicalId": {
-            "description": "Alias for logical id",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
           },
           "isOrigin": {
             "description": "Is this dimension line the origin line of the ordinate dimension",
@@ -34,72 +32,58 @@
             "$ref": "../types/point.schema.json"
           },
           "textPosition": {
-            "description": "Position of the text for this dimension line",
-            "$ref": "../types/point.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/textPosition"
           },
           "displayedValue": {
-            "description": "Formatted value displayed for this dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/displayedValue"
           },
           "isDangling": {
-            "description": "Is dimension line dangling or not",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/isDangling"
           },
           "tolerance": {
-            "description": "Dimension line tolerance display",
-            "$ref": "../types/tolerance.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/tolerance"
           },
           "textAbove": {
-            "description":"Above text of the dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/textAbove"
           },
           "textBelow": {
-            "description":"Below text of the dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/textBelow"
           },
           "prefix": {
-            "description":"Prefix of the dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/prefix"
           },
           "suffix": {
-            "description":"Suffix of the dimension line",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/suffix"
           },
           "textOverride": {
-            "description":"Override to replace the standard dimension line text",
-            "type": "string"
+            "$ref": "../commonproperties.schema.json#/properties/textOverride"
           },
           "formatting": {
-            "description":"Dimension formatting override for this dimension line",
-            "$ref": "../formatting/dimension.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/formatting"
           },
           "precision": {
-            "description":"Dimension line value precision",
-            "type": "number"
+            "$ref": "../commonproperties.schema.json#/properties/precision"
           },
           "isPrecisionOverridden": {
-            "description": "True if the dimension line precision is overridden.",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
           },
           "unit": {
-            "description": "Unit for the measurement, by default it is drawings unit enum value DRAWING.",
-            "$ref": "../types/unit.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/unit"
           },
           "measurement": {
-            "description": "Returns the measurement (DXF 42) stored in this Dimension line",
-            "type": "number"
+            "$ref": "../commonproperties.schema.json#/properties/measurement"
           },
           "boundingBoxPoints": {
-            "description": "Bounding box points of each ordinate dimension line",
-            "$ref": "../types/boundingBoxPoints.schema.json"
+            "$ref": "../commonproperties.schema.json#/properties/boundingBoxPoints"
           },
           "displayParentheses": {
-            "description": "True if parentheses enabled for dimension",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/displayParentheses"
           },
           "inspection": {
-            "description": "True if inspection enabled for dimension",
-            "type": "boolean"
+            "$ref": "../commonproperties.schema.json#/properties/inspection"
+          },
+          "breakDimensionLine": {
+            "$ref": "../commonproperties.schema.json#/properties/breakDimensionLine"
           }
         },
         "required": ["attachmentPoint", "isOrigin", "textPosition"],
