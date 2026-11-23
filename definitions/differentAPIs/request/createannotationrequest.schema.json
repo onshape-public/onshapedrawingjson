@@ -14,7 +14,7 @@
       "description": "Unique id for proper request tracking"
     },
     "messageName": {
-      "type":" string",
+      "type": "string",
       "const": "onshapeCreateAnnotations",
       "description": "Type of request"
     },
@@ -27,11 +27,10 @@
       "description": "Annotations",
       "type": "array",
       "items": {
-        "type": "../annotation.schema.json"
+        "$ref": "../../annotation.schema.json"
       }
-    },
-    "additionalProperties": false,
-    "required": [ "messageName", "annotations" ],
-    "oneOf": [ "formatVersion" ]
-  }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "messageName", "annotations" ]
 }

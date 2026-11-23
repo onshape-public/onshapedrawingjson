@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/createsheetrequest",
+  "title": "Create sheets",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "type": "string",
+      "description": "Schema version",
+      "const": "2021-01-01"
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "messageName": {
+      "type": "string",
+      "const": "onshapeCreateSheets",
+      "description": "Type of request"
+    },
+    "description": {
+      "description": "History entry for the requested change in drawing",
+      "title": "History content",
+      "type": "string"
+    },
+    "sheets": {
+      "description": "Sheets to create, in order; the last sheet created becomes the active sheet.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sheetDetails": {
+            "description": "Name, position and logical id of the new sheet; the next default sheet name when name is absent. A logicalId that is a handle (h:...) is rejected.",
+            "$ref": "../../sheetreference.schema.json"
+          },
+          "copyFrom": {
+            "description": "Sheet to duplicate, by logicalId, name or index.",
+            "$ref": "../../sheetreference.schema.json"
+          },
+          "formatReference": {
+            "$ref": "../../sheetformatreference.schema.json"
+          },
+          "size": {
+            "$ref": "../../sheetsize.schema.json"
+          },
+          "width": {
+            "$ref": "../../sheet.schema.json#/properties/width"
+          },
+          "height": {
+            "$ref": "../../sheet.schema.json#/properties/height"
+          },
+          "scale": {
+            "$ref": "../../views/types/scale.schema.json"
+          },
+          "includeBorder": {
+            "$ref": "../../sheet.schema.json#/properties/includeBorder"
+          },
+          "zones": {
+            "$ref": "../../sheet.schema.json#/properties/zones"
+          },
+          "referenceDetails": {
+            "$ref": "../../views/modelreference.schema.json"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "messageName", "sheets" ]
+}

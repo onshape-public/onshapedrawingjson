@@ -112,7 +112,7 @@
         "allOf": [
           {
             "if": {
-              "properties": {"option": { "oneOf": ["absolute", "ratio to studio", "ratio to part"] } }
+              "properties": {"option": { "enum": ["absolute", "ratio to studio", "ratio to part"] } }
             },
             "then": {
               "required": [ "threshold" ]
@@ -192,6 +192,14 @@
       "showCentermarks":{
         "description": "Show automatic centermarks of holes, by default it is true.",
         "type": "boolean"
+      },
+      "showCenterOfMass":{
+        "description": "Show the center of mass of the parts in the view, by default it is false. It is refused when the view context menu cannot show the center of mass.",
+        "type": "boolean"
+      },
+      "centerOfMassLogicalId":{
+        "description": "Logical id of the center of mass symbol of the view, exported (as its handle) while showCenterOfMass is true. Dimensions and leaders attached to the center of mass reference it by this id. On create/edit it requires showCenterOfMass true: a handle must be the center of mass of this view when the view already has one, and is ignored when this request creates it (a new view, or a view whose center of mass is shown for the first time), since it then comes from the export of another view; any other id is saved in the drawing as a name of the center of mass, which annotations of later requests can reference. A name already given to another object is refused.",
+        "type": "string"
       },
       "showShadedView":{
         "description": "Show a shaded view of the parts, by default it is false.",
@@ -290,10 +298,19 @@
         ]
       },
       {
-        "properties": {
-          "viewType": { "const": "Detail" }
-        },
-        "required": ["parentView"]
+        "allOf": [
+          {
+            "properties": {
+              "viewType": { "const": "Detail" }
+            }
+          },
+          {
+            "$ref": "detailView.schema.json"
+          },
+          {
+            "required": ["parentView"]
+          }
+        ]
       },
       {
         "allOf": [

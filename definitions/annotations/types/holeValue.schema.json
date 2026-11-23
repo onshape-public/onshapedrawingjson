@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "types/holeValue.schema.json",
+  "$id": "https://drawing-schemas.onshape.com/annotations/types/holeValue",
   "title": "Hole value",
   "description": "Represents a hole-related value such as diameter, depth, or angle, including tolerance and precision",
   "type": "object",

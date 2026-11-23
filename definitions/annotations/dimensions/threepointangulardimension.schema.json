@@ -27,6 +27,9 @@
       "textPosition": {
         "$ref": "../commonproperties.schema.json#/properties/textPosition"
       },
+      "isTextPositionDefault": {
+        "$ref": "../commonproperties.schema.json#/properties/isTextPositionDefault"
+      },
       "textOverride": {
         "$ref": "../commonproperties.schema.json#/properties/textOverride"
       },

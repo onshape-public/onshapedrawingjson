@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/sheetformatreference",
+  "title": "Sheet format reference",
+  "description": "Drawing template (DWT element) applied as the sheet format. Cannot be sent with size, width, height, includeBorder or zones; such a request is rejected.",
+  "type": "object",
+  "properties": {
+    "documentId": {
+      "description": "Id of the document holding the template; defaults to the drawing's document.",
+      "type": "string"
+    },
+    "elementId": {
+      "description": "Id of the template element.",
+      "type": "string"
+    },
+    "versionId": {
+      "description": "Id of the document version holding the template; required for another document.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "elementId"
+  ]
+}

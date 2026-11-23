@@ -1,0 +1,53 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/dimensions/smartdimension",
+    "title": "Smart Dimension Annotation",
+    "description":"Smart dimension: creates the dimension type that matches the selections. Create only; the result is exported, edited and deleted as that dimension type.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
+        },
+        "selections": {
+            "description":"Ordered selections. Three selections create a three-point angular dimension, with the vertex first. A single point selection is rejected.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+                "$ref": "#/$defs/selection"
+            }
+        },
+        "textPosition": {
+            "description":"Text position of the dimension. Determines the orientation or side of the created dimension.",
+            "$ref": "../types/point.schema.json"
+        },
+        "drivingValue": {
+            "description":"Value of the created dimension when it drives its geometry, in the units of its measurement (radians for an angle). Rejected when the dimension does not drive its geometry.",
+            "type": "number"
+        }
+    },
+    "$defs": {
+        "selection": {
+            "title": "Smart Dimension Selection",
+            "description":"Selection: an edge or a point.",
+            "type": "object",
+            "properties": {
+                "edge": {
+                    "description":"Picked edge",
+                    "$ref": "../types/edge.schema.json"
+                },
+                "point": {
+                    "description":"Picked point",
+                    "$ref": "../types/point.schema.json"
+                }
+            },
+            "additionalProperties": false,
+            "oneOf": [
+                { "required": ["edge"] },
+                { "required": ["point"] }
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": ["selections", "textPosition"]
+}

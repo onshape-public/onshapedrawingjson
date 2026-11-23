@@ -43,6 +43,12 @@
       "isPrecisionOverridden": {
         "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
       },
+      "isDualDimensionEnabled": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionEnabled"
+      },
+      "isDualDimensionOverridden": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionOverridden"
+      },
       "unit": {
         "$ref": "../commonproperties.schema.json#/properties/unit"
       },

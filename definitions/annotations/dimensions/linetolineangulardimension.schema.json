@@ -31,6 +31,9 @@
       "textPosition": {
         "$ref": "../commonproperties.schema.json#/properties/textPosition"
       },
+      "isTextPositionDefault": {
+        "$ref": "../commonproperties.schema.json#/properties/isTextPositionDefault"
+      },
       "textOverride": {
         "$ref": "../commonproperties.schema.json#/properties/textOverride"
       },
@@ -93,6 +96,10 @@
       },
       "breakDimensionLine": {
         "$ref": "../commonproperties.schema.json#/properties/breakDimensionLine"
+      },
+      "isConjugateAngle": {
+        "description": "True when this dimension measures the conjugate angle, 360 degrees minus the angle the two edges contain; export reports it. On create, true builds a conjugate when the edges meet and arcPoint lies outside the angle between them, and is refused when arcPoint lies inside it. Absent or false, the arcPoint decides as when the dimension is placed in the UI: a conjugate only when it lies in the region vertically opposite the angle, otherwise an ordinary dimension. Edit ignores it and never converts between an ordinary and a conjugate dimension.",
+        "type": "boolean"
       }
     },
     "additionalProperties": false,

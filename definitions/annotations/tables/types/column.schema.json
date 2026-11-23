@@ -10,11 +10,13 @@
         },
         "propertyId": {
             "type": "string"
+        },
+        "columnIndex": {
+            "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger"
         }
     },
     "additionalProperties": false,
     "required": [
-        "displayName",
-        "propertyId"
+        "displayName"
     ]
 }

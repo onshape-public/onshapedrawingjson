@@ -5,11 +5,11 @@
     "type": "object",
     "properties": {
       "name":{
-        "description": "Name of the sheet",
+        "description": "Name of the sheet. Must be unique, not empty, at most 256 characters, without the characters <>/\\\":;?*|,=`.",
         "type": "string"
       },
       "index": {
-          "description": "Index of the sheet",
+          "description": "Position of the sheet in the sheet list, starting at 1.",
           "type": "number"
       },
       "active": {
@@ -17,7 +17,7 @@
           "type": "boolean"
       },
 	  "sheetDetails":{
-        "description":"Sheet details",
+        "description":"Details of the sheet: logicalId, name and index.",
         "$ref": "sheetreference.schema.json"
       },
       "scale":{
@@ -25,19 +25,64 @@
         "$ref": "views/types/scale.schema.json"
       },
       "size":{
-        "description": "Size of the sheet",
+        "description": "Paper size name of the sheet. Valid names depend on the drawing standard; 'Custom' requires width and height.",
         "type": "string"
+      },
+      "formatReference": {
+        "description": "Drawing template applied as the sheet format; null removes the template. Not exported.",
+        "oneOf": [
+          { "$ref": "sheetformatreference.schema.json" },
+          { "type": "null" }
+        ]
       },
       "format":{
-        "description": "Format of the sheet",      
+        "description": "Name of the drawing template applied to the sheet, or 'Custom' when none is applied. Read-only; formatReference sets the template.",
         "type": "string"
       },
+      "width": {
+        "description": "Width of the sheet in drawing units. A width different from the paper size requires size 'Custom'.",
+        "type": "number"
+      },
+      "height": {
+        "description": "Height of the sheet in drawing units. A height different from the paper size requires size 'Custom'.",
+        "type": "number"
+      },
+      "includeBorder": {
+        "description": "Whether the sheet has a border with zones.",
+        "type": "boolean"
+      },
+      "zones": {
+        "description": "Zones of the sheet border. Exported only when the border is included.",
+        "type": "object",
+        "properties": {
+          "horizontal": {
+            "description": "Number of horizontal zones; an even number from 0 to 20.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20,
+            "multipleOf": 2
+          },
+          "vertical": {
+            "description": "Number of vertical zones; an even number from 0 to 20.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20,
+            "multipleOf": 2
+          },
+          "startZone": {
+            "description": "Corner the zone numbering starts from.",
+            "type": "string",
+            "enum": [ "BottomRight", "TopLeft" ]
+          }
+        },
+        "additionalProperties": false
+      },
       "reference": {
-        "description": "Reference id",     
+        "description": "Reference id of the model the sheet refers to. Read-only; referenceDetails changes the reference.",
         "type": "string"
       },
       "referenceDetails": {
-        "description":"Model reference of the sheet",
+        "description":"Model reference of the sheet.",
         "$ref": "views/modelreference.schema.json"
       },
       "annotations": {

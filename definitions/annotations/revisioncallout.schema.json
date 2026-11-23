@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/revisioncallout",
+    "title": "Revision Callout",
+    "description": "Defines a revision callout (revision marker) that references a revision row of the drawing's revision table. A revision table must already exist in the drawing.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
+        },
+        "position": {
+            "description": "Text position of the revision callout, non-associative",
+            "$ref": "types/point.schema.json"
+        },
+        "revisionOrdinal": {
+            "description": "Ordinal of the revision row, in the drawing's single revision table, that this callout refers to. Optional: if omitted, the latest revision is used on create (mirrors the interactive command, which targets the latest revision unless a revision-table row is pre-selected) and the revision is unchanged on edit. Always emitted on export. A revision table must already exist.",
+            "type": "integer",
+            "minimum": 1
+        },
+        "leaderPosition": {
+            "description": "Leader arrow attachment point. In the interactive command the first pick, when it snaps to geometry, becomes this leader attachment and a second pick becomes the text position. Associative when the point references an entity: deterministicId/uniqueId plus viewId for a view edge, or the logicalId of a dimension (attached to its extension line) or of another entity. A point with only a coordinate gives a leader that is not attached to anything. If present, a leader is created (or the existing one moved on edit); if omitted, there is no leader and the marker sits at 'position'.",
+            "$ref": "types/point.schema.json"
+        },
+        "displayedValue": {
+            "description": "The revision text, derived from the revision table by revisionOrdinal (read-only).",
+            "type": "string"
+        },
+        "isHidden": {
+            "description": "Whether the revision callout is hidden. Callouts can be hidden from the revision table row's context menu, or when the corresponding revision is no longer shown in the table. Export only; false by default.",
+            "type": "boolean",
+            "default": false
+        },
+        "isDangling": {
+            "$ref": "commonproperties.schema.json#/properties/isDangling"
+        },
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["position"]
+}

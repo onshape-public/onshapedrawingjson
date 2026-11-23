@@ -25,8 +25,8 @@
           "type": "string"
         },
         "results": {
-          "descriptions": "Handles of created views",
-          "type": "Array",
+          "description": "Handles of created views",
+          "type": "array",
           "items": {
             "type": "object",
             "properties": {

@@ -25,7 +25,7 @@
             "type": "boolean"
         },
         "isVisible": {
-            "description": "True if the dimension unit is visible in the dimension text.",
+            "description": "True if the dimension unit is shown in the dimension text. Needs isUnitOverridden true; a dimension that follows the drawing unit also follows whether the drawing shows it. True is refused otherwise; false is always accepted.",
             "type": "boolean"
         },
         "dualUnit":{
@@ -38,6 +38,15 @@
         },
         "isDualUnitVisible": {
             "description": "True if the dimension dual(secondary) unit is visible in the dimension text.",
+            "type": "boolean"
+        },
+        "dualPrecision": {
+            "description": "Decimal places of the dual(secondary) value, 0 to 8. For fractional units it is the denominator exponent: 4 means 1/16, as for precision. Out of range is refused. The Styles panel offers 0 to 6, but an imported drawing can carry up to 8. Refused on angular dimensions, which have no dual value, and on hole callouts, whose dual precision cannot be overridden.",
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+            "maximum": 8
+        },
+        "isDualPrecisionOverridden": {
+            "description": "True if the dimension sets its own dual(secondary) precision. False makes it follow the drawing's default value. Send true to keep a dualPrecision overridden even when it equals the drawing's default value, so it does not change when the drawing's default value changes.",
             "type": "boolean"
         }
     },

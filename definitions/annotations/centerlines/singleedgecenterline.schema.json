@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/centerlines/singleedgecenterline",
+    "title": "Single-Edge Centerline Annotation",
+    "description": "Defines a centerline generated from a single silhouette edge of a cylindrical or revolved feature.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "../commonproperties.schema.json#/properties/logicalId"
+        },
+        "edge": {
+            "description": "The single defining silhouette edge (linear-apparent).",
+            "$ref": "../types/edge.schema.json"
+        },
+        "firstExtensionLength": {
+            "description": "Extension length beyond the first end of the centerline.",
+            "type": "number"
+        },
+        "secondExtensionLength": {
+            "description": "Extension length beyond the second end of the centerline.",
+            "type": "number"
+        },
+        "isDangling": {
+            "$ref": "../commonproperties.schema.json#/properties/isDangling"
+        },
+        "aliasLogicalId": {
+            "$ref": "../commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["edge"]
+}

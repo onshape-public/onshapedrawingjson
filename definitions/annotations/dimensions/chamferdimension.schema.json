@@ -65,12 +65,14 @@
         "$ref": "../commonproperties.schema.json#/properties/isDangling"
       },
 	  "firstLengthValuePrecision": {
-        "description":"First length value precision for Chamfer",
-        "type": "number"
+        "description":"First length value precision for Chamfer, 0 to 8 decimal places.",
+        "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+        "maximum": 8
       },
 	  "secondLengthValuePrecision": {
-        "description":"Second length value precision for Chamfer",
-        "type": "number"
+        "description":"Second length value precision for Chamfer, 0 to 8 decimal places.",
+        "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+        "maximum": 8
       },
       "isFirstLengthPrecisionOverridden": {
         "description": "True if the first length value precision is overridden.",
@@ -81,18 +83,25 @@
         "type": "boolean"
       },
 	  "angularPrecision": {
-        "description":"Angular precision for Chamfer",
-        "type": "number"
+        "description":"Angular precision for Chamfer, 0 to 8 decimal places.",
+        "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+        "maximum": 8
       },
       "isAnglePrecisionOverridden": {
         "description": "True if the angle precision is overridden.",
         "type": "boolean"
       },
+      "isDualDimensionEnabled": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionEnabled"
+      },
+      "isDualDimensionOverridden": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionOverridden"
+      },
       "unit": {
         "$ref": "../commonproperties.schema.json#/properties/unit"
       },
       "secondUnit": {
-        "description": "Unit for the second of the two values a chamfer dimension displays - format decides whether that is a distance or an angle. The first value uses unit. By default it is the drawing's unit enum value DRAWING.",
+        "description": "Unit of the second chamfer value. The format property decides whether that value is a distance or an angle. The first value uses unit. Defaults to the drawing unit (DRAWING). An angle has no dual value, so dualPrecision and isDualPrecisionOverridden are refused on it.",
         "$ref": "../types/unit.schema.json"
       },
       "boundingBoxPoints": {

@@ -2,7 +2,7 @@
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://drawing-schemas.onshape.com/annotations/datum",
 	"title": "Datum Annotation",
-	"description": "Defines a datum",
+	"description": "Defines a datum. The schema checks only the fields sent: on an edit, a field that is not sent keeps the value it has on the datum.",
 	"type": "object",
 	"properties": {
 		"logicalId": {
@@ -21,7 +21,7 @@
 			"$ref": "types/point.schema.json"
 		},
 		"arrowType": {
-			"description": "Arrow type os datum(DatumBlank/DatumFilled)",
+			"description": "Arrow type of the datum (datumBlank/datumFilled)",
 			"type": "string",
 			"enum": [
 				"datumBlank",
@@ -41,8 +41,130 @@
 		    "$ref": "commonproperties.schema.json#/properties/isDangling"
 		},
 		"isDatumTarget": {
-			"description": "Is the entity is datum target or not",
+			"description": "Whether the datum is a datum target. On edit a datum stays a datum and a datum target stays a datum target, as in the Datum dialog. A datum target is placed on an edge, a centermark or a centerline, or, for a custom area, inside a closed region (see datumTargetArea); a feature control frame, a dimension or a leader takes a plain datum only.",
 			"type": "boolean"
+		},
+		"datumTargetType": {
+			"description": "Datum target type: a length datum target or an angle datum target (only meaningful when isDatumTarget is true). Changing it clears what belongs to the old type, as the Datum dialog does: the instances of an angle target and the direction edges (xAxisEdge, yAxisEdge, referenceLine); an origin computed from both edges goes with them, while a picked origin stays and, for an angle target, must be the center of a circular edge.",
+			"type": "string",
+			"enum": ["length", "angle"]
+		},
+		"frameStyle": {
+			"description": "Placement style of the datum target frame relative to the leader. The outside styles (frameOutside, frameMoveOutsideHorizontal, frameMoveOutsideRotational) apply to circle and rectangle areas, and to point and dot areas that show their size (showAreaSize). Changing the area to one without outside styles, or turning showAreaSize off on a point or dot area, switches an outside style to the matching inside one. A custom area takes the inside styles only.",
+			"type": "string",
+			"enum": [
+				"frameInside",
+				"frameOutside",
+				"frameMoveInsideHorizontal",
+				"frameMoveOutsideHorizontal",
+				"frameMoveInsideRotational",
+				"frameMoveOutsideRotational"
+			]
+		},
+		"datumTargetArea": {
+			"description": "Datum target area type (only meaningful when isDatumTarget is true). A new datum target starts like one made in the Datum dialog: with the drawing's last used datum target settings, else a point area, frameInside and a size of 1 inch (25 mm in a metric drawing); the values sent are applied over them. custom is a free area drawn in the drawing, with a hatch built from the region at its targetPosition, as in the Datum dialog. It is built only when sent: a last used custom area becomes a point area. On create, targetPosition is a non-associative point (a coordinate, with viewId for view space or without it for sheet space; no uniqueId, deterministicId or logicalId) inside a closed region of a view or of a closed sketch in a view, and a request without such a region is refused. On edit, custom is accepted only sent back unchanged on a custom datum target, which also keeps its targetPosition; a datum target cannot be changed to or from a custom area through the API.",
+			"type": "string",
+			"enum": ["point", "dot", "circle", "rectangle", "custom"]
+		},
+		"datumTargetDiameter": {
+			"description": "Diameter of the datum target area, greater than 0, for circle, dot and point area types (the size a point or dot shows with showAreaSize); refused with another area type, such as custom. A new datum target that does not send it gets the default described in datumTargetArea.",
+			"type": "number",
+			"exclusiveMinimum": 0
+		},
+		"datumTargetWidth": {
+			"description": "Width of the datum target area, greater than 0, for rectangle area type; refused with another area type, such as custom. A new datum target that does not send it gets the default described in datumTargetArea.",
+			"type": "number",
+			"exclusiveMinimum": 0
+		},
+		"datumTargetHeight": {
+			"description": "Height of the datum target area, greater than 0, for rectangle area type; refused with another area type, such as custom. A new datum target that does not send it gets the default described in datumTargetArea.",
+			"type": "number",
+			"exclusiveMinimum": 0
+		},
+		"showAreaSize": {
+			"description": "Whether the area size (diameter) is shown for a point or dot datum target. Showing it also allows the outside frame styles (see frameStyle).",
+			"type": "boolean"
+		},
+		"hatchPattern": {
+			"description": "Hatch pattern of the datum target area, for circle, rectangle and custom area types (only meaningful when isDatumTarget is true). Exported as displayed: from the drawing's datum style, or as set in the Style panel or through the API.",
+			"$ref": "types/hatchpattern.schema.json"
+		},
+		"hatchScale": {
+			"description": "Hatch pattern scale of the datum target area, for circle, rectangle and custom area types; not applicable to a Solid pattern. Exported as displayed. Any scale of 0 or more is accepted, as in the Style panel, where 1 is shown as 'Auto'.",
+			"type": "number",
+			"default": 1,
+			"minimum": 0
+		},
+		"origin": {
+			"description": "Origin of the datum target, a point on the geometry, as picked in the Datum dialog; for an angle datum target the center of a circular edge (snapPointType ModeCenter). A length datum target may instead have its origin computed from xAxisEdge and yAxisEdge: it is then exported as a point without a reference, which is accepted back on such a target and not applied. A point without a reference is refused otherwise. On edit, null removes the origin, as the dialog's Remove origin button does; the instances of an angle target go with it.",
+			"anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ]
+		},
+		"xAxisEdge": {
+			"description": "Edge defining the x-axis direction of a length datum target's origin. On edit, null removes it, and with the y-axis edge still set, the origin they computed.",
+			"anyOf": [ { "$ref": "types/edge.schema.json" }, { "type": "null" } ]
+		},
+		"yAxisEdge": {
+			"description": "Edge defining the y-axis direction of a length datum target's origin. On edit, null removes it, and with the x-axis edge still set, the origin they computed.",
+			"anyOf": [ { "$ref": "types/edge.schema.json" }, { "type": "null" } ]
+		},
+		"showRadialLines": {
+			"description": "Whether radial lines are shown for an angle datum target.",
+			"type": "boolean"
+		},
+		"referenceLine": {
+			"description": "Edge specifying the reference line of an angle datum target. On edit, null removes it.",
+			"anyOf": [ { "$ref": "types/edge.schema.json" }, { "type": "null" } ]
+		},
+		"instanceCount": {
+			"description": "Number of instances of an angle datum target (the datum plus its related instances), 1 to 100 as in the dialog. Changing it needs an angle datum target with an origin; the current count is accepted on any datum target. Exported for an angle datum target with an origin. Instances are grouped and not exported as separate datums.",
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 100
+		},
+		"isAngleCounterclockwise": {
+			"description": "Whether the angle of an angle datum target with an origin is measured counterclockwise, as the dialog's opposite angle button toggles it. Exported for an angle datum target with an origin.",
+			"type": "boolean"
+		},
+		"flipInstancesDirection": {
+			"description": "Whether the instances of an angle datum target with an origin are placed in the opposite direction, as the dialog's flip instances button toggles it. Exported for an angle datum target with an origin.",
+			"type": "boolean"
+		},
+		"precisions": {
+			"description": "Precisions of the datum target's area size and dimensions, as the Datum dialog's precision menus set them: -1 for the drawing's precision, else 0 to 6 decimals.",
+			"type": "object",
+			"properties": {
+				"areaSize": { "description": "Precision of the area size: the circle diameter, the rectangle width, or the point or dot size. Needs the drawings_datum_targets_precision_control_area capability.", "type": "integer", "minimum": -1, "maximum": 6 },
+				"areaHeight": { "description": "Precision of the rectangle area height. Needs the drawings_datum_targets_precision_control_area capability.", "type": "integer", "minimum": -1, "maximum": 6 },
+				"linearX": { "description": "Precision of the linear X dimension of a length datum target with an origin.", "type": "integer", "minimum": -1, "maximum": 6 },
+				"linearY": { "description": "Precision of the linear Y dimension of a length datum target with an origin.", "type": "integer", "minimum": -1, "maximum": 6 },
+				"angular": { "description": "Precision of the angular dimension of an angle datum target with an origin.", "type": "integer", "minimum": -1, "maximum": 6 },
+				"angularDiameter": { "description": "Precision of the angular diameter dimension of an angle datum target with an origin.", "type": "integer", "minimum": -1, "maximum": 6 }
+			},
+			"additionalProperties": false
+		},
+		"hiddenDimensions": {
+			"description": "Which datum target dimensions are hidden. Absent flags mean the dimension is shown.",
+			"type": "object",
+			"properties": {
+				"linearX": { "description": "Hide the linear X dimension.", "type": "boolean" },
+				"linearY": { "description": "Hide the linear Y dimension.", "type": "boolean" },
+				"angular": { "description": "Hide the angular dimension.", "type": "boolean" },
+				"angularDiameter": { "description": "Hide the angular diameter dimension.", "type": "boolean" },
+				"instanceAngular": { "description": "Hide the angular dimension of instances.", "type": "boolean" }
+			},
+			"additionalProperties": false
+		},
+		"dimensionTextPositions": {
+			"description": "Text positions of the datum target dimensions that were moved by the user (with the text grips), in sheet space. Only moved texts are exported; a text that is not sent keeps its position. On edit, null puts a text back where the dimension places it. linearX and linearY belong to a length datum target with an origin; angular and angularDiameter to an angle datum target with an origin; instanceAngular to an angle datum target with instances. Moving the angular text sets isAngleCounterclockwise from the side it is on, as its grip does.",
+			"type": "object",
+			"properties": {
+				"linearX": { "description": "Text position of the linear X dimension.", "anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ] },
+				"linearY": { "description": "Text position of the linear Y dimension.", "anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ] },
+				"angular": { "description": "Text position of the angular dimension.", "anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ] },
+				"angularDiameter": { "description": "Text position of the angular diameter dimension.", "anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ] },
+				"instanceAngular": { "description": "Text position of the angular dimension of the instances.", "anyOf": [ { "$ref": "types/point.schema.json" }, { "type": "null" } ] }
+			},
+			"additionalProperties": false
 		},
 		"boundingBoxPoints": {
 		    "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
@@ -55,5 +177,56 @@
 	"required": [
 		"position",
 		"targetPosition"
+	],
+	"allOf": [
+		{
+			"if": {
+				"anyOf": [
+					{ "properties": { "datumTargetArea": { "const": "custom" } }, "required": ["datumTargetArea"] },
+					{
+						"properties": { "datumTargetArea": { "enum": ["point", "dot"] } },
+						"required": ["datumTargetArea"],
+						"not": { "properties": { "showAreaSize": { "const": true } }, "required": ["showAreaSize"] }
+					}
+				]
+			},
+			"then": { "properties": { "frameStyle": { "enum": ["frameInside", "frameMoveInsideHorizontal", "frameMoveInsideRotational"] } } }
+		},
+		{
+			"if": {
+				"anyOf": [
+					{ "required": ["datumTargetArea"] },
+					{ "required": ["datumTargetDiameter"] },
+					{ "required": ["datumTargetWidth"] },
+					{ "required": ["datumTargetHeight"] },
+					{ "required": ["hatchPattern"] },
+					{ "required": ["hatchScale"] },
+					{ "required": ["datumTargetType"] },
+					{ "required": ["frameStyle"] },
+					{ "required": ["showAreaSize"] },
+					{ "required": ["showRadialLines"] },
+					{ "required": ["origin"] },
+					{ "required": ["xAxisEdge"] },
+					{ "required": ["yAxisEdge"] },
+					{ "required": ["referenceLine"] },
+					{ "required": ["instanceCount"] },
+					{ "required": ["isAngleCounterclockwise"] },
+					{ "required": ["flipInstancesDirection"] },
+					{ "required": ["precisions"] },
+					{ "required": ["hiddenDimensions"] },
+					{ "required": ["dimensionTextPositions"] }
+				]
+			},
+			"then": { "properties": { "isDatumTarget": { "const": true } }, "required": ["isDatumTarget"] }
+		},
+		{
+			"$comment": "xAxisEdge and yAxisEdge belong to a length datum target, showRadialLines and referenceLine to an angle one. Without datumTargetType (an edit) the type of the edited datum target applies, which the API checks.",
+			"if": { "properties": { "datumTargetType": { "const": "length" } }, "required": ["datumTargetType"] },
+			"then": { "not": { "anyOf": [ { "required": ["showRadialLines"] }, { "required": ["referenceLine"] } ] } }
+		},
+		{
+			"if": { "properties": { "datumTargetType": { "const": "angle" } }, "required": ["datumTargetType"] },
+			"then": { "not": { "anyOf": [ { "required": ["xAxisEdge"] }, { "required": ["yAxisEdge"] } ] } }
+		}
 	]
 }

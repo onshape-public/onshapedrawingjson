@@ -14,11 +14,11 @@
         },
         "rows": {
             "description": "Number of rows in the table (must be greater than zero)",
-            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
         },
         "columns": {
             "description": "Number of columns in the table (must be greater than zero)",
-            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
         },
         "formatting": {
             "description": "Table formatting override for this table",
@@ -36,11 +36,11 @@
         },
         "horizontalCellMargin": {
             "description": "Horizontal margin around cell text",
-            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
         },
         "verticalCellMargin": {
             "description": "Vertical margin around cell text",
-            "$ref": "../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
         },
         "cells": {
             "description": "Cells in the table",

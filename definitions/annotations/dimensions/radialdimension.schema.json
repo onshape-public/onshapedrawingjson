@@ -16,6 +16,14 @@
         "description":"Chord point of circle for the dimension",
         "$ref": "../types/point.schema.json"
       },
+      "overrideCenter": {
+        "description":"Center of a foreshortened radial dimension in sheet coordinates, absent on an ordinary one. Omitted on edit, it is unchanged; the centerPoint reference as exported, not its view coordinate, turns foreshortening off. centerPoint and chordPoint cannot be edited while foreshortened",
+        "$ref": "../types/point.schema.json"
+      },
+      "jogPoint": {
+        "description":"Jog position of a foreshortened radial dimension in sheet coordinates. Ignored while the dimension is not foreshortened. Omitted when the dimension becomes foreshortened, the jog goes midway between centerPoint and chordPoint",
+        "$ref": "../types/point.schema.json"
+      },
       "textPosition": {
         "$ref": "../commonproperties.schema.json#/properties/textPosition"
       },
@@ -42,6 +50,12 @@
       },
       "isPrecisionOverridden": {
         "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
+      },
+      "isDualDimensionEnabled": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionEnabled"
+      },
+      "isDualDimensionOverridden": {
+        "$ref": "../commonproperties.schema.json#/properties/isDualDimensionOverridden"
       },
       "unit": {
         "$ref": "../commonproperties.schema.json#/properties/unit"

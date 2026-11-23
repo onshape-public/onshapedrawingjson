@@ -22,6 +22,9 @@
     "textPosition": {
       "$ref": "../commonproperties.schema.json#/properties/textPosition"
     },
+    "isTextPositionDefault": {
+      "$ref": "../commonproperties.schema.json#/properties/isTextPositionDefault"
+    },
     "textOverride": {
       "$ref": "../commonproperties.schema.json#/properties/textOverride"
     },
@@ -44,11 +47,21 @@
       "description": "Is threaded dimension",
       "type": "boolean"
     },
+    "isForeshortenDimension": {
+      "description": "True if the dimension is a foreshortened diameter dimension measured from a centerline to the other edge; otherwise, false. Omitted on create, the dimension is not foreshortened.",
+      "type": "boolean"
+    },
     "precision": {
       "$ref": "../commonproperties.schema.json#/properties/precision"
     },
     "isPrecisionOverridden": {
       "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
+    },
+    "isDualDimensionEnabled": {
+      "$ref": "../commonproperties.schema.json#/properties/isDualDimensionEnabled"
+    },
+    "isDualDimensionOverridden": {
+      "$ref": "../commonproperties.schema.json#/properties/isDualDimensionOverridden"
     },
     "unit": {
       "$ref": "../commonproperties.schema.json#/properties/unit"

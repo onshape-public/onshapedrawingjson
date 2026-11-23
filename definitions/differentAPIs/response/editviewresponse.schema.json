@@ -25,8 +25,8 @@
           "type": "string"
         },
         "results": {
-          "descriptions": "Handles of edited views",
-          "type": "Array",
+          "description": "Handles of edited views",
+          "type": "array",
           "items": {
             "type": "object",
             "properties": {

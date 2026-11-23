@@ -27,11 +27,11 @@
         },
         "angle": {
             "description": "Bend angle value in degrees (read-only), consistent with how angular dimensions export their measurement.",
-            "$ref": "../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimal"
+            "$ref": "../propertiesUtilDefs.schema.json#/$defs/nonNegativeDecimal"
         },
         "radius": {
             "description": "Bend radius value in the drawing's display units (read-only).",
-            "$ref": "../propertiesUtilDefs.schema.json#/definition/nonNegativeDecimalDefault0"
+            "$ref": "../propertiesUtilDefs.schema.json#/$defs/nonNegativeDecimalDefault0"
         },
         "isDangling": {
             "$ref": "commonproperties.schema.json#/properties/isDangling"

@@ -17,10 +17,12 @@
           "Onshape::Dimension::Chamfer",
           "Onshape::Dimension::Ordinate",
           "Onshape::Dimension::ArcLength",
+          "Onshape::Dimension::Smart",
           "Onshape::Centerline::PointToPoint",
           "Onshape::Centerline::LineToLine",
           "Onshape::Centerline::TwoPointCircleCenterline",
           "Onshape::Centerline::ThreePointCircleCenterline",
+          "Onshape::Centerline::SingleEdge",
           "Onshape::Note",
           "Onshape::BendNote",
           "Onshape::Callout",
@@ -36,11 +38,15 @@
           "Onshape::Spline",
           "Onshape::SplinePoint",
           "Onshape::Centermark",
+          "Onshape::CircularCentermarkPattern",
           "Onshape::VirtualSharp",
           "Onshape::HoleCallout",
           "Onshape::Table::BomTable",
           "Onshape::Hatch",
-          "Onshape::LinearPatternCentermark"
+          "Onshape::LinearPatternCentermark",
+          "Onshape::RevisionCallout",
+          "Onshape::Table::RevisionTable",
+          "Onshape::Table::CustomTable"
         ]
       }
     },
@@ -55,10 +61,12 @@
       { "properties": { "chamferDimension": { "$ref":"annotations/dimensions/chamferdimension.schema.json" } } },
       { "properties": { "ordinateDimension": { "$ref":"annotations/dimensions/ordinatedimension.schema.json" } } },
       { "properties": { "arcLengthDimension": { "$ref":"annotations/dimensions/arclengthdimension.schema.json" } } },
+      { "properties": { "smartDimension": { "$ref":"annotations/dimensions/smartdimension.schema.json" } } },
       { "properties": { "pointToPointCenterline": { "$ref":"annotations/centerlines/pointtopointcenterline.schema.json" } } },
       { "properties": { "lineToLineCenterline": { "$ref":"annotations/centerlines/linetolinecenterline.schema.json" } } },
       { "properties": { "twoPointCircleCenterline": { "$ref":"annotations/centerlines/twopointcirclecenterline.schema.json" } } },
       { "properties": { "threePointCircleCenterline": { "$ref":"annotations/centerlines/threepointcirclecenterline.schema.json" } } },
+      { "properties": { "singleEdgeCenterline": { "$ref":"annotations/centerlines/singleedgecenterline.schema.json" } } },
       { "properties": { "note": { "$ref":"annotations/note.schema.json" } } },
       { "properties": { "bendNote": { "$ref":"annotations/bendnote.schema.json" } } },
       { "properties": { "callout": { "$ref":"annotations/callout.schema.json" } } },
@@ -74,11 +82,15 @@
       { "properties": { "spline": { "$ref":"annotations/spline.schema.json" } } },
       { "properties": { "splinePoint": { "$ref":"annotations/splinePoint.schema.json" } } },
       { "properties": { "centermark": { "$ref":"annotations/centermark.schema.json" } } },
+      { "properties": { "circularCentermarkPattern": { "$ref":"annotations/circularcentermarkpattern.schema.json" } } },
       { "properties": { "virtualSharp": { "$ref":"annotations/virtualsharp.schema.json" } } },
       { "properties": { "holeCallout": { "$ref":"annotations/holecallout.schema.json" } } },
       { "properties": { "bomTable": { "$ref":"annotations/tables/bomtable.schema.json" } } },
       { "properties": { "hatch": { "$ref":"annotations/hatch.schema.json" } } },
-      { "properties": { "linearPatternCentermark": { "$ref":"annotations/linearpatterncentermark.schema.json" } } }
+      { "properties": { "linearPatternCentermark": { "$ref":"annotations/linearpatterncentermark.schema.json" } } },
+      { "properties": { "revisionCallout": { "$ref":"annotations/revisioncallout.schema.json" } } },
+      { "properties": { "revisionTable": { "$ref":"annotations/tables/revisiontable.schema.json" } } },
+      { "properties": { "customTable": { "$ref":"annotations/tables/customtable.schema.json" } } }
     ],
     "required": ["type"]
   }

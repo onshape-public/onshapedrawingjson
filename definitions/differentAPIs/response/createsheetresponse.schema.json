@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/response/createsheetresponse",
+  "title": "Created sheets response info",
+  "type": "object",
+  "properties": {
+    "sheetResponse": {
+      "description": "Created sheets and their status.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Overall creation status",
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "Html status code",
+          "type": "string"
+        },
+        "errorDescription": {
+          "description": "Creation error description",
+          "type": "string"
+        },
+        "changeId": {
+          "description": "Microversion of the change",
+          "type": "string"
+        },
+        "results": {
+          "description": "Results of the sheet creation, one per sheet.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Sheet creation status",
+                "type": "string"
+              },
+              "errorDescription": {
+                "description": "Sheet creation error description",
+                "type": "string"
+              },
+              "sheetDetails": {
+                "description": "Logical id, name and index of the created sheet.",
+                "$ref": "../../sheetreference.schema.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "messageName": {
+      "type": "string",
+      "const": "queryCreateSheetsResponse"
+    },
+    "version": {
+      "description": "Onshape release version",
+      "type": "string"
+    },
+    "documentId": {
+      "description": "Onshape document id",
+      "type": "string"
+    },
+    "elementId": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    },
+    "microversionId": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "sheetResponse", "messageName", "documentId", "elementId" ]
+}

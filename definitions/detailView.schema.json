@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/detailView",
+  "title": "Detail View",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "$ref": "views/types/profile.schema.json",
+      "description": "Closed profile on the parent view that bounds the detail, in the parent view's coordinates. It must overlap the parent view and no other view. On edit it replaces the profile and must stay on the same parent view. As SketchEntities it takes one spline, circle or closed polyline, or lines forming one closed loop; four perpendicular lines make a Rectangle. Only the center of a Circle can reference a point, and that point must be on the parent view. A circle sent back unchanged is kept as it is."
+    },
+    "profileStyle": {
+      "type": "string",
+      "description": "How the profile is tied to the detail view. InLine labels the profile, Connected draws a line from the profile to the detail view, Leader labels the profile with a leader. When omitted on create, the drawing's detail view style decides.",
+      "enum": ["InLine", "Connected", "Leader"]
+    },
+    "showProfile": {
+      "type": "boolean",
+      "description": "True if the profile is shown on the parent view; otherwise, false. Always true for the Connected style. When omitted on create, the drawing's detail view style decides."
+    },
+    "clipBorderToGeometry": {
+      "type": "boolean",
+      "description": "True if the profile border is clipped to the model geometry; otherwise, false. Only true when the profile is shown and the style is not Connected."
+    },
+    "profileLabelPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the profile label on the parent view, in sheet coordinates. The label is placed at the nearest point of the profile; a circle keeps its radius."
+    },
+    "leaderLabelPosition": {
+      "$ref": "annotations/types/point.schema.json",
+      "description": "Position of the leader label, in sheet coordinates. Required when the style becomes Leader; a new position on edit re-creates the leader. It cannot be the position of the profile label."
+    }
+  },
+  "required": [
+    "profile"
+  ],
+  "unevaluatedProperties": true
+}

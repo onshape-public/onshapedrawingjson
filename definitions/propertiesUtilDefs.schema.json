@@ -3,13 +3,13 @@
     "$id": "https://drawing-schemas.onshape.com/propertiesUtilDefs",
     "title": "Util Definitions",
     "type": "object",
-    "definition": {
+    "$defs": {
         "nonNegativeInteger": {
             "type": "integer",
             "minimum": 0
     },
     "nonNegativeIntegerDefault0": {
-        "$ref": "#/definition/nonNegativeInteger",
+        "$ref": "#/$defs/nonNegativeInteger",
         "default": 0
     },
     "fixedCornersEnum":{

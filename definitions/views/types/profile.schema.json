@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/views/types/profile",
+  "title": "Closed Profile",
+  "description": "A closed profile drawn on a view. Its points carry the view's viewId and are in its coordinates, which its viewToPaperMatrix maps to the sheet: model meters, or sheet units from the view's center on a broken view. z is 0. A point without a viewId is read in sheet coordinates.",
+  "type": "object",
+  "properties": {
+    "profileType": {
+      "type": "string",
+      "description": "Shape of the profile, or SketchEntities to build it from sketch entities on the sheet.",
+      "enum": ["Circle", "Rectangle", "Polygon", "Spline", "SketchEntities"]
+    }
+  },
+  "required": [
+    "profileType"
+  ],
+  "oneOf": [
+    {
+      "title": "Circle",
+      "properties": {
+        "profileType": { "const": "Circle" },
+        "center": {
+          "$ref": "../../annotations/types/point.schema.json",
+          "description": "Center of the circle, in the view's coordinates. A reference to a point of the view keeps the center on that point when the view changes."
+        },
+        "radius": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Radius of the circle, in the view's units."
+        }
+      },
+      "required": ["center", "radius"]
+    },
+    {
+      "title": "Rectangle",
+      "properties": {
+        "profileType": { "const": "Rectangle" },
+        "center": {
+          "$ref": "../../annotations/types/point.schema.json",
+          "description": "Center of the rectangle, in the view's coordinates. The rectangle is aligned with the view's axes."
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Width of the rectangle along the view's X axis, in the view's units."
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Height of the rectangle along the view's Y axis, in the view's units."
+        }
+      },
+      "required": ["center", "width", "height"]
+    },
+    {
+      "title": "Polygon or spline",
+      "properties": {
+        "profileType": { "enum": ["Polygon", "Spline"] },
+        "vertices": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "$ref": "../../annotations/types/point.schema.json" },
+          "description": "Corners of the polygon, or fit points of the closed spline, in order, in the view's coordinates. The profile closes back to the first one and must not intersect itself."
+        }
+      },
+      "required": ["vertices"]
+    },
+    {
+      "title": "Sketch entities",
+      "properties": {
+        "profileType": { "const": "SketchEntities" },
+        "logicalIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "Logical ids of sketch entities on the sheet that form one closed profile, as the command takes a preselected profile: the profile is built from them and the entities are erased. Accepted on create and edit only; export reports the profile as one of the other types, so three lines forming a triangle come back as a Polygon of three vertices. Which entities are accepted depends on where the profile is used."
+        }
+      },
+      "required": ["logicalIds"]
+    }
+  ]
+}

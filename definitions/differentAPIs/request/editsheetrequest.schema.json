@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawing-schemas.onshape.com/differentAPIs/request/editsheetrequest",
+  "title": "Edit sheets",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "type": "string",
+      "description": "Schema version",
+      "const": "2021-01-01"
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique id for proper request tracking"
+    },
+    "messageName": {
+      "type": "string",
+      "const": "onshapeEditSheets",
+      "description": "Type of request"
+    },
+    "description": {
+      "description": "History entry for the requested change in drawing",
+      "title": "History content",
+      "type": "string"
+    },
+    "sheets": {
+      "description": "Sheets to edit.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sheetDetails": {
+            "description": "Sheet to edit, identified by logicalId; name and index are its new name and position.",
+            "$ref": "../../sheetreference.schema.json",
+            "required": [
+              "logicalId"
+            ]
+          },
+          "formatReference": {
+            "description": "Drawing template applied as the sheet format; null removes the template.",
+            "oneOf": [
+              {
+                "$ref": "../../sheetformatreference.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "size": {
+            "description": "Paper size of the sheet; the empty size of an export keeps the current size.",
+            "anyOf": [
+              {
+                "$ref": "../../sheetsize.schema.json"
+              },
+              {
+                "const": ""
+              }
+            ]
+          },
+          "width": {
+            "$ref": "../../sheet.schema.json#/properties/width"
+          },
+          "height": {
+            "$ref": "../../sheet.schema.json#/properties/height"
+          },
+          "scale": {
+            "$ref": "../../views/types/scale.schema.json"
+          },
+          "includeBorder": {
+            "$ref": "../../sheet.schema.json#/properties/includeBorder"
+          },
+          "zones": {
+            "$ref": "../../sheet.schema.json#/properties/zones"
+          },
+          "referenceDetails": {
+            "$ref": "../../views/modelreference.schema.json"
+          }
+        },
+        "required": [
+          "sheetDetails"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "messageName", "sheets" ]
+}

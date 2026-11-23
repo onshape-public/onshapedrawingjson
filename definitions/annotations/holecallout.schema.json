@@ -108,6 +108,13 @@
 			"description": "True if the hole callout unit is overridden.",
 			"type": "boolean"
 		},
+		"isDualDimensionEnabled": {
+			"description": "True if the hole callout shows a second value in the dual(secondary) unit, as the Dual dimension switch does. Its dual precision follows the drawing and cannot be overridden: unit.dualPrecision and unit.isDualPrecisionOverridden are refused on a hole callout.",
+			"type": "boolean"
+		},
+		"isDualDimensionOverridden": {
+			"$ref": "commonproperties.schema.json#/properties/isDualDimensionOverridden"
+		},
 		"landingLength": {
 			"description": "Leader landing line length or jog segment length for the hole callout leader",
 			"type": "number",

@@ -31,10 +31,32 @@
       "description": "Subtext for tolerance",
       "type": "string"
     },
+    "textAbove": {
+      "description": "Text above the tolerance frames",
+      "type": "string"
+    },
     "leaderType": {
       "description": "Type of leader",
       "type": "string",
       "enum": ["leader", "all around", "all over"]
+    },
+    "color": {
+      "$ref": "commonproperties.schema.json#/properties/color"
+    },
+    "font": {
+      "$ref": "commonproperties.schema.json#/properties/font"
+    },
+    "textHeight": {
+      "$ref": "commonproperties.schema.json#/properties/textHeight"
+    },
+    "arrowSize": {
+      "$ref": "commonproperties.schema.json#/properties/arrowSize"
+    },
+    "arrowType": {
+      "$ref": "commonproperties.schema.json#/properties/arrowType"
+    },
+    "overrides": {
+      "$ref": "commonproperties.schema.json#/properties/overrides"
     },
     "boundingBoxPoints": {
       "description": "Points, describing bounding box of tolerance",

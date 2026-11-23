@@ -6,11 +6,11 @@
     "properties": {
       "row" : {
         "description": "Cell row index",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger"
       },
       "column" : {
         "description": "Cell column index",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeInteger"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger"
       },
       "propertyId": {
         "description": "Property identifier used by table to map cell content",
@@ -64,23 +64,23 @@
       },
       "minRow": {
         "description": "Minimum row index of the merged cell",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
       },
       "maxRow": {
         "description": "Maximum row index of the merged cell",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
       },
       "minCol": {
         "description": "Minimum column index of the merged cell",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
       },
       "maxCol": {
         "description": "Maximum column index of the merged cell",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeIntegerDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeIntegerDefault0"
       },
       "textHeight": {
         "description":"Default height of the text. Overrides the text height from the style.",
-        "$ref": "../../../propertiesUtilDefs.schema.json#definition/nonNegativeDecimalDefault0"
+        "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeDecimalDefault0"
       }
     },
     "required": ["row", "column"]

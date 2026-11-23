@@ -4,6 +4,19 @@
     "title": "Common Properties",
     "description": "Properties shared by more than one drawing object. Each schema references the ones it accepts, so a wording change lands in one place.",
     "type": "object",
+    "definitions": {
+        "styleOverrideProperty": {
+            "type": "string",
+            "enum": [
+                "color",
+                "font",
+                "textHeight",
+                "arrowSize",
+                "arrowType",
+                "textJustification"
+            ]
+        }
+    },
     "properties": {
         "logicalId": {
             "description": "Logical id of the object",
@@ -22,35 +35,33 @@
             "$ref": "types/point.schema.json"
         },
         "color": {
-            "description": "Object color. Overrides the color from the style.",
+            "description": "Object color, as displayed: from the style, or overridden (see overrides).",
             "$ref": "types/color.schema.json"
         },
         "textHeight": {
-            "description": "Height of the text. Overrides the text height from the style.",
+            "description": "Height of the text, as displayed: from the style, or overridden (see overrides).",
             "type": "number",
             "exclusiveMinimum": 0
         },
         "arrowSize": {
-            "description": "Leader arrow size. Overrides the arrow size from the style.",
+            "description": "Leader arrow size, as displayed: from the style, or overridden (see overrides).",
             "type": "number"
         },
         "arrowType": {
-            "description": "Leader arrow type. Overrides the arrow type from the style.",
+            "description": "Leader arrow type, as displayed: from the style, or overridden (see overrides). One of the arrowheads of the drawing properties: ClosedFilled, Closed, Open, Dot, DotMediumOnshape, ArchTick, None (DotSmall is exported for the small dot of some leaders).",
             "type": "string"
         },
-        "resetOverrides": {
-            "description": "Style-override properties to reset back to the style default (edit only).",
+        "font": {
+            "description": "Text font, as displayed: from the style, or overridden (see overrides).",
+            "$ref": "types/font.schema.json"
+        },
+        "overrides": {
+            "description": "Style properties of the object that are overridden instead of taken from its style. Export always lists the overridden ones, empty when none is overridden. On create/edit it is the complete list: a listed property takes the value given in the request, or keeps its current value, as an override; a property left out is reset to the style, and a value given for it is ignored, so an exported object can be sent back unchanged. Without overrides, the style properties given in the request are applied as overrides and the others are left unchanged.",
             "type": "array",
             "items": {
-                "type": "string",
-                "enum": [
-                    "color",
-                    "font",
-                    "textHeight",
-                    "arrowSize",
-                    "arrowType"
-                ]
-            }
+                "$ref": "#/definitions/styleOverrideProperty"
+            },
+            "uniqueItems": true
         },
         "formatting": {
             "description": "Dimension formatting override for the object",
@@ -101,8 +112,9 @@
             "type": "string"
         },
         "precision": {
-            "description": "Precision of the displayed value",
-            "type": "number"
+            "description": "Number of decimal places shown on the value, 0 to 8. For fractional units it is the denominator exponent: 4 means 1/16. Omit it to follow the drawing precision.",
+            "$ref": "../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+            "maximum": 8
         },
         "isPrecisionOverridden": {
             "description": "True if the precision is overridden.",
@@ -124,6 +136,18 @@
             "description": "True if the object is a driving dimension",
             "type": "boolean"
         },
+        "isDualDimensionEnabled": {
+            "description": "True if the dimension shows a second value in the dual(secondary) unit. One switch per dimension. unit.dualUnit chooses that unit; it does not turn the second value on.",
+            "type": "boolean"
+        },
+        "isDualDimensionOverridden": {
+            "description": "True if the dimension sets its own dual(secondary) display. False makes it follow the drawing setting, and isDualDimensionEnabled is ignored. Omit it on edit to keep the current state.",
+            "type": "boolean"
+        },
+        "isTextPositionDefault": {
+            "description": "True if the text is at its default position: centered on the dimension line, not rotated. This is what Reset text position in the dimension palette does. Sending true resets the text, after any textPosition in the same request. Sending false keeps the text where it is. Aligned, rotated, line-to-line angular, three-point angular and arc length dimensions only; refused on the others.",
+            "type": "boolean"
+        },
         "showFirstExtensionLine": {
             "description": "True if the dimension's first extension line is visible; otherwise, false. On a radial or diametric dimension it is the extension arc, drawn past the end of the measured arc when the dimension points beyond it. Omit for the drawing's dimension style default on create, the current value on edit. Ignored, and exported as false, where the dimension never draws it: on a wall thickness dimension, and on a radial or diametric dimension without an extension arc.",
             "type": "boolean"
@@ -141,6 +165,40 @@
             "type": "array",
             "items": { "$ref": "dimensions/extensionlinejog.schema.json" },
             "maxItems": 2
+        },
+        "lineWeight": {
+            "description": "Line weight in hundredths of a millimeter.",
+            "type": "integer",
+            "enum": [ 13, 15, 18, 20, 25, 30, 35, 40, 50, 53, 60, 70, 80, 90, 100, 120, 140, 158, 200 ]
+        },
+        "dateFormat": {
+            "description": "Format of a date: any of the date formats of the Drawing UI, as the Drawing UI shows it (spaces included).",
+            "type": "string",
+            "enum": [
+                "yyyy-M-d",
+                "yyyy-MM-dd",
+                "yyyy/MM/dd",
+                "M.d.yyyy",
+                "M/d/yyyy",
+                "M/d/yy",
+                "MM-yy",
+                "MM/dd/yyyy",
+                "MMM. d, yy",
+                "MMMM yy",
+                "MMMM d, yyyy",
+                "d-MMM-yy",
+                "d MMMM yy",
+                "dd.MM.yyyy",
+                "dd/MM/yyyy",
+                "dd/MM/yy",
+                "dd.MM.yy",
+                "d-MMM-yyyy",
+                "dd-MM-yyyy",
+                "dddd, MMMM d, yyyy",
+                "dd MMM yy",
+                "yyyy",
+                "MM/dd/yy"
+            ]
         }
     }
 }

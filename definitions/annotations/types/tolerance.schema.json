@@ -19,6 +19,15 @@
 				"FitWithTolerance",
 				"FitToleranceOnly"
 			]
+		},
+		"dualPrecision": {
+			"description": "Decimal places of the tolerance on the dual(secondary) value, 0 to 8. Applies to every tolerance type that prints a value. Out of range is refused. The Styles panel offers 0 to 6, but an imported drawing can carry up to 8. Refused on angular dimensions, which have no dual value.",
+			"$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+			"maximum": 8
+		},
+		"isDualPrecisionOverridden": {
+			"description": "True if the dimension sets its own dual(secondary) tolerance precision. False makes it follow the drawing's default value. Send true to keep a dualPrecision overridden even when it equals the drawing's default value, so it does not change when the drawing's default value changes.",
+			"type": "boolean"
 		}
 	},
 	"required": [
@@ -71,8 +80,9 @@
 					]
 				},
 				"precision": {
-					"description": "Tolerance precision(Fit with tolerance/fit tolerance only) ",
-					"type": "number"
+					"description": "Tolerance precision(Fit with tolerance/fit tolerance only), 0 to 8 decimal places.",
+					"$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger",
+					"maximum": 8
 				},
 				"isPrecisionOverridden": {
 					"description": "True if the tolerance precision is overridden.",

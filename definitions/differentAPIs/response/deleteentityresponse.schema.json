@@ -25,8 +25,8 @@
 					"type": "string"
 				},
 				"results": {
-					"descriptions": "List of deleted entities handles.",
-					"type": "Array",
+					"description": "List of deleted entities handles.",
+					"type": "array",
 					"items": {
 						"type": "object",
 						"properties": {

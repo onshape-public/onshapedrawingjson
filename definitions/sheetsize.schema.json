@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/sheetsize",
+    "title": "Sheet size",
+    "description": "Paper size name of a sheet. Only the sizes of the drawing standard are accepted (ANSI: A to D; ISO and JIS: A4 to A0); 'Custom' requires width and height.",
+    "type": "string",
+    "enum": [ "A", "A Portrait", "B", "C", "D", "A4", "A4 Portrait", "A3", "A2", "A1", "A0", "Custom" ]
+}

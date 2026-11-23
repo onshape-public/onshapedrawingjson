@@ -1,0 +1,35 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/types/revisionrow",
+    "title": "RevisionRow",
+    "description": "A revision row of a revision table. To change showRevisionCallout, identify the row by row or revisionOrdinal; if both are given they must refer to the same row.",
+    "type": "object",
+    "properties": {
+        "row": {
+            "description": "Zero-based revision row index, as the row of the revision table's cells (title and header rows are not counted)",
+            "$ref": "../../../propertiesUtilDefs.schema.json#/$defs/nonNegativeInteger"
+        },
+        "revisionOrdinal": {
+            "description": "Ordinal of the revision shown in the row. Identifies the revision independently of its row, which changes with new releases and the table order.",
+            "type": "integer"
+        },
+        "revision": {
+            "description": "Revision shown in the row, e.g. \"A\". Read-only.",
+            "type": "string"
+        },
+        "showRevisionCallout": {
+            "description": "Whether the revision callouts of the revision are shown. Same as the Drawing UI's \"Show revision callouts\"/\"Hide revision callouts\" on the revision row; applies to the callouts of the revision on every sheet.",
+            "type": "boolean"
+        }
+    },
+    "required": ["showRevisionCallout"],
+    "anyOf": [
+        {
+            "required": ["row"]
+        },
+        {
+            "required": ["revisionOrdinal"]
+        }
+    ],
+    "additionalProperties": false
+}

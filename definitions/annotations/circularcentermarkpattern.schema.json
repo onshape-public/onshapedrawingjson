@@ -1,0 +1,96 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/circularcentermarkpattern",
+    "title": "Circular Centermark Pattern",
+    "description": "Defines a circular centermark pattern: a center mark with radial center lines drawn around a circular pattern of edges.",
+    "type": "object",
+    "properties": {
+        "logicalId": {
+            "$ref": "commonproperties.schema.json#/properties/logicalId"
+        },
+        "circularEdges": {
+            "description": "The circular edges the centermark pattern is drawn around. At least three are needed to compute the center; with a reference center (sent, or kept on edit) one is enough. Required on create; optional on edit (the current circular edges are kept when omitted). On an automatic pattern they cannot be changed.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "types/edge.schema.json"
+            }
+        },
+        "referenceCenter": {
+            "title": "Circular centermark pattern reference center",
+            "description": "Optional circle or arc whose center is the pattern center, instead of computing it from the circular edges. On edit, null removes the reference center.",
+            "type": ["object", "null"],
+            "properties": {
+                "edge": {
+                    "description": "Circle or arc whose center is the pattern center.",
+                    "$ref": "types/edge.schema.json"
+                }
+            },
+            "required": ["edge"],
+            "additionalProperties": false
+        },
+        "showBoltCircle": {
+            "description": "Whether the bolt circle through the edge centers is shown. Omitted, it defaults to true on create and keeps its current value on edit.",
+            "type": "boolean"
+        },
+        "showRadialLines": {
+            "description": "Whether the radial center lines from the pattern center to each edge are shown. Omitted, it defaults to true on create and keeps its current value on edit.",
+            "type": "boolean"
+        },
+        "showPatternCentermark": {
+            "description": "Whether the centermark at the pattern center is shown. Omitted, it defaults to true on create and keeps its current value on edit. Editing the pattern resets the extension lines of this centermark to the pattern radius.",
+            "type": "boolean"
+        },
+        "patternCentermarkLogicalId": {
+            "description": "Logical id of the centermark at the pattern center, used to reference it from other annotations. Export only.",
+            "type": "string"
+        },
+        "radialLines": {
+            "description": "Radial center lines from the pattern center to the edges. Export only.",
+            "type": "array",
+            "items": {
+                "title": "Circular centermark pattern radial line",
+                "description": "Radial line",
+                "type": "object",
+                "properties": {
+                    "logicalId": {
+                        "description": "Logical id of the radial line, used to reference it from other annotations.",
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "centermarks": {
+            "description": "Centermarks that belong to this circular pattern: the centermark on each circular edge and on the reference center. They are also exported as Onshape::Centermark annotations. Export only.",
+            "type": "array",
+            "items": {
+                "description": "Logical id of a centermark in the pattern",
+                "type": "string"
+            }
+        },
+        "centerPoint": {
+            "description": "Center of the pattern. Export only: computed from the circular edges or the reference center.",
+            "$ref": "types/point.schema.json"
+        },
+        "radius": {
+            "description": "Pattern radius. Export only: computed.",
+            "type": "number"
+        },
+        "isAutomatic": {
+            "description": "True if the pattern was generated automatically. Export only.",
+            "type": "boolean"
+        },
+        "isHidden": {
+            "description": "True if the pattern is hidden in its view: an automatic pattern when the view hides its automatic centermarks, or any pattern whose part is hidden in the view. A hidden automatic pattern cannot be edited. Export only.",
+            "type": "boolean"
+        },
+        "isDangling": {
+            "$ref": "commonproperties.schema.json#/properties/isDangling"
+        },
+        "aliasLogicalId": {
+            "$ref": "commonproperties.schema.json#/properties/aliasLogicalId"
+        }
+    },
+    "additionalProperties": false
+}

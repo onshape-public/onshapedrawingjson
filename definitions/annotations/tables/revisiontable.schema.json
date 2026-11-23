@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/revisiontable",
+    "title": "RevisionTable",
+    "description": "Revision table of the drawing, shown on every sheet. Rows are generated from the drawing's revision history and are read-only; cellOverrides only change cell formatting.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./generaltable.schema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "description": "Revision table columns as provided by the revision table template of the document. Read-only.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "./types/column.schema.json",
+                        "required": [
+                            "columnIndex"
+                        ]
+                    }
+                },
+                "multiSheet": {
+                    "description": "Content of the revision table on sheets other than the first sheet. 'SeeSheet1' shows a single 'See sheet 1' cell, 'Linked' shows the full revision table on every sheet.",
+                    "type": "string",
+                    "enum": [
+                        "SeeSheet1",
+                        "Linked"
+                    ],
+                    "default": "SeeSheet1"
+                },
+                "visibleRows": {
+                    "description": "Maximum number of revisions shown in the table. The most recent revisions are shown.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 99,
+                    "default": 5
+                },
+                "revisionRows": {
+                    "description": "Revision rows of the table, in table row order. Only showRevisionCallout can be set (on create and edit); the other properties identify the row.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "./types/revisionrow.schema.json"
+                    }
+                },
+                "hideRevisionCalloutsNotInTable": {
+                    "description": "Hide revision callouts of revisions that are no longer shown in the table.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "dateFormat": {
+                    "description": "Format of the dates in the date columns (e.g. Date Approved). Like the Drawing UI's date format, it is stored once per drawing and applies to the revision table on every sheet: setting it in an Edit of one sheet's revision table refills the revision tables on all sheets.",
+                    "$ref": "../commonproperties.schema.json#/properties/dateFormat"
+                }
+            }
+        }
+    ],
+    "unevaluatedProperties": false
+}

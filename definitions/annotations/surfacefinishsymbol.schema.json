@@ -78,6 +78,9 @@
 			"description": "Is surface finish symbol flipped",
 			"type": "boolean"
 		},
+		"displayParentheses": {
+			"$ref": "commonproperties.schema.json#/properties/displayParentheses"
+		},
 		"boundingBoxPoints": {
 		    "$ref": "commonproperties.schema.json#/properties/boundingBoxPoints"
 		},

@@ -13,7 +13,10 @@
                 "header": {
                     "type": "array",
                     "items": {
-                        "$ref": "./types/column.schema.json"
+                        "$ref": "./types/column.schema.json",
+                        "required": [
+                            "propertyId"
+                        ]
                     }
                 },
                 "reference": {

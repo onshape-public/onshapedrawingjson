@@ -14,7 +14,15 @@
         "title": "Json request data",
         "type": "array",
         "items": {
-          "type": ["createannotationrequest.schema.json","editannotationrequest.schema.json","createviewrequest.schema.json","editviewrequest.schema.json","deleteentityrequest.schema.json"]
+          "oneOf": [
+            { "$ref": "createannotationrequest.schema.json" },
+            { "$ref": "editannotationrequest.schema.json" },
+            { "$ref": "createviewrequest.schema.json" },
+            { "$ref": "editviewrequest.schema.json" },
+            { "$ref": "deleteentityrequest.schema.json" },
+            { "$ref": "createsheetrequest.schema.json" },
+            { "$ref": "editsheetrequest.schema.json" }
+          ]
         }
       }
     },

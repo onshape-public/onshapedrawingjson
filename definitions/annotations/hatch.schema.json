@@ -16,66 +16,11 @@
       "type": "string"
     },
     "pattern": {
-      "description": "Hatch pattern name. 'Solid' produces a solid fill. Ignored when isPatternOverridden is false.",
-      "type": "string",
-      "enum": [
-        "Solid",
-        "ANSI31",
-        "ANSI32-steel",
-        "ANSI33-bronze-brass-copper",
-        "ANSI34-rubber-plastic",
-        "ANSI35",
-        "ANSI36",
-        "ANSI37-lead-alloys",
-        "ANSI38-aluminium",
-        "ISO02W100",
-        "ISO03W100",
-        "ISO04W100",
-        "ISO05W100",
-        "ISO06W100",
-        "ISO07W100",
-        "ISO08W100",
-        "ISO09W100",
-        "ISO10W100",
-        "ISO11W100",
-        "ISO12W100",
-        "ISO13W100",
-        "ISO14W100",
-        "ISO15W100",
-        "Aluminium",
-        "Copper",
-        "Electric",
-        "Glass",
-        "Iron",
-        "Plastic",
-        "Steel",
-        "Titanium",
-        "Zinc",
-        "Grated-area",
-        "Dash-lines",
-        "Dots",
-        "Honeycomb",
-        "Houndstooth",
-        "Insulation",
-        "Parallel-lines",
-        "Mud-Sand",
-        "Netting",
-        "Concrete",
-        "Squares",
-        "Stars",
-        "Triangles",
-        "Zigzag",
-        "Wood",
-        "AEC-8-x-16-Block-elev",
-        "AEC-8-x-8-Block-elev",
-        "AEC-Herringbone",
-        "AEC-Parquet",
-        "AEC-Roof-shingle",
-        "AEC-Roof-wood-shake"
-      ]
+      "description": "Hatch pattern name. 'Solid' produces a solid fill. A pattern different from the drawing-wide pattern always makes the hatch overridden.",
+      "$ref": "types/hatchpattern.schema.json"
     },
     "isPatternOverridden": {
-      "description": "True if the hatch pattern is overridden. When false the hatch follows the drawing-wide pattern, 'pattern' is ignored, and it keeps following that setting if it later changes. Omit it and the pattern sent decides: it is an override only if it differs from the drawing-wide pattern. True without a pattern keeps the hatch's current pattern on edit, and is rejected on create.",
+      "description": "True if the hatch pattern is overridden. It only matters when 'pattern' is omitted or equals the drawing-wide pattern: true keeps the hatch on its pattern if the drawing-wide pattern later changes, and false makes the hatch follow the drawing-wide pattern. When this flag is omitted, the hatch is overridden only if 'pattern' differs from the drawing-wide pattern. True without a pattern keeps the current pattern on edit, and is rejected on create.",
       "type": "boolean"
     },
     "patternCategory": {
@@ -104,6 +49,14 @@
     },
     "isColorOverridden": {
       "description": "True if the hatch color is overridden. When false the hatch follows the drawing-wide color and 'color' is ignored. Omit it and the color sent decides. True without a color, or with a byLayer color, is rejected.",
+      "type": "boolean"
+    },
+    "lineWeight": {
+      "description": "Line weight of the pattern lines. Overrides the hatch line weight from the drawing properties. Not applicable to a Solid fill.",
+      "$ref": "commonproperties.schema.json#/properties/lineWeight"
+    },
+    "isLineWeightOverridden": {
+      "description": "Whether the line weight is overridden. true without lineWeight is rejected on create.",
       "type": "boolean"
     },
     "isDangling": {

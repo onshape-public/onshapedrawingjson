@@ -14,7 +14,7 @@
 			"description": "Unique id for proper request tracking"
 		},
 		"messageName": {
-			"type": " string",
+			"type": "string",
 			"const": "onshapeDeleteEntities",
 			"description": "Type of request"
 		},
@@ -29,14 +29,11 @@
 			"items": {
 				"type": "string"
 			}
-		},
-		"additionalProperties": false,
-		"required": [
-			"messageName",
-			"entities"
-		],
-		"oneOf": [
-			"formatVersion"
-		]
-	}
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"messageName",
+		"entities"
+	]
 }

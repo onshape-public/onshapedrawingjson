@@ -1,0 +1,53 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://drawing-schemas.onshape.com/annotations/tables/customtable",
+    "title": "Custom Table",
+    "description": "Custom table populated by a custom table function. Cell content is read-only: cells (row and column in the table, content ignored) and cellOverrides (row among the data rows) set the cell formatting only.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "./generaltable.schema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "reference": {
+                    "description": "Part Studio reference, including its configuration. Cannot be changed on edit; a different value is rejected.",
+                    "$ref": "../../views/modelreference.schema.json"
+                },
+                "customTable": {
+                    "title": "Custom Table Function",
+                    "description": "Custom table function the table is generated from. Cannot be changed on edit; a different value is rejected.",
+                    "type": "object",
+                    "properties": {
+                        "reference": {
+                            "description": "Feature Studio reference that defines the custom table function.",
+                            "$ref": "../../views/modelreference.schema.json"
+                        },
+                        "name": {
+                            "description": "Name of the table function.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Table type of the table function.",
+                            "type": "string"
+                        },
+                        "parameters": {
+                            "description": "Parameters of the table function.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "reference",
+                        "name"
+                    ]
+                }
+            },
+            "required": [
+                "reference",
+                "customTable"
+            ]
+        }
+    ],
+    "unevaluatedProperties": false
+}

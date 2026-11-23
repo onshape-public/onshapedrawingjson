@@ -34,6 +34,10 @@
           "textPosition": {
             "$ref": "../commonproperties.schema.json#/properties/textPosition"
           },
+          "jogStartDistance": {
+            "description": "Distance in drawing units, measured along the leader from the text position, at which the bend of a jogged line sits: where its jog grip is. Exported only when the line has a jog. Omitted on create, the bend is the default of the dimension style; omitted on edit, it is unchanged. Ignored on a line without a jog. The bend must leave room before the attachment point, so a value too close to it falls back to two thirds of the leader.",
+            "$ref": "../../propertiesUtilDefs.schema.json#/$defs/nonNegativeDecimal"
+          },
           "displayedValue": {
             "$ref": "../commonproperties.schema.json#/properties/displayedValue"
           },
@@ -66,6 +70,12 @@
           },
           "isPrecisionOverridden": {
             "$ref": "../commonproperties.schema.json#/properties/isPrecisionOverridden"
+          },
+          "isDualDimensionEnabled": {
+            "$ref": "../commonproperties.schema.json#/properties/isDualDimensionEnabled"
+          },
+          "isDualDimensionOverridden": {
+            "$ref": "../commonproperties.schema.json#/properties/isDualDimensionOverridden"
           },
           "unit": {
             "$ref": "../commonproperties.schema.json#/properties/unit"

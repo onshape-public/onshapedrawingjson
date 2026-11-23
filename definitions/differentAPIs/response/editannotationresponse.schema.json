@@ -25,8 +25,8 @@
           "type": "string"
         },
         "results": {
-          "descriptions": "Handles of edited annotations",
-          "type": "Array",
+          "description": "Handles of edited annotations",
+          "type": "array",
           "items": {
             "type": "object",
             "properties": {
